@@ -1,0 +1,10 @@
+{
+  "ok": true,
+  "run_dir": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/mossbyte",
+  "spritesheet": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/mossbyte/final/spritesheet.webp",
+  "validation": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/mossbyte/final/validation.json",
+  "contact_sheet": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/mossbyte/qa/contact-sheet.png",
+  "review": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/mossbyte/qa/review.json",
+  "videos": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/mossbyte/qa/videos",
+  "package": "/home/jak/githuff/google/hackaton/twitch/assets/pets/mossbyte"
+}

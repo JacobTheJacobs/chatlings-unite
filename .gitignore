@@ -1,0 +1,7 @@
+.env
+data/*.json
+vendor/
+node_modules/
+.venv/
+__pycache__/
+data/pet-planner/

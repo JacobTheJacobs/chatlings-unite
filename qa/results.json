@@ -1,0 +1,16 @@
+{
+  "localBrowser": {
+    "movement": true,
+    "fusion": true,
+    "challenge": true,
+    "queuedAfterReload": true,
+    "identityPreserved": true,
+    "mobileNoOverflow": true,
+    "overlayTransparent": true,
+    "generatedSkinHatch": true,
+    "pageErrors": []
+  },
+  "automatedTests": {"passed": 10, "failed": 0},
+  "clawmateAtlas": {"errors": [], "warnings": [], "width": 1536, "height": 4576},
+  "liveTwitchVerified": false
+}

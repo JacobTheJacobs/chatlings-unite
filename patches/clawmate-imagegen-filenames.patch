@@ -1,0 +1,42 @@
+diff --git a/scripts/finalize_pet_run.py b/scripts/finalize_pet_run.py
+index 8350b72..590968b 100644
+--- a/scripts/finalize_pet_run.py
++++ b/scripts/finalize_pet_run.py
+@@ -7,6 +7,7 @@ import argparse
+ import hashlib
+ import json
+ import os
++import re
+ import subprocess
+ import sys
+ from pathlib import Path
+@@ -170,7 +171,7 @@ def validate_completed_job_source(
+             "do not use locally generated row artifacts as visual sources"
+         )
+     generated_root = default_generated_images_root()
+-    if not is_relative_to(source, generated_root) or not source.name.startswith("ig_"):
++    if not is_relative_to(source, generated_root) or not (source.name.startswith("ig_") or re.fullmatch(r"exec-[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}\.png", source.name)):
+         raise SystemExit(
+             f"job {job_id} source image is not a built-in $imagegen output under "
+             f"{generated_root}/.../ig_*.png"
+diff --git a/scripts/record_imagegen_result.py b/scripts/record_imagegen_result.py
+index 6e7f63c..e7601bd 100644
+--- a/scripts/record_imagegen_result.py
++++ b/scripts/record_imagegen_result.py
+@@ -7,6 +7,7 @@ import argparse
+ import hashlib
+ import json
+ import os
++import re
+ import shutil
+ from datetime import datetime, timezone
+ from pathlib import Path
+@@ -95,7 +96,7 @@ def validate_source_path(
+             "$imagegen output from $CODEX_HOME/generated_images/.../ig_*.png instead"
+         )
+     generated_root = default_generated_images_root()
+-    if not is_relative_to(source, generated_root) or not source.name.startswith("ig_"):
++    if not is_relative_to(source, generated_root) or not (source.name.startswith("ig_") or re.fullmatch(r"exec-[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}\.png", source.name)):
+         raise SystemExit(
+             "source image does not look like a built-in $imagegen output; expected "
+             f"{generated_root}/.../ig_*.png. Do not ingest locally drawn or "
