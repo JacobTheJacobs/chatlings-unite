@@ -226,7 +226,7 @@ class Overlay(Gtk.Window):
  def paint(self,_,ctx):
   self.renderer.draw(ctx,self.state if time.monotonic()-self.received<5 else {},self.get_allocated_width(),self.get_allocated_height(),self.physics.bodies);self.frames+=1
   if self.frames%30==1:
-   STATUS.parent.mkdir(exist_ok=True);STATUS.write_text(json.dumps({'pid':os.getpid(),'windowId':self.get_window().get_xid(),'clickThroughOutsidePets':True,'mode':self.physics.mode,'mouseGrabEnabled':True,'dragged':self.dragged,'surfaceWindows':self.surfaces.count,'surfaceError':self.surface_error,'bodies':{pid:{'x':round(b.x,1),'y':round(b.y,1),'vx':round(b.vx,1),'vy':round(b.vy,1),'support':b.support,'dragging':b.dragging} for pid,b in self.physics.bodies.items()},'transparent':True,'frames':self.frames,'players':[p.get('name') for p in self.state.get('players',[])],'connected':time.monotonic()-self.received<5}))
+   STATUS.parent.mkdir(exist_ok=True);status_temp=STATUS.with_suffix('.tmp');status_temp.write_text(json.dumps({'pid':os.getpid(),'windowId':self.get_window().get_xid(),'clickThroughOutsidePets':True,'mode':self.physics.mode,'mouseGrabEnabled':True,'dragged':self.dragged,'surfaceWindows':self.surfaces.count,'surfaceError':self.surface_error,'bodies':{pid:{'x':round(b.x,1),'y':round(b.y,1),'vx':round(b.vx,1),'vy':round(b.vy,1),'support':b.support,'dragging':b.dragging} for pid,b in self.physics.bodies.items()},'transparent':True,'frames':self.frames,'players':[p.get('name') for p in self.state.get('players',[])],'connected':time.monotonic()-self.received<5}));status_temp.replace(STATUS)
   return True
 
 def main():
