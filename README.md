@@ -1,5 +1,7 @@
 # Chatlings Unite
 
+![Chatlings Unite — Your chat. Alive on screen. Five animated desktop pets with Twitch chat bubbles.](submission/chatlings-unite-thumbnail.png)
+
 Twitch viewers hatch animated pets on the streamer’s desktop by chatting. Their
 messages appear as speech bubbles, and chat commands trigger real sprite poses.
 Five generated default pets are shared; only the broadcaster commissions custom
