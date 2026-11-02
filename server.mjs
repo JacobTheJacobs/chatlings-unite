@@ -22,6 +22,7 @@ const sessions=new Map(), oauth=new Map(), clients=new Set(), limits=new Map(); 
 const cookie=(req,key)=>req.headers.cookie?.split('; ').find(s=>s.startsWith(key+'='))?.slice(key.length+1);
 const session=req=>{const s=sessions.get(cookie(req,'session')); return s&&s.expires>Date.now()?s:null;};
 const safeEqual=(a,b)=>a.length===b.length&&timingSafeEqual(Buffer.from(a),Buffer.from(b));
+const localChatSetup=req=>demo&&new URL(base).hostname==='localhost'&&['127.0.0.1','::1','::ffff:127.0.0.1'].includes(req.socket.remoteAddress);
 const host=req=>{if(hostKey) return safeEqual(req.headers['x-host-key']||'',hostKey); return demo&&['127.0.0.1','::1','::ffff:127.0.0.1'].includes(req.socket.remoteAddress);};
 function issue(res,identity) {const id=randomBytes(32).toString('hex');sessions.set(id,{...identity,expires:Date.now()+86400000});res.setHeader('Set-Cookie',`session=${id}; HttpOnly; SameSite=Lax; Path=/; Max-Age=86400${base.startsWith('https:')?'; Secure':''}`);}
 function json(res,value,status=200) {res.writeHead(status,{'Content-Type':'application/json','Cache-Control':'no-store'});res.end(JSON.stringify(value));}
@@ -33,18 +34,29 @@ const server=http.createServer(async(req,res)=>{
     if(route==='/api/events') {if(clients.size>=250) return json(res,{error:'Room full'},503); res.writeHead(200,{'Content-Type':'text/event-stream','Cache-Control':'no-cache','Connection':'keep-alive'});res.write(': connected\n\n');clients.add(res);req.on('close',()=>clients.delete(res));return;}
     if(route==='/api/skins/host'&&req.method==='GET'){if(!host(req))return json(res,{error:'Host key required'},403);return json(res,skins.jobs);}
     if(route==='/api/me') return json(res,{user:session(req)?.user||null,demo,sampleSkin,twitchStatus,host:host(req),oauth:!!process.env.TWITCH_CLIENT_ID});
-    if(route==='/auth/twitch') {
+    if(route==='/auth/twitch'||route==='/auth/chat') {
+      const chat=route==='/auth/chat';if(chat&&!localChatSetup(req))return json(res,{error:'Chat setup is available only from the local demo host'},403);
       if(!process.env.TWITCH_CLIENT_ID||!process.env.TWITCH_CLIENT_SECRET) return json(res,{error:'Set TWITCH_CLIENT_ID and TWITCH_CLIENT_SECRET in .env'},503);
-      const state=randomBytes(24).toString('hex');oauth.set(state,Date.now()+600000);
+      const state=randomBytes(24).toString('hex');oauth.set(state,{expires:Date.now()+600000,kind:chat?'chat':'viewer'});
       res.setHeader('Set-Cookie',`oauth=${state}; HttpOnly; SameSite=Lax; Path=/; Max-Age=600${base.startsWith('https:')?'; Secure':''}`);
-      const target=new URL('https://id.twitch.tv/oauth2/authorize');target.search=new URLSearchParams({client_id:process.env.TWITCH_CLIENT_ID,redirect_uri:base+'/auth/callback',response_type:'code',scope:'',state});res.writeHead(302,{Location:target.href});res.end();return;
+      const target=new URL('https://id.twitch.tv/oauth2/authorize');target.search=new URLSearchParams({client_id:process.env.TWITCH_CLIENT_ID,redirect_uri:base+'/auth/callback',response_type:'code',scope:chat?'user:read:chat':'',state});res.writeHead(302,{Location:target.href});res.end();return;
     }
     if(route==='/auth/callback') {
-      const state=url.searchParams.get('state'); if(!state||cookie(req,'oauth')!==state||!(oauth.get(state)>Date.now())) return json(res,{error:'Invalid or expired OAuth state'},403);oauth.delete(state);
+      const state=url.searchParams.get('state');const auth=oauth.get(state); if(!state||cookie(req,'oauth')!==state||!(auth?.expires>Date.now())||(auth.kind==='chat'&&!localChatSetup(req))) return json(res,{error:'Invalid or expired OAuth state'},403);oauth.delete(state);
       const tokenResponse=await fetch('https://id.twitch.tv/oauth2/token',{method:'POST',body:new URLSearchParams({client_id:process.env.TWITCH_CLIENT_ID,client_secret:process.env.TWITCH_CLIENT_SECRET,code:url.searchParams.get('code')||'',grant_type:'authorization_code',redirect_uri:base+'/auth/callback'})});
       if(!tokenResponse.ok) throw Error('Twitch sign-in failed'); const token=await tokenResponse.json();
       const response=await fetch('https://id.twitch.tv/oauth2/validate',{headers:{Authorization:`OAuth ${token.access_token}`}});if(!response.ok) throw Error('Twitch token validation failed');const identity=await response.json();
       if(identity.client_id!==process.env.TWITCH_CLIENT_ID) throw Error('Token client mismatch');
+      if(auth.kind==='chat'){
+        if(!identity.user_id||!identity.scopes?.includes('user:read:chat'))throw Error('Twitch chat permission was not granted');
+        const envPath=path.join(root,'.env');let contents=await readFile(envPath,'utf8');
+        for(const [key,value] of Object.entries({TWITCH_BROADCASTER_ID:identity.user_id,TWITCH_CHAT_TOKEN:token.access_token})){
+          if(!/^[a-zA-Z0-9]+$/.test(value))throw Error('Unexpected Twitch token response');
+          const pattern=new RegExp('^'+key+'=.*$','m');contents=pattern.test(contents)?contents.replace(pattern,key+'='+value):contents+'\n'+key+'='+value+'\n';process.env[key]=value;
+        }
+        await writeFile(envPath,contents,{mode:0o600});await import('node:fs/promises').then(fs=>fs.chmod(envPath,0o600));
+        startChat(token.access_token,identity.user_id);res.writeHead(302,{Location:'/?chat=connecting'});res.end();return;
+      }
       const user={id:identity.user_id,name:identity.login};issue(res,{user});game.spawn(user.id,user.name);res.writeHead(302,{Location:'/controller'});res.end();return;
     }
     if(route.startsWith('/api/')&&req.method==='POST') {
@@ -76,12 +88,16 @@ const server=http.createServer(async(req,res)=>{
 });
 setInterval(()=>{game.update(.05);brain.update(.05);const packet=`data: ${JSON.stringify({...game.snapshot(),aiPet:brain.snapshot(),skins:skins.publicState(),twitchStatus})}\n\n`;for(const client of clients) {if(client.writableLength>262144){client.destroy();clients.delete(client);}else client.write(packet);}},50).unref();
 let saveChain=Promise.resolve();function persist(){saveChain=saveChain.catch(()=>{}).then(async()=>{await mkdir(dataDir,{recursive:true});await writeFile(path.join(dataDir,'players.json.tmp'),JSON.stringify(game.snapshot().players.filter(p=>!p.simulated)));await rename(path.join(dataDir,'players.json.tmp'),path.join(dataDir,'players.json'));await writeFile(path.join(dataDir,'skins.json.tmp'),JSON.stringify(skins.jobs));await rename(path.join(dataDir,'skins.json.tmp'),path.join(dataDir,'skins.json'));});return saveChain;}
-setInterval(()=>{persist().catch(console.error);for(const [id,s]of sessions)if(s.expires<Date.now())sessions.delete(id);for(const[id,expiry]of oauth)if(expiry<Date.now())oauth.delete(id);for(const[id,limit]of limits)if(Date.now()-limit.at>10000)limits.delete(id);},10000).unref();
-if(process.env.TWITCH_CHAT_TOKEN&&process.env.TWITCH_CLIENT_ID&&process.env.TWITCH_BROADCASTER_ID){
- const validation=await fetch('https://id.twitch.tv/oauth2/validate',{headers:{Authorization:`OAuth ${process.env.TWITCH_CHAT_TOKEN}`}});const v=await validation.json();
- if(!validation.ok||v.user_id!==process.env.TWITCH_BROADCASTER_ID||v.client_id!==process.env.TWITCH_CLIENT_ID||!v.scopes?.includes('user:read:chat'))throw Error('TWITCH_CHAT_TOKEN must belong to broadcaster and client, with user:read:chat scope');
- connectChat({token:process.env.TWITCH_CHAT_TOKEN,clientId:process.env.TWITCH_CLIENT_ID,broadcasterId:process.env.TWITCH_BROADCASTER_ID,onSpawn:(id,name)=>{game.spawn(id,name);brain.requestDecision('viewer_joined');},onStatus:s=>{twitchStatus=s;}});
- setInterval(async()=>{try{const r=await fetch('https://id.twitch.tv/oauth2/validate',{headers:{Authorization:`OAuth ${process.env.TWITCH_CHAT_TOKEN}`}});if(!r.ok){twitchStatus='token expired; restart with renewed token';}}catch{twitchStatus='token validation unavailable';}},3600000).unref();
+setInterval(()=>{persist().catch(console.error);for(const [id,s]of sessions)if(s.expires<Date.now())sessions.delete(id);for(const[id,entry]of oauth)if(entry.expires<Date.now())oauth.delete(id);for(const[id,limit]of limits)if(Date.now()-limit.at>10000)limits.delete(id);},10000).unref();
+let stopChat;
+function startChat(token,broadcasterId){
+ stopChat?.();twitchStatus='connecting';stopChat=connectChat({token,clientId:process.env.TWITCH_CLIENT_ID,broadcasterId,onSpawn:(id,name)=>{game.spawn(id,name);brain.requestDecision('viewer_joined');},onStatus:s=>{twitchStatus=s;}});
 }
-for(const signal of ['SIGINT','SIGTERM'])process.on(signal,async()=>{await persist().catch(console.error);for(const client of clients)client.end();server.close(()=>process.exit(0));});
+if(process.env.TWITCH_CHAT_TOKEN&&process.env.TWITCH_CLIENT_ID&&process.env.TWITCH_BROADCASTER_ID){
+ try{const validation=await fetch('https://id.twitch.tv/oauth2/validate',{headers:{Authorization:`OAuth ${process.env.TWITCH_CHAT_TOKEN}`}});const v=await validation.json();
+ if(!validation.ok||v.user_id!==process.env.TWITCH_BROADCASTER_ID||v.client_id!==process.env.TWITCH_CLIENT_ID||!v.scopes?.includes('user:read:chat'))twitchStatus='token invalid; reconnect chat';else startChat(process.env.TWITCH_CHAT_TOKEN,process.env.TWITCH_BROADCASTER_ID);
+ }catch{twitchStatus='Twitch validation unavailable';}
+}
+setInterval(async()=>{if(!process.env.TWITCH_CHAT_TOKEN)return;try{const r=await fetch('https://id.twitch.tv/oauth2/validate',{headers:{Authorization:`OAuth ${process.env.TWITCH_CHAT_TOKEN}`}});if(!r.ok){twitchStatus='token expired; reconnect chat';stopChat?.();}}catch{twitchStatus='token validation unavailable';}},3600000).unref();
+for(const signal of ['SIGINT','SIGTERM'])process.on(signal,async()=>{stopChat?.();await persist().catch(console.error);for(const client of clients)client.end();server.close(()=>process.exit(0));});
 server.listen(port,'0.0.0.0',()=>console.log(`Chatlings → ${base}\nController → ${base}/controller\nOBS → ${base}/overlay`));

@@ -35,6 +35,18 @@ The overlay is transparent except characters, the fusion station, and combat HUD
 It shares state with the controller directly instead of relying on Twitch video
 latency. Enable OBS Browser Source background transparency in its CSS if needed.
 
+## Connect Twitch chat locally
+
+After adding `TWITCH_CLIENT_ID` and `TWITCH_CLIENT_SECRET` to `.env`, restart
+Chatlings and visit `http://localhost:3010/auth/chat` (or use the configured
+localhost port). Sign in as the broadcaster and authorize `user:read:chat`. The
+server validates the token, saves the broadcaster ID and chat token in the local
+`.env` with restricted permissions, and connects EventSub. The token is never
+shown in the browser. This convenience flow is available only for local demo
+setup; public deployments should configure their own authorized token securely.
+Watch the Twitch chat status on the host console. The token is not automatically
+refreshed; reconnect chat if it expires.
+
 ## Connect real Twitch
 
 1. Register an app at https://dev.twitch.tv/console/apps. Add the exact redirect

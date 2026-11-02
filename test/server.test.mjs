@@ -7,11 +7,12 @@ import {tmpdir} from 'node:os';
 import path from 'node:path';
 test('HTTP sessions isolate controllers, reject foreign origins, and stream shared state',async()=>{
  const dataDir=await mkdtemp(path.join(tmpdir(),'chatlings-test-'));
- const child=spawn(process.execPath,['server.mjs'],{cwd:new URL('..',import.meta.url),env:{...process.env,PORT:'3198',PUBLIC_URL:'http://localhost:3198',DEMO_MODE:'true',HOST_KEY:'test-host',DATA_DIR:dataDir,TWITCH_CHAT_TOKEN:'',CODEX_PET_API_KEY:''},stdio:['ignore','pipe','pipe']});
+ const child=spawn(process.execPath,['server.mjs'],{cwd:new URL('..',import.meta.url),env:{...process.env,PORT:'3198',PUBLIC_URL:'http://localhost:3198',DEMO_MODE:'true',HOST_KEY:'test-host',DATA_DIR:dataDir,TWITCH_CHAT_TOKEN:'',TWITCH_CLIENT_ID:'test-client',TWITCH_CLIENT_SECRET:'test-secret',CODEX_PET_API_KEY:''},stdio:['ignore','pipe','pipe']});
  try{
  await Promise.race([once(child.stdout,'data'),new Promise((_,reject)=>setTimeout(()=>reject(Error('Server startup timeout')),4000).unref())]);
  const base='http://localhost:3198';
  const post=(route,data,cookie='',extra={})=>fetch(base+'/api/'+route,{method:'POST',headers:{'Content-Type':'application/json',cookie,...extra},body:JSON.stringify(data)});
+ const chatAuth=await fetch(base+'/auth/chat',{redirect:'manual'});assert.equal(chatAuth.status,302);const authUrl=new URL(chatAuth.headers.get('location'));assert.equal(authUrl.hostname,'id.twitch.tv');assert.equal(authUrl.searchParams.get('scope'),'user:read:chat');assert.equal(authUrl.searchParams.get('redirect_uri'),base+'/auth/callback');assert.ok(chatAuth.headers.get('set-cookie').includes('HttpOnly'));assert.equal((await fetch(base+'/auth/callback?state=bad')).status,403);
  assert.equal((await fetch(base)).status,200);assert.equal((await fetch(base+'/overlay')).status,200);assert.equal((await post('input',{id:'someone',x:1})).status,401);
  const a=await post('demo',{name:'alpha'}),cookie=a.headers.get('set-cookie').split(';')[0],u=(await a.json()).user;
  const b=await post('demo',{name:'beta'}),v=(await b.json()).user;assert.notEqual(u.id,v.id);
