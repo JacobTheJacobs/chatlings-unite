@@ -37,8 +37,8 @@ server validates the token, saves the broadcaster ID and chat token in the local
 `.env` with restricted permissions, and connects EventSub. The token is never
 shown in the browser. This convenience flow is available only for local demo
 setup; public deployments should configure their own authorized token securely.
-Watch the Twitch chat status on the host console. The token is not automatically
-refreshed; reconnect chat if it expires.
+Watch the Twitch chat status on the host console. Chat reconnect saves a refresh token for automatic renewal. If this installation
+only has an older access token, reconnect chat once to enable renewal.
 
 ## Connect real Twitch
 
@@ -49,11 +49,10 @@ refreshed; reconnect chat if it expires.
    `user:read:chat`. Put it in `TWITCH_CHAT_TOKEN`. Never commit it.
 4. Restart and run `npm run desktop`. A viewer’s first chat message hatches a
    default pet; regular messages become speech bubbles. Chat commands control it.
-   Browser sign-in and `/controller` remain optional for keyboard movement.
+   Viewers need no browser sign-in: they control their pet through Twitch chat.
 5. For remote viewers serve over HTTPS, set `PUBLIC_URL` to that exact origin,
    and register `PUBLIC_URL/auth/callback` in the Twitch console.
-6. Set `DEMO_MODE=false` and a strong `HOST_KEY` for a public deployment. Enter
-   that key in the host console. Host actions require it. In keyless demo mode,
+6. Set `DEMO_MODE=false` and a strong `HOST_KEY` for a public deployment. Sign in as the broadcaster in `/admin`. Automation uses the host key header. In keyless demo mode,
    host actions are allowed only from loopback connections.
 
 Viewer sign-in uses an authorization-code exchange and validates the returned
@@ -87,7 +86,8 @@ git clone --depth 1 git@github.com:JacobTheJacobs/hatch-clawmate-skill.git vendo
 ## Architecture and limits
 
 The Node HTTP server sends authoritative state at 20 Hz using Server-Sent
-Events; controllers POST bounded input at 10 Hz. The server selects the player
+Events for the legacy grove. The viewer/admin pages poll compact active state.
+Legacy grove controllers POST bounded input at 10 Hz. The server selects the player
 from an opaque HttpOnly session cookie, ignoring any submitted player ID. Input
 expires after 500 ms; diagonal movement is normalized. POST origin checks,
 request-size limits, rate limiting, and host-key controls are included.
@@ -117,11 +117,10 @@ must still be verified using your credentials and stream.
 1. Show the Codex build session and save its session ID (`/status`).
 2. Add `/overlay` as a 960 × 480 OBS browser source, then go live on Twitch.
 3. Send a real `!spawn` message; show the real Twitch character hatching.
-4. Sign into the controller with that Twitch account and move it.
-5. Add labeled simulated teammates; join the three players to fuse (E on each
-   controller), or use **Demo fusion** while signed in as the host's player.
-6. Summon the Glitch; demonstrate movement, shielding, cannon, and victory.
-7. Reload the controller to show the same identity reconnecting.
+4. Send `!left`, `!right`, `!jump`, and an ordinary chat message.
+5. Drag and flick a pet, then switch between Walk on screen and Window physics.
+6. Show the admin controls and custom-pet queue; identify any prerecorded art.
+7. Reload the admin page to show the same viewers and custom assignments.
 
 The demo controls do not simulate Twitch traffic or viewers. Record real Twitch
 integration separately from labeled simulation. No deployment, live stream,
@@ -238,7 +237,7 @@ transparent overlay, and loading/revealing the bundled generated skin. It writes
 screenshots in `qa/`. It does not connect to Twitch or verify a real broadcast.
 
 
-## Let Codex play
+## Legacy grove experiment (`/game-view.html`)
 
 1. Install dependencies with `npm install`, then put an OpenAI API key with access
    to Codex in `CODEX_PET_API_KEY` in `.env` and restart. Keep this key on the
@@ -277,7 +276,7 @@ and the correct `PUBLIC_URL`; Twitch and real Codex connectivity still need a
 live test with your credentials. Decisions can incur usage costs. The local test
 suite uses a mock planner and does not make a live model request.
 
-Controls: WASD/arrows move, E interacts with batteries during the build and joins
+Legacy grove only (`/game-view.html`): WASD/arrows move, E interacts with batteries during the build and joins
 fusion otherwise, Space jumps during the build or uses the fusion role, and F
 activates the selected ability. Touch controls are available. The grove uses a
 top-down movement plane with a jump animation and hazard dodge; it does not have
@@ -294,14 +293,13 @@ npm run desktop
 This opens a transparent, always-on-top, desktop overlay with mouse input only on the pets on
 Linux X11 with GTK 3, libwnck 3 and compositing. It reads the live game from localhost:3010.
 Pets appear near the bottom of your primary monitor over your other windows.
-Viewer movement in `/controller` moves the same pet on the desktop: sign in with
-Twitch, click the game, then use WASD/arrows. E interacts, Space jumps, F uses a
-power. The overlay does not intercept typing. Mouse clicks outside the pet sprites pass
-through to your apps. Left-drag any pet, then release to drop or throw it. A slow
-release drops it; a quick flick throws it with momentum. Pets fall under gravity,
-bounce off exposed window sides/undersides, land and walk on visible window tops,
-and fall when they walk off or their window closes/minimizes. Moving a supporting
-window carries the pet. Right-click a pet to drop it from the top again.
+Viewers control their pets through Twitch chat: `!left`, `!right`, `!jump`,
+`!dance`, `!spin`, `!love`, `!rage`, `!party`, `!sleep`, `!stay`, and `!roam`.
+`/controller` is an alias for the viewer instructions; it has no keyboard game.
+Clicks outside pet sprites pass through to your apps. Drag and pause to place a
+pet; flick and release to throw. Right-click for movement mode and “Bring this
+pet back”. Window physics adds gravity and collisions with exposed window edges.
+Walk mode ignores window collisions but still supports flick throws.
 
 Mouse grabbing belongs to the streamer at the local desktop; viewers cannot grab
 other viewers’ pets remotely. Their chat commands still move/jump their own pet.
@@ -325,7 +323,7 @@ Check the preview and close windows containing secrets, including `.env`, before
 broadcasting. Connect Twitch in OBS Settings → Stream. These helpers do not start
 a broadcast or recording. The Twitch page stays black/offline until you broadcast.
 
-## Temporary public viewer controller
+## Temporary public viewer page
 
 For a demo, stop the existing Node server and run:
 
@@ -338,14 +336,13 @@ HTTPS demo URL, configures `PUBLIC_URL`, disables demo identities, protects host
 actions, and starts the Node server. Keep this terminal and computer running.
 Add the printed `https://…/auth/callback` as an **additional** OAuth redirect URL
 in your Twitch application's Manage page; keep the localhost callback too. Share
-the printed `/controller` link with viewers. They sign in with Twitch, click the
-grove, and use WASD/arrows or the touch controls. The broadcaster's signed-in
+the printed root link with viewers. They join Twitch chat and send chat commands. The broadcaster's signed-in
 account gets host controls automatically; the host key also remains usable by
 local management scripts.
 
 Cloudflare Quick Tunnels are temporary development services, with changing
-hostnames and no uptime guarantee. They do not support SSE, so Chatlings polls
-state every 200 ms over the public demo URL while the local OBS source uses SSE.
+hostnames and no uptime guarantee. They do not support SSE, so the viewer/admin pages poll
+state every 1.2 seconds; the native desktop polls localhost every 100 ms.
 This is a demo connection, not a production deployment. See the official
 [Quick Tunnel documentation](https://developers.cloudflare.com/tunnel/get-started/quick-tunnels/).
 The tunnel exposes only this HTTP application. Unknown hostnames and
@@ -362,7 +359,7 @@ Pets roam and jump automatically. Chat controls affect only the sender's pet:
 `!left`, `!right`, `!up`, `!down` move briefly; `!jump` hops;
 `!dance`, `!spin`, `!love`, `!rage`, `!sleep`, `!party` animate for six seconds.
 `!stay` stops wandering; `!roam` resumes it. Commands are limited to about one per
-second. Browser WASD control remains optional. Speech bubbles show public chat
+second. Viewer control is through Twitch chat. Speech bubbles show public chat
 on the captured desktop; this version does not remove bubbles on moderator deletion.
 
 ## Five defaults and admin nickname commissions
@@ -423,3 +420,24 @@ Window physics enables gravity, mouse throws and visible window collisions.
 Throws follow the mouse direction, with a small landing bounce that settles
 quickly. Pets turn at screen edges, and window walls too close to a monitor edge
 are ignored so they cannot trap pets in a gap narrower than their body.
+
+## Recovery and resource limits
+
+Twitch startup validation retries after temporary failures. OAuth reconnect saves
+refresh tokens for automatic rotation. Existing installations without a refresh
+token must reconnect Twitch chat once from local `/admin`.
+
+At most 100 pets are active. Pets inactive for 30 minutes leave the desktop;
+chatting again restores their assigned artwork. Custom art and completed hatch
+records stay saved. Desktop placement survives a temporary server outage; pets
+freeze and become click-through while disconnected.
+
+Generation leases renew every 15 seconds and expire after 60 seconds without a
+heartbeat. A failed worker's job can then be reclaimed. Generation commands time
+out after 20 minutes (`HATCH_TIMEOUT_MS` overrides this), terminate their child
+process group, and keep the current pet on failure. Admin distinguishes a busy
+worker from an idle or offline worker.
+
+`DATA_DIR` isolates server state, desktop PID/settings/status, and worker runs.
+Use the same absolute directory for server, worker, and desktop processes. Never
+share it between independent instances. Movement-setting writes are atomic.

@@ -5,13 +5,15 @@ import {readFile,writeFile,mkdir,rename,access,stat,open} from 'node:fs/promises
 import {fileURLToPath} from 'node:url';
 import path from 'node:path';
 import {randomBytes,timingSafeEqual} from 'node:crypto';
+import {atomicWrite,saveEnv} from './storage.mjs';
+import {TwitchAuth} from './twitch-auth.mjs';
 import {Game} from './game.mjs';
 import {DEFAULT_PETS,nicknamePrompt,handlePetChat} from './pet-catalog.mjs';
 import {connectChat} from './twitch.mjs';
 import {SkinQueue,validateAtlas} from './skins.mjs';
 import {PetBrain} from './pet-brain.mjs';
 const root=path.dirname(fileURLToPath(import.meta.url));
-const dataDir=process.env.DATA_DIR||path.join(root,'data');
+const dataDir=path.resolve(process.env.DATA_DIR||path.join(root,'data'));
 const port=Number(process.env.PORT||3010), base=process.env.PUBLIC_URL||`http://localhost:${port}`;
 const localBase=`http://localhost:${port}`;
 const allowedOrigins=new Set([new URL(base).origin,localBase]);
@@ -36,14 +38,19 @@ function json(res,value,status=200) {res.writeHead(status,{'Content-Type':'appli
 async function body(req) {let text='';for await(const chunk of req) {text+=chunk;if(text.length>4096) throw Error('Request too large');} return JSON.parse(text||'{}');}
 async function alive(pidFile,needle){try{const pid=Number(await readFile(path.join(dataDir,pidFile),'utf8'));if(!Number.isSafeInteger(pid)||pid<2)return false;return (await readFile('/proc/'+pid+'/cmdline','utf8')).includes(needle);}catch{return false;}}
 async function desktopMode(){try{const s=JSON.parse(await readFile(path.join(dataDir,'desktop-settings.json'),'utf8'));return ['walk','physics'].includes(s.mode)?s.mode:'walk';}catch{return 'walk';}}
-async function adminStatus(){return {chat:twitchStatus,desktop:{running:await alive('desktop-overlay.pid','overlay.py'),mode:await desktopMode()},hatchery:{running:await alive('hatchery-worker.pid','hatchery-worker.mjs')}};}
+async function adminStatus(){return {chat:twitchStatus,chatRefreshReady:!!process.env.TWITCH_CHAT_REFRESH_TOKEN,desktop:{running:await alive('desktop-overlay.pid','overlay.py'),mode:await desktopMode()},hatchery:await hatcheryStatus()};}
+async function hatcheryStatus(){
+ const running=await alive('hatchery-worker.pid','hatchery-worker.mjs');let info={};try{info=JSON.parse(await readFile(path.join(dataDir,'hatchery-worker-status.json'),'utf8'));}catch{}
+ const healthy=running&&Date.now()-(info.at||0)<45000;
+ return {running:healthy,phase:healthy?info.phase:'offline',jobId:healthy?info.jobId:null};
+}
 let desktopChanging=false;
 async function controlDesktop(enabled){
  if(desktopChanging)throw Error('Desktop pets are already changing');desktopChanging=true;
  try{
   if(enabled&&(await adminStatus()).desktop.running)return;
   await mkdir(dataDir,{recursive:true});const log=await open(path.join(dataDir,'desktop-launch.log'),'a',0o600);
-  try{const child=spawn('/usr/bin/python3',[path.join(root,'desktop/overlay.py'),...(enabled?['--url',localBase]:['--stop'])],{cwd:root,detached:enabled,stdio:['ignore',log.fd,log.fd]});
+  try{const child=spawn('/usr/bin/python3',[path.join(root,'desktop/overlay.py'),...(enabled?['--url',localBase]:['--stop'])],{cwd:root,env:{...process.env,DATA_DIR:dataDir},detached:enabled,stdio:['ignore',log.fd,log.fd]});
    if(enabled){await once(child,'spawn');child.unref();await new Promise(resolve=>setTimeout(resolve,350));if(!(await adminStatus()).desktop.running)throw Error('Could not start desktop pets on the streaming computer');}
    else {const [code]=await once(child,'exit');if(code!==0)throw Error('Could not stop desktop pets');for(let i=0;i<20&&(await adminStatus()).desktop.running;i++)await new Promise(resolve=>setTimeout(resolve,50));}
   }finally{await log.close();}
@@ -73,24 +80,20 @@ const server=http.createServer(async(req,res)=>{
       const response=await fetch('https://id.twitch.tv/oauth2/validate',{headers:{Authorization:`OAuth ${token.access_token}`}});if(!response.ok) throw Error('Twitch token validation failed');const identity=await response.json();
       if(identity.client_id!==process.env.TWITCH_CLIENT_ID) throw Error('Token client mismatch');
       if(auth.kind==='chat'){
+        if(process.env.TWITCH_BROADCASTER_ID&&identity.user_id!==process.env.TWITCH_BROADCASTER_ID)throw Error('Sign in with the configured broadcaster account');
         if(!identity.user_id||!identity.scopes?.includes('user:read:chat'))throw Error('Twitch chat permission was not granted');
-        const envPath=path.join(root,'.env');let contents=await readFile(envPath,'utf8');
-        for(const [key,value] of Object.entries({TWITCH_BROADCASTER_ID:identity.user_id,TWITCH_CHAT_TOKEN:token.access_token})){
-          if(!/^[a-zA-Z0-9]+$/.test(value))throw Error('Unexpected Twitch token response');
-          const pattern=new RegExp('^'+key+'=.*$','m');contents=pattern.test(contents)?contents.replace(pattern,key+'='+value):contents+'\n'+key+'='+value+'\n';process.env[key]=value;
-        }
-        await writeFile(envPath,contents,{mode:0o600});await import('node:fs/promises').then(fs=>fs.chmod(envPath,0o600));
-        broadcasterLogin=identity.login||broadcasterLogin;startChat(token.access_token,identity.user_id);res.writeHead(302,{Location:'/admin?chat=connecting'});res.end();return;
+        await saveChatToken({...token,broadcasterId:identity.user_id});
+        broadcasterLogin=identity.login||broadcasterLogin;configureChatAuth();res.writeHead(302,{Location:'/admin?chat=connecting'});res.end();return;
       }
       const user={id:identity.user_id,name:identity.login};issue(req,res,{user});game.spawn(user.id,user.name);res.writeHead(302,{Location:auth.returnTo||'/'});res.end();return;
     }
     if(route.startsWith('/api/')&&req.method==='POST') {
       const identityKey=session(req)?.user.id||req.socket.remoteAddress; const now=Date.now(); let limit=limits.get(identityKey); if(!limit||now-limit.at>1000){limit={at:now,count:0};limits.set(identityKey,limit);} if(++limit.count>30)return json(res,{error:'Slow down'},429);
       const b=await body(req);
-      if(route==='/api/admin/desktop-settings'){if(!host(req))return json(res,{error:'Streamer sign-in required'},403);if(!['walk','physics'].includes(b.mode))throw Error('Choose walk or physics');await mkdir(dataDir,{recursive:true});const file=path.join(dataDir,'desktop-settings.json');await writeFile(file+'.tmp',JSON.stringify({mode:b.mode}),{mode:0o600});await rename(file+'.tmp',file);return json(res,{mode:b.mode});}
+      if(route==='/api/admin/desktop-settings'){if(!host(req))return json(res,{error:'Streamer sign-in required'},403);if(!['walk','physics'].includes(b.mode))throw Error('Choose walk or physics');await mkdir(dataDir,{recursive:true});const file=path.join(dataDir,'desktop-settings.json');await atomicWrite(file,JSON.stringify({mode:b.mode}));return json(res,{mode:b.mode});}
       if(route==='/api/admin/desktop'){if(!host(req))return json(res,{error:'Streamer sign-in required'},403);if(typeof b.enabled!=='boolean')throw Error('Choose on or off');await controlDesktop(b.enabled);return json(res,{ok:true});}
       if(route==='/api/pet'){if(!host(req))return json(res,{error:'Host key required'},403);const user=session(req)?.user;if(!user)throw Error('Sign in before controlling the pet');brain.configure({enabled:b.enabled,personality:b.personality,instruction:b.instruction,ownerId:user.id});return json(res,{ok:true});}
-      if(route==='/api/skins/host'){if(!host(req))return json(res,{error:'Host key required'},403);let job;if(b.action==='assign'){job=await assignCustom(String(b.userId));}else if(b.action==='claim')job=skins.claim(b.id);else if(b.action==='fail')job=skins.fail(b.id);else if(b.action==='complete'){if(!/^\/pets\/[a-zA-Z0-9_-]+\.png$/.test(b.asset||''))throw Error('Invalid asset path');await validateAtlas(path.join(root,'public',b.asset));job=skins.finish(b.id,b.asset);game.log('A custom creature is hatching in the grove!');}else throw Error('Unknown hatchery action');await persist();return json(res,job);}
+      if(route==='/api/skins/host'){if(!host(req))return json(res,{error:'Host key required'},403);let job;if(b.action==='assign'){job=await assignCustom(String(b.userId));}else if(b.action==='claim')job=skins.claim(b.id);else if(b.action==='renew')job=skins.renew(b.id,b.lease);else if(b.action==='fail')job=skins.fail(b.id,b.lease);else if(b.action==='complete'){if(!/^\/pets\/[a-zA-Z0-9_-]+\.png$/.test(b.asset||''))throw Error('Invalid asset path');await validateAtlas(path.join(root,'public',b.asset));job=skins.finish(b.id,b.asset,Date.now(),b.lease);game.log('A custom creature is hatching in the grove!');}else throw Error('Unknown hatchery action');await persist();return json(res,job);}
       if(route==='/api/demo') {if(!demo) return json(res,{error:'Demo disabled'},403);let user=session(req)?.user;if(!user) user={id:'demo-'+randomBytes(8).toString('hex'),name:String(b.name||'you').slice(0,25)};issue(req,res,{user});game.spawn(user.id,user.name);return json(res,{user});}
       if(route==='/api/host') {
         if(!host(req)) return json(res,{error:'Host key required'},403);
@@ -113,21 +116,27 @@ const server=http.createServer(async(req,res)=>{
     res.writeHead(200,{'Content-Type':mime[path.extname(target)]||'application/octet-stream','X-Content-Type-Options':'nosniff','Referrer-Policy':'same-origin','Content-Security-Policy':"default-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; frame-ancestors 'self'"});res.end(data);
   } catch(error) {json(res,{error:error.message},400);}
 });
-const worldState=()=>({...game.snapshot(),defaultPets:DEFAULT_PETS,aiPet:brain.snapshot(),skins:skins.publicState(),twitchStatus});
+const worldState=()=>({...game.snapshot(),defaultPets:DEFAULT_PETS,aiPet:brain.snapshot(),skins:skins.publicState(new Set(game.players.keys())),twitchStatus});
 setInterval(()=>{game.update(.05);brain.update(.05);const packet=`data: ${JSON.stringify(worldState())}\n\n`;for(const client of clients) {if(client.writableLength>262144){client.destroy();clients.delete(client);}else client.write(packet);}},50).unref();
 let saveChain=Promise.resolve();function persist(){saveChain=saveChain.catch(()=>{}).then(async()=>{await mkdir(dataDir,{recursive:true});await writeFile(path.join(dataDir,'players.json.tmp'),JSON.stringify(game.snapshot().players.filter(p=>!p.simulated)));await rename(path.join(dataDir,'players.json.tmp'),path.join(dataDir,'players.json'));await writeFile(path.join(dataDir,'skins.json.tmp'),JSON.stringify(skins.jobs));await rename(path.join(dataDir,'skins.json.tmp'),path.join(dataDir,'skins.json'));});return saveChain;}
-setInterval(()=>{persist().catch(console.error);for(const [id,s]of sessions)if(s.expires<Date.now())sessions.delete(id);for(const[id,entry]of oauth)if(entry.expires<Date.now())oauth.delete(id);for(const[id,limit]of limits)if(Date.now()-limit.at>10000)limits.delete(id);},10000).unref();
+setInterval(()=>{skins.recover();persist().catch(console.error);for(const [id,s]of sessions)if(s.expires<Date.now())sessions.delete(id);for(const[id,entry]of oauth)if(entry.expires<Date.now())oauth.delete(id);for(const[id,limit]of limits)if(Date.now()-limit.at>10000)limits.delete(id);},10000).unref();
 let stopChat;
 async function assignCustom(userId){const player=game.players.get(userId);if(!player)throw Error('Choose a viewer who has chatted first');const job=skins.request(player.id,nicknamePrompt(player.name));job.nickname=player.name;job.requestedBy='admin';game.log('Custom pet commissioned for '+player.name);await persist();return job;}
 const handleChat=(id,name,text)=>handlePetChat(game,{id,name,text},process.env.TWITCH_BROADCASTER_ID,assignCustom);
 function startChat(token,broadcasterId){
  stopChat?.();twitchStatus='connecting';stopChat=connectChat({token,clientId:process.env.TWITCH_CLIENT_ID,broadcasterId,onMessage:handleChat,onSpawn:(id,name)=>{game.spawn(id,name);brain.requestDecision('viewer_joined');},onStatus:s=>{twitchStatus=s;}});
 }
-if(process.env.TWITCH_CHAT_TOKEN&&process.env.TWITCH_CLIENT_ID&&process.env.TWITCH_BROADCASTER_ID){
- try{const validation=await fetch('https://id.twitch.tv/oauth2/validate',{headers:{Authorization:`OAuth ${process.env.TWITCH_CHAT_TOKEN}`}});const v=await validation.json();
- if(!validation.ok||v.user_id!==process.env.TWITCH_BROADCASTER_ID||v.client_id!==process.env.TWITCH_CLIENT_ID||!v.scopes?.includes('user:read:chat'))twitchStatus='token invalid; reconnect chat';else {broadcasterLogin=v.login||broadcasterLogin;startChat(process.env.TWITCH_CHAT_TOKEN,process.env.TWITCH_BROADCASTER_ID);};
- }catch{twitchStatus='Twitch validation unavailable';}
+let chatAuth;
+async function saveChatToken(token){
+ const values={TWITCH_CHAT_TOKEN:token.access_token};if(token.refresh_token)values.TWITCH_CHAT_REFRESH_TOKEN=token.refresh_token;if(token.broadcasterId)values.TWITCH_BROADCASTER_ID=token.broadcasterId;
+ await saveEnv(path.join(root,'.env'),values);Object.assign(process.env,values);
 }
-setInterval(async()=>{if(!process.env.TWITCH_CHAT_TOKEN)return;try{const r=await fetch('https://id.twitch.tv/oauth2/validate',{headers:{Authorization:`OAuth ${process.env.TWITCH_CHAT_TOKEN}`}});if(!r.ok){twitchStatus='token expired; reconnect chat';stopChat?.();}}catch{twitchStatus='token validation unavailable';}},3600000).unref();
-for(const signal of ['SIGINT','SIGTERM'])process.on(signal,async()=>{stopChat?.();await persist().catch(console.error);for(const client of clients)client.end();server.close(()=>process.exit(0));});
+function configureChatAuth(){
+ chatAuth?.close();
+ if(!process.env.TWITCH_CHAT_TOKEN||!process.env.TWITCH_CLIENT_ID||!process.env.TWITCH_BROADCASTER_ID)return;
+ chatAuth=new TwitchAuth({clientId:process.env.TWITCH_CLIENT_ID,clientSecret:process.env.TWITCH_CLIENT_SECRET,broadcasterId:process.env.TWITCH_BROADCASTER_ID,accessToken:process.env.TWITCH_CHAT_TOKEN,refreshToken:process.env.TWITCH_CHAT_REFRESH_TOKEN||'',save:saveChatToken,start:startChat,stop:()=>stopChat?.(),status:s=>{twitchStatus=s;}});
+ void chatAuth.check();
+}
+configureChatAuth();
+for(const signal of ['SIGINT','SIGTERM'])process.on(signal,async()=>{chatAuth?.close();stopChat?.();await persist().catch(console.error);for(const client of clients)client.end();server.close(()=>process.exit(0));});
 server.listen(port,'0.0.0.0',()=>console.log(`Chatlings → ${base}\nController → ${base}/controller\nOBS → ${base}/overlay`));

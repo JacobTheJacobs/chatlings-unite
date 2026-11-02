@@ -24,9 +24,10 @@ from gi.repository import Gtk, Gdk, GdkPixbuf, GLib, GdkX11
 import cairo
 
 ROOT=Path(__file__).resolve().parents[1]
-STATUS=ROOT/'data/desktop-status.json'
-PID=ROOT/'data/desktop-overlay.pid'
-SETTINGS=ROOT/'data/desktop-settings.json'
+DATA=Path(os.environ.get('DATA_DIR',ROOT/'data')).resolve()
+STATUS=DATA/'desktop-status.json'
+PID=DATA/'desktop-overlay.pid'
+SETTINGS=DATA/'desktop-settings.json'
 DEFAULT_IDS=['mossbyte','toast-panic','sir-honk','blob-ross','buffer-cat']
 ROW_COUNTS=[6,8,8,4,5,8,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6]
 EMOTE_ROWS={'dance':20,'spin':13,'love':16,'rage':5,'party':3,'sleep':6}
@@ -41,7 +42,11 @@ def map_position(x,y,width,height):
  return (max(45,min(width-45,45+float(x)/960*(width-90))),max(90,min(height-60,height-265+(float(y)-235)/195*200)))
 
 class Renderer:
- def __init__(self):self.atlases={}
+ def __init__(self):self.atlases={};self.max_atlases=101
+ def retain(self,urls):
+  live={(ROOT/'public'/u.lstrip('/')).resolve() for u in urls if isinstance(u,str) and u.startswith('/pets/')}
+  for file in list(self.atlases):
+   if file not in live:del self.atlases[file]
  def atlas(self,url):
   if not isinstance(url,str) or not url.startswith('/pets/'):return None
   file=(ROOT/'public'/url.lstrip('/')).resolve()
@@ -50,9 +55,12 @@ class Renderer:
    try:
     image=GdkPixbuf.Pixbuf.new_from_file(str(file))
     if image.get_width()!=1536 or image.get_height()!=4576:return None
-    self.atlases[file]=image
+    self.atlases[file]=image.scale_simple(608,1804,GdkPixbuf.InterpType.NEAREST)
+    while len(self.atlases)>self.max_atlases:del self.atlases[next(iter(self.atlases))]
    except GLib.Error:return None
-  return self.atlases.get(file)
+  image=self.atlases.pop(file,None)
+  if image is not None:self.atlases[file]=image.scale_simple(608,1804,GdkPixbuf.InterpType.NEAREST)
+  return image
  def sprite(self,ctx,actor,x,y,t,asset=None,action=None):
   image=self.atlas(asset)
   if image:
@@ -65,8 +73,8 @@ class Renderer:
    while frame<len(durations)-1 and elapsed>=durations[frame]:elapsed-=durations[frame];frame+=1
    if actor.get('desktopAirborne'):frame=1 if actor.get('desktopVy',0)<0 else 3
    if actor.get('desktopDragging'):row=3;frame=int(t/.14)%4
-   cell=image.new_subpixbuf(frame*192,row*208,192,208)
-   ctx.save();ctx.translate(x-38,y-78);ctx.scale(76/192,82/208);Gdk.cairo_set_source_pixbuf(ctx,cell,0,0);ctx.get_source().set_filter(cairo.FILTER_NEAREST);ctx.paint();ctx.restore()
+   cell=image.new_subpixbuf(frame*76,row*82,76,82)
+   ctx.save();ctx.translate(x-38,y-78);Gdk.cairo_set_source_pixbuf(ctx,cell,0,0);ctx.get_source().set_filter(cairo.FILTER_NEAREST);ctx.paint();ctx.restore()
  def physical_pose(self,actor,body):
   view={**actor,'desktopAirborne':body.support is None and not body.dragging,'desktopDragging':body.dragging,'desktopVy':body.vy,'moving':body.support is not None and abs(body.vx)>12}
   if abs(body.vx)>5:view['facing']='left' if body.vx<0 else 'right'
@@ -95,6 +103,9 @@ class Renderer:
   ready={}
   for job in state.get('skins',[]):
    if job.get('status')=='ready' and job.get('finishedAt',0)>=ready.get(job['userId'],{}).get('finishedAt',0):ready[job['userId']]=job
+  assets=[ready[p['id']]['asset'] if p['id'] in ready else '/pets/'+DEFAULT_IDS[p.get('appearance',{}).get('seed',0)%5]+'.png' for p in state.get('players',[])]
+  if state.get('aiPet',{}).get('enabled'):assets.append('/pets/mossbyte.png')
+  self.retain(assets)
   for actor in state.get('players',[]):
    if actor.get('joined') and state.get('fusion'):continue
    body=bodies.get(actor['id']) if bodies is not None else None
@@ -160,7 +171,8 @@ class Overlay(Gtk.Window):
  def update_input(self):
   if not self.get_realized():return
   region=cairo.Region()
-  if self.dragged:region.union(cairo.RectangleInt(0,0,self.physics.width,self.physics.height))
+  if time.monotonic()-self.received>5:pass
+  elif self.dragged:region.union(cairo.RectangleInt(0,0,self.physics.width,self.physics.height))
   else:
    for body in self.physics.bodies.values():
     region.union(cairo.RectangleInt(max(0,int(body.x-38)),max(0,int(body.y-79)),76,82))
@@ -220,12 +232,16 @@ class Overlay(Gtk.Window):
     self.physics.edges=self.surfaces.scan() if self.physics.mode=='physics' else [];self.surface_error=None
    except Exception as error:self.surface_error=str(error);self.physics.edges=[]
    self.last_scan=now
-  self.physics.step(dt,self.actors())
+  if time.monotonic()-self.received<=5:self.physics.step(dt,self.actors())
+  elif self.dragged:
+   if self.dragged in self.physics.bodies:
+    body=self.physics.bodies[self.dragged];body.dragging=False;body.samples=[];body.vx=body.vy=0
+   self.dragged=None;self.get_display().get_default_seat().ungrab()
   if self.dragged not in self.physics.bodies and self.dragged:
    self.dragged=None;self.get_display().get_default_seat().ungrab()
   self.update_input();self.queue_draw();return True
  def paint(self,_,ctx):
-  self.renderer.draw(ctx,self.state if time.monotonic()-self.received<5 else {},self.get_allocated_width(),self.get_allocated_height(),self.physics.bodies);self.frames+=1
+  self.renderer.draw(ctx,self.state,self.get_allocated_width(),self.get_allocated_height(),self.physics.bodies);self.frames+=1
   if self.frames%30==1:
    STATUS.parent.mkdir(exist_ok=True);status_temp=STATUS.with_suffix('.tmp');status_temp.write_text(json.dumps({'pid':os.getpid(),'windowId':self.get_window().get_xid(),'clickThroughOutsidePets':True,'mode':self.physics.mode,'mouseGrabEnabled':True,'dragged':self.dragged,'surfaceWindows':self.surfaces.count,'surfaceError':self.surface_error,'bodies':{pid:{'x':round(b.x,1),'y':round(b.y,1),'vx':round(b.vx,1),'vy':round(b.vy,1),'support':b.support,'dragging':b.dragging} for pid,b in self.physics.bodies.items()},'transparent':True,'frames':self.frames,'players':[p.get('name') for p in self.state.get('players',[])],'connected':time.monotonic()-self.received<5}));status_temp.replace(STATUS)
   return True

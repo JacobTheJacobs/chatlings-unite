@@ -5,13 +5,16 @@ export function appearance(id) {
   return { color: ['#ba9cff','#6fe7c5','#ffbc79','#f78eae','#8cbfff'][h[0]%5], ears: h[1]%3, accessory: h[2]%3, seed: h.readUInt32BE(0) };
 }
 export class Game {
-  constructor(saved = []) { this.players = new Map(saved.map(p => [p.id, {...p, input:{}, joined:false}])); this.events=[]; this.boss=null; this.fusion=null; this.tick=0; this.mission=null; this.pet=null; this.pads=[]; }
+  constructor(saved = [], {maxPlayers=100,idleMs=30*60*1000,clock=()=>Date.now()}={}) { this.maxPlayers=maxPlayers;this.idleMs=idleMs;this.clock=clock;this.players = new Map(saved.map(p=>({...p,lastSeen:p.lastSeen??clock()})).filter(p=>clock()-p.lastSeen<idleMs).sort((a,b)=>b.lastSeen-a.lastSeen).slice(0,maxPlayers).map(p => [p.id, {...p, input:{}, joined:false}])); this.events=[]; this.boss=null; this.fusion=null; this.tick=0; this.mission=null; this.pet=null; this.pads=[]; }
   log(text) { this.events.unshift({text, at:Date.now()}); this.events=this.events.slice(0,12); }
   spawn(id,name,simulated=false) {
-    if(this.players.has(id)) return this.players.get(id);
-    const p={id,name:name.slice(0,25),simulated,x:140+this.players.size*49%420,y:330,appearance:appearance(id),input:{},joined:false};
+    if(this.players.has(id)){const p=this.players.get(id);p.lastSeen=this.clock();return p;}
+    this.prune();if(this.players.size>=this.maxPlayers){const oldest=[...this.players.values()].sort((a,b)=>a.lastSeen-b.lastSeen)[0];this.remove(oldest.id);}
+    const p={id,lastSeen:this.clock(),name:name.slice(0,25),simulated,x:140+this.players.size*49%420,y:330,appearance:appearance(id),input:{},joined:false};
     this.players.set(id,p); this.log(`${p.name} ${simulated?'· SIM':id.startsWith('demo-')?'· DEMO':'· TWITCH'} hatched into the grove`); return p;
   }
+  remove(id){this.dropBattery(id);if(this.players.get(id)?.joined)this.reset();this.players.delete(id);}
+  prune(){for(const p of this.players.values())if(this.clock()-(p.lastSeen||0)>this.idleMs)this.remove(p.id);}
   chat(id,name,text) {
     const p=this.spawn(id,name);const now=Date.now();p.chatPet=true;
     if(now-(p.chatAt||0)<900)return;p.chatAt=now;
@@ -26,7 +29,7 @@ export class Game {
     if(command.startsWith('!'))return;
     p.bubble={text:String(text).replace(/[\u0000-\u001f\u007f]/g,' ').slice(0,160),until:now+8000};
   }
-  input(id,input) { const p=this.players.get(id); if(!p) throw Error('Spawn your character first'); if(Number(input.x))p.facing=Number(input.x)<0?'left':'right'; p.manualAt=Date.now(); p.input={x:Math.sign(Number(input.x)||0),y:Math.sign(Number(input.y)||0),at:Date.now()}; }
+  input(id,input) { const p=this.players.get(id); if(!p) throw Error('Spawn your character first');p.lastSeen=this.clock(); if(Number(input.x))p.facing=Number(input.x)<0?'left':'right'; p.manualAt=Date.now(); p.input={x:Math.sign(Number(input.x)||0),y:Math.sign(Number(input.y)||0),at:Date.now()}; }
   join(id) {
     const p=this.players.get(id); if(!p) throw Error('Spawn first');
     if(this.fusion) throw Error('A fusion is already active');
@@ -52,7 +55,7 @@ export class Game {
   useAbility(id){const p=this.players.get(id);if(!p)throw Error('Spawn first');if(p.joined)throw Error('Leave the fusion circle first');const now=Date.now();if(now-(p.abilityAt||0)<5000)throw Error('Ability is recharging');p.abilityAt=now;const ability=p.ability||'spark';if(ability==='spark'){p.x=Math.max(35,Math.min(925,p.x+(p.facing==='left'?-90:90)));}else if(ability==='bounce'){this.pads.push({x:p.x,y:p.y,expiresAt:now+8000});}else if(ability==='magnet'){for(const b of this.mission?.batteries||[]){if(!b.delivered&&!b.carrier&&Math.hypot(b.x-p.x,b.y-p.y)<150){b.x=p.x;b.y=p.y;}}}else p.shieldUntil=now+2500;}
   jump(id){const p=this.players.get(id);if(!p)throw Error('Spawn first');if(Date.now()-(p.jumpedAt||0)>900)p.jumpedAt=Date.now();}
   update(dt) {
-    this.tick++;
+    this.tick++;if(this.tick%200===0)this.prune();
     for(const p of this.players.values()) {
       const now=Date.now();
       if(p.chatPet&&!p.joined&&now-(p.manualAt||0)>2500){

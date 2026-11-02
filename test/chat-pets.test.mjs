@@ -19,8 +19,8 @@ test('five stable defaults and admin nickname commissions keep defaults until re
  const g=new Game();const p=g.spawn('viewer','toastWizard42');const index=p.appearance.seed%5;
  assert.equal(g.spawn('viewer','changed').appearance.seed%5,index);
  const prompt=nicknamePrompt(p.name);assert.ok(prompt.includes('toastWizard42'));assert.ok(prompt.includes('untrusted'));
- const q=new SkinQueue();const j=q.request(p.id,prompt);q.claim(j.id);assert.equal(q.publicState()[0].asset,undefined);
- q.finish(j.id,'/pets/custom.png');assert.equal(q.publicState()[0].asset,'/pets/custom.png');
+ const q=new SkinQueue();const j=q.request(p.id,prompt);const lease=q.claim(j.id).lease;assert.equal(q.publicState()[0].asset,undefined);
+ q.finish(j.id,'/pets/custom.png',Date.now(),lease);assert.equal(q.publicState()[0].asset,'/pets/custom.png');
 });
 
 test('only broadcaster chat can commission a nickname pet',async()=>{

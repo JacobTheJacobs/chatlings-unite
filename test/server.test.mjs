@@ -21,6 +21,9 @@ test('HTTP sessions isolate controllers, reject foreign origins, and stream shar
   assert.equal((await post('admin/desktop-settings',{mode},'',{'X-Host-Key':'test-host'})).status,200);
   assert.equal((await (await fetch(base+'/api/admin/status',{headers:{'X-Host-Key':'test-host'}})).json()).desktop.mode,mode);
  }
+ const settingsRace=await Promise.all(['walk','physics','walk'].map(mode=>post('admin/desktop-settings',{mode},'',{'X-Host-Key':'test-host'})));
+ assert.ok(settingsRace.every(r=>r.status===200));
+ await new Promise(resolve=>setTimeout(resolve,1050));
  assert.equal((await fetch(base)).status,200);assert.equal((await fetch(base+'/admin')).status,200);assert.equal((await fetch(base+'/api/admin/status')).status,403);assert.equal((await fetch(base+'/api/admin/status',{headers:{'X-Host-Key':'test-host'}})).status,200);assert.equal((await post('admin/desktop',{enabled:false})).status,403);assert.equal((await post('admin/desktop',{enabled:'yes'},'',{'X-Host-Key':'test-host'})).status,400);assert.equal((await fetch(base+'/overlay')).status,200);assert.equal((await post('input',{id:'someone',x:1})).status,401);
  const a=await post('demo',{name:'alpha'}),cookie=a.headers.get('set-cookie').split(';')[0],u=(await a.json()).user;
  const b=await post('demo',{name:'beta'}),v=(await b.json()).user;assert.notEqual(u.id,v.id);
