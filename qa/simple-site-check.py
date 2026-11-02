@@ -12,7 +12,7 @@ with sync_playwright() as p:
  assert page.get_by_role('link',name='Join othersideh’s chat').is_visible()
  assert not page.get_by_role('button',name='Enter fusion circle').count()
  assert page.locator('#adminPage').is_hidden()
- page.wait_for_timeout(1000);page.screenshot(path=str(out/'simple-viewer.png'),full_page=True)
+ page.wait_for_timeout(1000);before=page.locator('#heroPets').bounding_box()['height'];page.wait_for_timeout(1200);assert abs(page.locator('#heroPets').bounding_box()['height']-before)<1;page.screenshot(path=str(out/'simple-viewer.png'),full_page=True)
  page.set_viewport_size({'width':390,'height':844});page.wait_for_timeout(200)
  assert page.evaluate('document.documentElement.scrollWidth<=innerWidth');page.screenshot(path=str(out/'simple-viewer-mobile.png'),full_page=True)
  # Only this isolated test server has keyless local demo-host mode.
@@ -29,7 +29,7 @@ with sync_playwright() as p:
  assert row.locator('button').is_disabled()
  jobs=context.request.get(base+'/api/skins/host').json();assert any(j['userId']==user['id'] and j['requestedBy']=='admin' and j['status']=='queued' for j in jobs)
  assert page.evaluate('document.documentElement.scrollWidth<=innerWidth');page.screenshot(path=str(out/'simple-admin-mobile.png'),full_page=True)
- page.set_viewport_size({'width':1440,'height':1000});page.screenshot(path=str(out/'simple-admin.png'),full_page=True)
+ page.set_viewport_size({'width':1440,'height':1000});page.evaluate('window.scrollTo(0,0)');page.wait_for_timeout(150);page.screenshot(path=str(out/'simple-admin.png'),full_page=True)
  overlay=context.new_page();overlay.on('pageerror',lambda e:errors.append(str(e)));overlay.goto(base+'/overlay');overlay.wait_for_timeout(300)
  assert overlay.evaluate("getComputedStyle(document.body).backgroundColor")=='rgba(0, 0, 0, 0)'
  # Check the public role gate in a separate context, with no desktop actions.
