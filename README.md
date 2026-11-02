@@ -12,7 +12,8 @@ Built with Codex. All application code is in this directory; the Codex SDK runs 
 Requires Node.js 24 or newer.
 
 ```bash
-cd /home/jak/githuff/google/hackaton/twitch
+git clone https://github.com/JacobTheJacobs/chatlings-unite.git
+cd chatlings-unite
 cp .env.example .env
 npm install
 npm start
@@ -27,6 +28,20 @@ generator status. Default pet previews load only small idle strips.
 The earlier browser grove remains available at `/game-view.html` for legacy
 demos, and `/overlay` keeps the transparent OBS source working. It is not part of
 the main viewer/admin flow.
+
+## Desktop prerequisites (Ubuntu / Debian)
+
+The browser/admin server runs with Node.js. The native pet overlay additionally
+needs an X11 desktop session with compositing and these system packages:
+
+```bash
+sudo apt-get install python3-gi python3-gi-cairo python3-cairo gir1.2-gtk-3.0 gir1.2-wnck-3.0
+```
+
+Start the server, connect Twitch chat as described below, then run `npm run desktop`
+in another terminal. Add display capture in OBS to include pets in your stream.
+The five default pets are included; no image generation is needed to run them.
+Optional custom-pet generation setup is described in the hatchery sections.
 
 ## Connect Twitch chat locally
 
@@ -80,7 +95,8 @@ commissions** below.
 Restore the vendor checkout on another machine:
 
 ```bash
-git clone --depth 1 git@github.com:JacobTheJacobs/hatch-clawmate-skill.git vendor/hatch-clawmate-skill
+git clone https://github.com/JacobTheJacobs/hatch-clawmate-skill.git vendor/hatch-clawmate-skill
+git -C vendor/hatch-clawmate-skill checkout 547daca8fdb38860fdba0d656f254e09b8195267
 ```
 
 ## Architecture and limits
