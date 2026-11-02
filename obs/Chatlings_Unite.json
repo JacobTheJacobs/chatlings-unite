@@ -72,7 +72,7 @@
           {
             "name": "Chatlings sprites",
             "id": 2,
-            "visible": true,
+            "visible": false,
             "locked": false,
             "pos": {
               "x": 0,

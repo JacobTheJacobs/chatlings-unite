@@ -4,12 +4,13 @@ import {fileURLToPath} from 'node:url';
 import path from 'node:path';
 import {randomBytes,timingSafeEqual} from 'node:crypto';
 import {Game} from './game.mjs';
+import {DEFAULT_PETS,nicknamePrompt,handlePetChat} from './pet-catalog.mjs';
 import {connectChat} from './twitch.mjs';
 import {SkinQueue,validateAtlas} from './skins.mjs';
 import {PetBrain} from './pet-brain.mjs';
 const root=path.dirname(fileURLToPath(import.meta.url));
 const dataDir=process.env.DATA_DIR||path.join(root,'data');
-const port=Number(process.env.PORT||3000), base=process.env.PUBLIC_URL||`http://localhost:${port}`;
+const port=Number(process.env.PORT||3010), base=process.env.PUBLIC_URL||`http://localhost:${port}`;
 const localBase=`http://localhost:${port}`;
 const allowedOrigins=new Set([new URL(base).origin,localBase]);
 const requestOrigin=req=>{const host=req.headers.host;for(const origin of allowedOrigins)if(new URL(origin).host===host)return origin;return null;};
@@ -68,7 +69,7 @@ const server=http.createServer(async(req,res)=>{
       const identityKey=session(req)?.user.id||req.socket.remoteAddress; const now=Date.now(); let limit=limits.get(identityKey); if(!limit||now-limit.at>1000){limit={at:now,count:0};limits.set(identityKey,limit);} if(++limit.count>30)return json(res,{error:'Slow down'},429);
       const b=await body(req);
       if(route==='/api/pet'){if(!host(req))return json(res,{error:'Host key required'},403);const user=session(req)?.user;if(!user)throw Error('Sign in before controlling the pet');brain.configure({enabled:b.enabled,personality:b.personality,instruction:b.instruction,ownerId:user.id});return json(res,{ok:true});}
-      if(route==='/api/skins/host'){if(!host(req))return json(res,{error:'Host key required'},403);let job;if(b.action==='claim')job=skins.claim(b.id);else if(b.action==='fail')job=skins.fail(b.id);else if(b.action==='complete'){if(!/^\/pets\/[a-zA-Z0-9_-]+\.png$/.test(b.asset||''))throw Error('Invalid asset path');await validateAtlas(path.join(root,'public',b.asset));job=skins.finish(b.id,b.asset);game.log('A custom creature is hatching in the grove!');}else throw Error('Unknown hatchery action');await persist();return json(res,job);}
+      if(route==='/api/skins/host'){if(!host(req))return json(res,{error:'Host key required'},403);let job;if(b.action==='assign'){job=await assignCustom(String(b.userId));}else if(b.action==='claim')job=skins.claim(b.id);else if(b.action==='fail')job=skins.fail(b.id);else if(b.action==='complete'){if(!/^\/pets\/[a-zA-Z0-9_-]+\.png$/.test(b.asset||''))throw Error('Invalid asset path');await validateAtlas(path.join(root,'public',b.asset));job=skins.finish(b.id,b.asset);game.log('A custom creature is hatching in the grove!');}else throw Error('Unknown hatchery action');await persist();return json(res,job);}
       if(route==='/api/demo') {if(!demo) return json(res,{error:'Demo disabled'},403);let user=session(req)?.user;if(!user) user={id:'demo-'+randomBytes(8).toString('hex'),name:String(b.name||'you').slice(0,25)};issue(req,res,{user});game.spawn(user.id,user.name);return json(res,{user});}
       if(route==='/api/host') {
         if(!host(req)) return json(res,{error:'Host key required'},403);
@@ -79,7 +80,7 @@ const server=http.createServer(async(req,res)=>{
         else if(b.action==='challenge'){game.challenge();brain.requestDecision('boss_started');}else if(b.action==='reset')game.reset();else throw Error('Unknown host action');return json(res,{ok:true});
       }
       const s=session(req);if(!s) return json(res,{error:'Sign in to control a character'},401);
-      if(route==='/api/skins'){const job=skins.request(s.user.id,b.prompt);await persist();return json(res,job);}
+      if(route==='/api/skins')return json(res,{error:'Custom pets are assigned by the streamer'},403);
       if(route==='/api/ability-choice')game.chooseAbility(s.user.id,b.ability);else if(route==='/api/power')game.useAbility(s.user.id);else if(route==='/api/interact')game.interact(s.user.id);else if(route==='/api/jump')game.jump(s.user.id);else if(route==='/api/input') game.input(s.user.id,b);else if(route==='/api/join')game.join(s.user.id);else if(route==='/api/action') game.action(s.user.id,b.action);else return json(res,{error:'Not found'},404);
       return json(res,{ok:true});
     }
@@ -91,13 +92,15 @@ const server=http.createServer(async(req,res)=>{
     res.writeHead(200,{'Content-Type':mime[path.extname(target)]||'application/octet-stream','X-Content-Type-Options':'nosniff','Referrer-Policy':'same-origin','Content-Security-Policy':"default-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; frame-ancestors 'self'"});res.end(data);
   } catch(error) {json(res,{error:error.message},400);}
 });
-const worldState=()=>({...game.snapshot(),aiPet:brain.snapshot(),skins:skins.publicState(),twitchStatus});
+const worldState=()=>({...game.snapshot(),defaultPets:DEFAULT_PETS,aiPet:brain.snapshot(),skins:skins.publicState(),twitchStatus});
 setInterval(()=>{game.update(.05);brain.update(.05);const packet=`data: ${JSON.stringify(worldState())}\n\n`;for(const client of clients) {if(client.writableLength>262144){client.destroy();clients.delete(client);}else client.write(packet);}},50).unref();
 let saveChain=Promise.resolve();function persist(){saveChain=saveChain.catch(()=>{}).then(async()=>{await mkdir(dataDir,{recursive:true});await writeFile(path.join(dataDir,'players.json.tmp'),JSON.stringify(game.snapshot().players.filter(p=>!p.simulated)));await rename(path.join(dataDir,'players.json.tmp'),path.join(dataDir,'players.json'));await writeFile(path.join(dataDir,'skins.json.tmp'),JSON.stringify(skins.jobs));await rename(path.join(dataDir,'skins.json.tmp'),path.join(dataDir,'skins.json'));});return saveChain;}
 setInterval(()=>{persist().catch(console.error);for(const [id,s]of sessions)if(s.expires<Date.now())sessions.delete(id);for(const[id,entry]of oauth)if(entry.expires<Date.now())oauth.delete(id);for(const[id,limit]of limits)if(Date.now()-limit.at>10000)limits.delete(id);},10000).unref();
 let stopChat;
+async function assignCustom(userId){const player=game.players.get(userId);if(!player)throw Error('Choose a viewer who has chatted first');const job=skins.request(player.id,nicknamePrompt(player.name));job.nickname=player.name;job.requestedBy='admin';game.log('Custom pet commissioned for '+player.name);await persist();return job;}
+const handleChat=(id,name,text)=>handlePetChat(game,{id,name,text},process.env.TWITCH_BROADCASTER_ID,assignCustom);
 function startChat(token,broadcasterId){
- stopChat?.();twitchStatus='connecting';stopChat=connectChat({token,clientId:process.env.TWITCH_CLIENT_ID,broadcasterId,onSpawn:(id,name)=>{game.spawn(id,name);brain.requestDecision('viewer_joined');},onStatus:s=>{twitchStatus=s;}});
+ stopChat?.();twitchStatus='connecting';stopChat=connectChat({token,clientId:process.env.TWITCH_CLIENT_ID,broadcasterId,onMessage:handleChat,onSpawn:(id,name)=>{game.spawn(id,name);brain.requestDecision('viewer_joined');},onStatus:s=>{twitchStatus=s;}});
 }
 if(process.env.TWITCH_CHAT_TOKEN&&process.env.TWITCH_CLIENT_ID&&process.env.TWITCH_BROADCASTER_ID){
  try{const validation=await fetch('https://id.twitch.tv/oauth2/validate',{headers:{Authorization:`OAuth ${process.env.TWITCH_CHAT_TOKEN}`}});const v=await validation.json();

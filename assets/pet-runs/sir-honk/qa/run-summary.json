@@ -1,0 +1,10 @@
+{
+  "ok": true,
+  "run_dir": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk",
+  "spritesheet": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/final/spritesheet.webp",
+  "validation": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/final/validation.json",
+  "contact_sheet": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/qa/contact-sheet.png",
+  "review": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/qa/review.json",
+  "videos": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/qa/videos",
+  "package": "/home/jak/githuff/google/hackaton/twitch/assets/pets/sir-honk"
+}

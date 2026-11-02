@@ -1,0 +1,2275 @@
+{
+  "ok": true,
+  "frames_root": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/blob-ross/frames",
+  "errors": [],
+  "warnings": [],
+  "rows": [
+    {
+      "state": "idle",
+      "expected_frames": 6,
+      "actual_frames": 6,
+      "extraction_method": "components",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "frames": [
+        {
+          "index": 0,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/blob-ross/frames/idle/00.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 25386,
+          "bbox": [
+            5,
+            14,
+            187,
+            194
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 1,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/blob-ross/frames/idle/01.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 25508,
+          "bbox": [
+            5,
+            14,
+            187,
+            194
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 2,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/blob-ross/frames/idle/02.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 25428,
+          "bbox": [
+            5,
+            14,
+            187,
+            194
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 3,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/blob-ross/frames/idle/03.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 25845,
+          "bbox": [
+            5,
+            12,
+            187,
+            196
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 4,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/blob-ross/frames/idle/04.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 25383,
+          "bbox": [
+            5,
+            14,
+            187,
+            194
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 5,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/blob-ross/frames/idle/05.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 25356,
+          "bbox": [
+            5,
+            14,
+            187,
+            194
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        }
+      ]
+    },
+    {
+      "state": "running-right",
+      "expected_frames": 8,
+      "actual_frames": 8,
+      "extraction_method": "components",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "frames": [
+        {
+          "index": 0,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/blob-ross/frames/running-right/00.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 25923,
+          "bbox": [
+            5,
+            14,
+            187,
+            194
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 1,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/blob-ross/frames/running-right/01.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 25260,
+          "bbox": [
+            5,
+            14,
+            187,
+            193
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 2,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/blob-ross/frames/running-right/02.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 23963,
+          "bbox": [
+            5,
+            18,
+            187,
+            190
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 3,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/blob-ross/frames/running-right/03.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 25916,
+          "bbox": [
+            5,
+            13,
+            187,
+            194
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 4,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/blob-ross/frames/running-right/04.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 26050,
+          "bbox": [
+            5,
+            14,
+            187,
+            194
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 5,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/blob-ross/frames/running-right/05.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 25278,
+          "bbox": [
+            5,
+            14,
+            187,
+            193
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 6,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/blob-ross/frames/running-right/06.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 23720,
+          "bbox": [
+            5,
+            19,
+            187,
+            189
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 7,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/blob-ross/frames/running-right/07.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 25986,
+          "bbox": [
+            5,
+            13,
+            187,
+            194
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        }
+      ]
+    },
+    {
+      "state": "running-left",
+      "expected_frames": 8,
+      "actual_frames": 8,
+      "extraction_method": "components",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "frames": [
+        {
+          "index": 0,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/blob-ross/frames/running-left/00.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 25856,
+          "bbox": [
+            5,
+            14,
+            187,
+            193
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 1
+        },
+        {
+          "index": 1,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/blob-ross/frames/running-left/01.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 24832,
+          "bbox": [
+            5,
+            18,
+            187,
+            190
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 2,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/blob-ross/frames/running-left/02.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 22883,
+          "bbox": [
+            5,
+            22,
+            187,
+            185
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 1
+        },
+        {
+          "index": 3,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/blob-ross/frames/running-left/03.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 25393,
+          "bbox": [
+            5,
+            15,
+            187,
+            192
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 4,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/blob-ross/frames/running-left/04.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 26299,
+          "bbox": [
+            5,
+            13,
+            187,
+            194
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 5,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/blob-ross/frames/running-left/05.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 24987,
+          "bbox": [
+            5,
+            17,
+            187,
+            190
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 6,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/blob-ross/frames/running-left/06.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 22811,
+          "bbox": [
+            5,
+            23,
+            187,
+            185
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 7,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/blob-ross/frames/running-left/07.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 25449,
+          "bbox": [
+            5,
+            15,
+            187,
+            192
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        }
+      ]
+    },
+    {
+      "state": "waving",
+      "expected_frames": 4,
+      "actual_frames": 4,
+      "extraction_method": "components",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "frames": [
+        {
+          "index": 0,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/blob-ross/frames/waving/00.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 24593,
+          "bbox": [
+            5,
+            16,
+            187,
+            192
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 1,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/blob-ross/frames/waving/01.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 24687,
+          "bbox": [
+            5,
+            15,
+            187,
+            192
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 2,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/blob-ross/frames/waving/02.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 24882,
+          "bbox": [
+            5,
+            15,
+            187,
+            193
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 3,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/blob-ross/frames/waving/03.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 24945,
+          "bbox": [
+            5,
+            15,
+            187,
+            193
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        }
+      ]
+    },
+    {
+      "state": "jumping",
+      "expected_frames": 5,
+      "actual_frames": 5,
+      "extraction_method": "components",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "frames": [
+        {
+          "index": 0,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/blob-ross/frames/jumping/00.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 25468,
+          "bbox": [
+            5,
+            14,
+            187,
+            193
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 1,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/blob-ross/frames/jumping/01.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 25787,
+          "bbox": [
+            5,
+            11,
+            187,
+            196
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 2,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/blob-ross/frames/jumping/02.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 24980,
+          "bbox": [
+            5,
+            14,
+            187,
+            194
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 3,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/blob-ross/frames/jumping/03.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 26200,
+          "bbox": [
+            5,
+            11,
+            187,
+            197
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 4,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/blob-ross/frames/jumping/04.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 25615,
+          "bbox": [
+            5,
+            14,
+            187,
+            193
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        }
+      ]
+    },
+    {
+      "state": "failed",
+      "expected_frames": 8,
+      "actual_frames": 8,
+      "extraction_method": "components",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "frames": [
+        {
+          "index": 0,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/blob-ross/frames/failed/00.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 25210,
+          "bbox": [
+            5,
+            16,
+            187,
+            192
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 1
+        },
+        {
+          "index": 1,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/blob-ross/frames/failed/01.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 25104,
+          "bbox": [
+            5,
+            16,
+            187,
+            192
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 2,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/blob-ross/frames/failed/02.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 24148,
+          "bbox": [
+            5,
+            20,
+            187,
+            188
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 3,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/blob-ross/frames/failed/03.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 22185,
+          "bbox": [
+            5,
+            28,
+            187,
+            180
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 4,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/blob-ross/frames/failed/04.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 21677,
+          "bbox": [
+            5,
+            29,
+            187,
+            179
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 5,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/blob-ross/frames/failed/05.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 23921,
+          "bbox": [
+            5,
+            20,
+            187,
+            187
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 6,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/blob-ross/frames/failed/06.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 25228,
+          "bbox": [
+            5,
+            16,
+            187,
+            192
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 7,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/blob-ross/frames/failed/07.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 25300,
+          "bbox": [
+            5,
+            16,
+            187,
+            192
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        }
+      ]
+    },
+    {
+      "state": "waiting",
+      "expected_frames": 6,
+      "actual_frames": 6,
+      "extraction_method": "components",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "frames": [
+        {
+          "index": 0,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/blob-ross/frames/waiting/00.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 24930,
+          "bbox": [
+            5,
+            15,
+            187,
+            193
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 1,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/blob-ross/frames/waiting/01.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 25159,
+          "bbox": [
+            5,
+            14,
+            187,
+            194
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 2,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/blob-ross/frames/waiting/02.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 24728,
+          "bbox": [
+            5,
+            16,
+            187,
+            192
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 3,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/blob-ross/frames/waiting/03.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 24016,
+          "bbox": [
+            5,
+            18,
+            187,
+            189
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 4,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/blob-ross/frames/waiting/04.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 24946,
+          "bbox": [
+            5,
+            15,
+            187,
+            193
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 5,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/blob-ross/frames/waiting/05.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 25177,
+          "bbox": [
+            5,
+            14,
+            187,
+            193
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        }
+      ]
+    },
+    {
+      "state": "running",
+      "expected_frames": 6,
+      "actual_frames": 6,
+      "extraction_method": "components",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "frames": [
+        {
+          "index": 0,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/blob-ross/frames/running/00.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 24988,
+          "bbox": [
+            5,
+            14,
+            187,
+            193
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 1
+        },
+        {
+          "index": 1,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/blob-ross/frames/running/01.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 24584,
+          "bbox": [
+            5,
+            13,
+            187,
+            194
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 2,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/blob-ross/frames/running/02.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 24021,
+          "bbox": [
+            5,
+            18,
+            187,
+            189
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 3,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/blob-ross/frames/running/03.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 24825,
+          "bbox": [
+            5,
+            15,
+            187,
+            192
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 4,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/blob-ross/frames/running/04.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 24526,
+          "bbox": [
+            5,
+            13,
+            187,
+            194
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 5,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/blob-ross/frames/running/05.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 24073,
+          "bbox": [
+            5,
+            18,
+            187,
+            189
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        }
+      ]
+    },
+    {
+      "state": "review",
+      "expected_frames": 6,
+      "actual_frames": 6,
+      "extraction_method": "components",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "frames": [
+        {
+          "index": 0,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/blob-ross/frames/review/00.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 25958,
+          "bbox": [
+            5,
+            12,
+            187,
+            195
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 1,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/blob-ross/frames/review/01.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 25723,
+          "bbox": [
+            5,
+            12,
+            187,
+            196
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 2,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/blob-ross/frames/review/02.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 26108,
+          "bbox": [
+            5,
+            11,
+            187,
+            197
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 3,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/blob-ross/frames/review/03.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 26557,
+          "bbox": [
+            5,
+            10,
+            187,
+            197
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 4,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/blob-ross/frames/review/04.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 25876,
+          "bbox": [
+            5,
+            11,
+            187,
+            196
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 5,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/blob-ross/frames/review/05.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 26285,
+          "bbox": [
+            5,
+            11,
+            187,
+            196
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        }
+      ]
+    },
+    {
+      "state": "coding",
+      "expected_frames": 6,
+      "actual_frames": 6,
+      "extraction_method": "components",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "frames": [
+        {
+          "index": 0,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/blob-ross/frames/coding/00.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 24104,
+          "bbox": [
+            5,
+            18,
+            187,
+            190
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 1,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/blob-ross/frames/coding/01.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 24315,
+          "bbox": [
+            5,
+            17,
+            187,
+            190
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 2,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/blob-ross/frames/coding/02.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 24544,
+          "bbox": [
+            5,
+            16,
+            187,
+            191
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 3,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/blob-ross/frames/coding/03.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 24380,
+          "bbox": [
+            5,
+            17,
+            187,
+            190
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 4,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/blob-ross/frames/coding/04.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 24298,
+          "bbox": [
+            5,
+            17,
+            187,
+            190
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 5,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/blob-ross/frames/coding/05.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 24307,
+          "bbox": [
+            5,
+            17,
+            187,
+            190
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        }
+      ]
+    },
+    {
+      "state": "communicating",
+      "expected_frames": 6,
+      "actual_frames": 6,
+      "extraction_method": "components",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "frames": [
+        {
+          "index": 0,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/blob-ross/frames/communicating/00.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 24562,
+          "bbox": [
+            5,
+            17,
+            187,
+            191
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 1,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/blob-ross/frames/communicating/01.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 25051,
+          "bbox": [
+            5,
+            14,
+            187,
+            193
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 2,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/blob-ross/frames/communicating/02.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 25008,
+          "bbox": [
+            5,
+            15,
+            187,
+            193
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 3,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/blob-ross/frames/communicating/03.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 24789,
+          "bbox": [
+            5,
+            16,
+            187,
+            192
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 4,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/blob-ross/frames/communicating/04.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 24839,
+          "bbox": [
+            5,
+            16,
+            187,
+            192
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 5,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/blob-ross/frames/communicating/05.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 24572,
+          "bbox": [
+            5,
+            16,
+            187,
+            191
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        }
+      ]
+    },
+    {
+      "state": "monitoring",
+      "expected_frames": 6,
+      "actual_frames": 6,
+      "extraction_method": "components",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "frames": [
+        {
+          "index": 0,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/blob-ross/frames/monitoring/00.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 24817,
+          "bbox": [
+            5,
+            16,
+            187,
+            192
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 1,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/blob-ross/frames/monitoring/01.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 25191,
+          "bbox": [
+            5,
+            15,
+            187,
+            193
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 2,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/blob-ross/frames/monitoring/02.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 25294,
+          "bbox": [
+            5,
+            14,
+            187,
+            193
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 3,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/blob-ross/frames/monitoring/03.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 25865,
+          "bbox": [
+            5,
+            13,
+            187,
+            195
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 4,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/blob-ross/frames/monitoring/04.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 25198,
+          "bbox": [
+            5,
+            15,
+            187,
+            193
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 5,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/blob-ross/frames/monitoring/05.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 25056,
+          "bbox": [
+            5,
+            15,
+            187,
+            193
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        }
+      ]
+    },
+    {
+      "state": "read-file",
+      "expected_frames": 6,
+      "actual_frames": 6,
+      "extraction_method": "components",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "frames": [
+        {
+          "index": 0,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/blob-ross/frames/read-file/00.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 25417,
+          "bbox": [
+            5,
+            14,
+            187,
+            194
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 1,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/blob-ross/frames/read-file/01.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 25286,
+          "bbox": [
+            5,
+            12,
+            187,
+            195
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 2,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/blob-ross/frames/read-file/02.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 25408,
+          "bbox": [
+            5,
+            12,
+            187,
+            196
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 3,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/blob-ross/frames/read-file/03.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 25095,
+          "bbox": [
+            5,
+            13,
+            187,
+            195
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 4,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/blob-ross/frames/read-file/04.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 25285,
+          "bbox": [
+            5,
+            12,
+            187,
+            195
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 5,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/blob-ross/frames/read-file/05.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 25765,
+          "bbox": [
+            5,
+            12,
+            187,
+            195
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        }
+      ]
+    },
+    {
+      "state": "syncing",
+      "expected_frames": 6,
+      "actual_frames": 6,
+      "extraction_method": "components",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "frames": [
+        {
+          "index": 0,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/blob-ross/frames/syncing/00.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 25862,
+          "bbox": [
+            5,
+            13,
+            187,
+            194
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 1,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/blob-ross/frames/syncing/01.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 25936,
+          "bbox": [
+            5,
+            12,
+            187,
+            195
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 2,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/blob-ross/frames/syncing/02.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 26776,
+          "bbox": [
+            5,
+            8,
+            187,
+            199
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 3,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/blob-ross/frames/syncing/03.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 25648,
+          "bbox": [
+            5,
+            13,
+            187,
+            195
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 4,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/blob-ross/frames/syncing/04.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 28368,
+          "bbox": [
+            5,
+            7,
+            187,
+            200
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 5,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/blob-ross/frames/syncing/05.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 26277,
+          "bbox": [
+            5,
+            12,
+            187,
+            195
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        }
+      ]
+    },
+    {
+      "state": "system",
+      "expected_frames": 6,
+      "actual_frames": 6,
+      "extraction_method": "components",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "frames": [
+        {
+          "index": 0,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/blob-ross/frames/system/00.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 25289,
+          "bbox": [
+            5,
+            15,
+            187,
+            193
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 1,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/blob-ross/frames/system/01.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 24626,
+          "bbox": [
+            5,
+            16,
+            187,
+            191
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 2,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/blob-ross/frames/system/02.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 25602,
+          "bbox": [
+            5,
+            14,
+            187,
+            194
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 3,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/blob-ross/frames/system/03.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 24597,
+          "bbox": [
+            5,
+            17,
+            187,
+            191
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 4,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/blob-ross/frames/system/04.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 25232,
+          "bbox": [
+            5,
+            15,
+            187,
+            193
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 1
+        },
+        {
+          "index": 5,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/blob-ross/frames/system/05.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 25866,
+          "bbox": [
+            5,
+            13,
+            187,
+            194
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        }
+      ]
+    },
+    {
+      "state": "run-tool",
+      "expected_frames": 6,
+      "actual_frames": 6,
+      "extraction_method": "components",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "frames": [
+        {
+          "index": 0,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/blob-ross/frames/run-tool/00.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 25361,
+          "bbox": [
+            5,
+            14,
+            187,
+            194
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 1,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/blob-ross/frames/run-tool/01.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 24435,
+          "bbox": [
+            5,
+            15,
+            187,
+            193
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 2,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/blob-ross/frames/run-tool/02.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 24091,
+          "bbox": [
+            5,
+            15,
+            187,
+            193
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 3,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/blob-ross/frames/run-tool/03.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 24023,
+          "bbox": [
+            5,
+            15,
+            187,
+            193
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 4,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/blob-ross/frames/run-tool/04.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 24731,
+          "bbox": [
+            5,
+            14,
+            187,
+            193
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 5,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/blob-ross/frames/run-tool/05.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 25500,
+          "bbox": [
+            5,
+            13,
+            187,
+            194
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        }
+      ]
+    },
+    {
+      "state": "reaction",
+      "expected_frames": 6,
+      "actual_frames": 6,
+      "extraction_method": "components",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "frames": [
+        {
+          "index": 0,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/blob-ross/frames/reaction/00.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 25174,
+          "bbox": [
+            5,
+            14,
+            187,
+            193
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 1,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/blob-ross/frames/reaction/01.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 24986,
+          "bbox": [
+            5,
+            14,
+            187,
+            193
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 2,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/blob-ross/frames/reaction/02.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 26078,
+          "bbox": [
+            5,
+            10,
+            187,
+            198
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 3,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/blob-ross/frames/reaction/03.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 25196,
+          "bbox": [
+            5,
+            13,
+            187,
+            194
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 4,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/blob-ross/frames/reaction/04.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 25064,
+          "bbox": [
+            5,
+            14,
+            187,
+            194
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 5,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/blob-ross/frames/reaction/05.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 25436,
+          "bbox": [
+            5,
+            13,
+            187,
+            194
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        }
+      ]
+    },
+    {
+      "state": "web-fetch",
+      "expected_frames": 6,
+      "actual_frames": 6,
+      "extraction_method": "components",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "frames": [
+        {
+          "index": 0,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/blob-ross/frames/web-fetch/00.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 25733,
+          "bbox": [
+            5,
+            12,
+            187,
+            195
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 1,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/blob-ross/frames/web-fetch/01.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 26149,
+          "bbox": [
+            5,
+            9,
+            187,
+            198
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 2,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/blob-ross/frames/web-fetch/02.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 25116,
+          "bbox": [
+            5,
+            11,
+            187,
+            196
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 3,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/blob-ross/frames/web-fetch/03.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 26383,
+          "bbox": [
+            5,
+            10,
+            187,
+            197
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 4,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/blob-ross/frames/web-fetch/04.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 26095,
+          "bbox": [
+            5,
+            11,
+            187,
+            197
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 5,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/blob-ross/frames/web-fetch/05.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 26094,
+          "bbox": [
+            5,
+            11,
+            187,
+            197
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        }
+      ]
+    },
+    {
+      "state": "web-search",
+      "expected_frames": 6,
+      "actual_frames": 6,
+      "extraction_method": "components",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "frames": [
+        {
+          "index": 0,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/blob-ross/frames/web-search/00.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 25942,
+          "bbox": [
+            5,
+            13,
+            187,
+            194
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 1,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/blob-ross/frames/web-search/01.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 25748,
+          "bbox": [
+            5,
+            13,
+            187,
+            194
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 2,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/blob-ross/frames/web-search/02.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 25663,
+          "bbox": [
+            5,
+            13,
+            187,
+            194
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 3,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/blob-ross/frames/web-search/03.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 26238,
+          "bbox": [
+            5,
+            12,
+            187,
+            195
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 4,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/blob-ross/frames/web-search/04.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 26284,
+          "bbox": [
+            5,
+            12,
+            187,
+            195
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 5,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/blob-ross/frames/web-search/05.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 25893,
+          "bbox": [
+            5,
+            13,
+            187,
+            194
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        }
+      ]
+    },
+    {
+      "state": "working",
+      "expected_frames": 6,
+      "actual_frames": 6,
+      "extraction_method": "components",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "frames": [
+        {
+          "index": 0,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/blob-ross/frames/working/00.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 25822,
+          "bbox": [
+            5,
+            13,
+            187,
+            194
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 1,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/blob-ross/frames/working/01.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 26792,
+          "bbox": [
+            5,
+            10,
+            187,
+            197
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 2,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/blob-ross/frames/working/02.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 27118,
+          "bbox": [
+            5,
+            10,
+            187,
+            198
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 3,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/blob-ross/frames/working/03.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 26993,
+          "bbox": [
+            5,
+            10,
+            187,
+            197
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 4,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/blob-ross/frames/working/04.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 27203,
+          "bbox": [
+            5,
+            10,
+            187,
+            197
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 5,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/blob-ross/frames/working/05.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 26368,
+          "bbox": [
+            5,
+            12,
+            187,
+            196
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        }
+      ]
+    },
+    {
+      "state": "vibe",
+      "expected_frames": 6,
+      "actual_frames": 6,
+      "extraction_method": "components",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "frames": [
+        {
+          "index": 0,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/blob-ross/frames/vibe/00.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 25990,
+          "bbox": [
+            5,
+            13,
+            187,
+            194
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 1,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/blob-ross/frames/vibe/01.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 25382,
+          "bbox": [
+            5,
+            11,
+            187,
+            196
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 2,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/blob-ross/frames/vibe/02.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 24402,
+          "bbox": [
+            5,
+            20,
+            187,
+            187
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 3,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/blob-ross/frames/vibe/03.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 25921,
+          "bbox": [
+            5,
+            13,
+            187,
+            194
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 4,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/blob-ross/frames/vibe/04.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 26105,
+          "bbox": [
+            5,
+            11,
+            187,
+            197
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 5,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/blob-ross/frames/vibe/05.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 26249,
+          "bbox": [
+            5,
+            12,
+            187,
+            195
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        }
+      ]
+    },
+    {
+      "state": "write-to-file",
+      "expected_frames": 6,
+      "actual_frames": 6,
+      "extraction_method": "components",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "frames": [
+        {
+          "index": 0,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/blob-ross/frames/write-to-file/00.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 26480,
+          "bbox": [
+            5,
+            10,
+            187,
+            197
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 1,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/blob-ross/frames/write-to-file/01.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 29292,
+          "bbox": [
+            5,
+            5,
+            187,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 2,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/blob-ross/frames/write-to-file/02.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 28540,
+          "bbox": [
+            5,
+            5,
+            187,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 3,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/blob-ross/frames/write-to-file/03.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 28915,
+          "bbox": [
+            5,
+            5,
+            187,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 4,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/blob-ross/frames/write-to-file/04.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 28771,
+          "bbox": [
+            5,
+            5,
+            187,
+            202
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 5,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/blob-ross/frames/write-to-file/05.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 27605,
+          "bbox": [
+            5,
+            8,
+            187,
+            200
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        }
+      ]
+    }
+  ]
+}

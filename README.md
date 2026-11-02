@@ -1,7 +1,10 @@
 # Chatlings Unite
 
-A Twitch community becomes a tiny pixel world. Three viewers fuse into one giant
-Guardian: one pilots, one shields, and one fires the cannon against the Glitch.
+Twitch viewers hatch animated pets on the streamer’s desktop by chatting. Their
+messages appear as speech bubbles, and chat commands trigger real sprite poses.
+Five generated default pets are shared; only the broadcaster commissions custom
+nickname-inspired pets. The optional browser grove also includes a cooperative
+Guardian challenge.
 Built with Codex. All application code is in this directory; the Codex SDK runs on the server.
 
 ## Run locally
@@ -15,7 +18,11 @@ npm install
 npm start
 ```
 
-Open http://localhost:3000. Click **Try the local demo**, then **Simulated friends**,
+For desktop stream pets, connect Twitch chat as described below, then run
+`npm run desktop` in a second terminal. OBS Display Capture includes the pets.
+No viewer controller page is required for chat controls.
+
+For the optional browser game, open http://localhost:3010. Click **Try the local demo**, then **Simulated friends**,
 **Demo fusion**, and **Summon the Glitch**. You pilot; the two explicitly labeled
 simulated teammates shield and shoot. WASD / arrow keys move, E joins the circle,
 and Space activates a shield or cannon when assigned that role. Touch controls
@@ -50,12 +57,13 @@ refreshed; reconnect chat if it expires.
 ## Connect real Twitch
 
 1. Register an app at https://dev.twitch.tv/console/apps. Add the exact redirect
-   URL `http://localhost:3000/auth/callback` for local testing.
+   URL `http://localhost:3010/auth/callback` for local testing.
 2. Set `TWITCH_CLIENT_ID`, `TWITCH_CLIENT_SECRET`, and `TWITCH_BROADCASTER_ID`.
 3. Obtain a **broadcaster user access token** for that same app with
    `user:read:chat`. Put it in `TWITCH_CHAT_TOKEN`. Never commit it.
-4. Restart. Twitch users send `!spawn` to hatch, and sign into `/controller` to
-   control their character. Sign-in also spawns the same Twitch ID if necessary.
+4. Restart and run `npm run desktop`. A viewer’s first chat message hatches a
+   default pet; regular messages become speech bubbles. Chat commands control it.
+   Browser sign-in and `/controller` remain optional for keyboard movement.
 5. For remote viewers serve over HTTPS, set `PUBLIC_URL` to that exact origin,
    and register `PUBLIC_URL/auth/callback` in the Twitch console.
 6. Set `DEMO_MODE=false` and a strong `HOST_KEY` for a public deployment. Enter
@@ -77,21 +85,18 @@ Official references:
 
 ## Pet creation with your linked skill
 
-The supplied repository is cloned at `vendor/hatch-clawmate-skill` (MIT). It is a
-Codex pet-generation workflow, not a runtime package. The game runs immediately
-with its own seeded procedural sprites. Mossbyte is included as a pre-generated Clawmate sample.
+The supplied repository is cloned at `vendor/hatch-clawmate-skill` (MIT).
+All five defaults are pre-generated with this skill, including complete 22-state
+animation atlases. Normal chat joins reuse these assets. Admin commissions use
+`npm run hatchery:worker`, which invokes local Codex with the skill and validates
+the result before swapping the pet. See **Five defaults and admin nickname
+commissions** below.
 
-To restore the optional vendor checkout on another machine:
+Restore the vendor checkout on another machine:
 
 ```bash
 git clone --depth 1 git@github.com:JacobTheJacobs/hatch-clawmate-skill.git vendor/hatch-clawmate-skill
 ```
-
-Follow that repository's `SKILL.md` to generate a complete pet, then copy its final
-atlas into `public/pets/` and register its player ID in `public/pets/manifest.json`.
-See `public/pets/README.md`. The adapter validates atlas dimensions and uses the
-skill's idle / running-right rows. Assets are generated ahead of time, never on
-chat-message arrival.
 
 ## Architecture and limits
 
@@ -138,13 +143,15 @@ submission, or real integration verification is implied by local test results.
 
 ## Request → Clawmate → live hatch
 
-Signed-in players can now describe their creature in the controller. They remain
-playable while a little egg marks their pending request. Requests are persisted,
+Only the broadcaster or host key holder can commission a creature for a viewer.
+Its concept comes from the viewer’s nickname. The default remains playable while
+a little egg marks the pending request. Requests are persisted,
 limited to one active request per player, one new request per ten minutes, and
 20 pending jobs total. Only one job may be marked as generating at a time.
 Prompts are visible only to the host, not broadcast in world snapshots.
 
-The host performs generation in Codex using your linked Clawmate skill:
+The worker performs generation in Codex using the linked Clawmate skill. For
+a manual recovery, the host can instead operate the queue:
 
 ```bash
 npm run hatchery -- list
@@ -155,8 +162,8 @@ Read the claimed prompt, review it, and follow
 `vendor/hatch-clawmate-skill/SKILL.md` in Codex to generate and validate the pet.
 Use a project-local run/output directory. The skill requires imagegen, grounded
 animation rows, visual QA, and atlas validation. Do not feed viewer text into a
-shell command or execute generated code. The queue bridge does not invoke
-Codex, charge an image API, or supply automated prompt moderation.
+shell command or execute generated code. The manual queue bridge only imports assets. The separate worker invokes
+Codex and uses the local Codex allowance; it does not invoke an external image API.
 
 After completing the skill's visual and deterministic validation, import its
 **final PNG** (not the preview or contact sheet):
@@ -175,8 +182,7 @@ short egg/crack reveal, and swaps the appearance. Physics and identity stay the
 same. Failed jobs keep the current skin. If generation is interrupted by a server
 restart, the job returns to queued. Ready skins survive server restarts.
 
-This is a **host-operated generation workflow**, not an unattended image service.
-Mossbyte is bundled as a pre-generated sample. The hatch UI reflects real queue state and only
+This is a **local, admin-authorized generation workflow**. Five defaults are bundled. The hatch UI reflects real queue state and only
 reveals a skin after an actual asset is imported. The fusion boss fight and the battery-building challenge are both available.
 Movement is top-down; platform climbing is not implemented.
 
@@ -185,6 +191,7 @@ The current image tool names some original outputs `exec-<UUID>.png` rather than
 
 ```bash
 git -C vendor/hatch-clawmate-skill apply ../../patches/clawmate-imagegen-filenames.patch
+git -C vendor/hatch-clawmate-skill apply ../../patches/clawmate-chroma-cleanup.patch
 ```
 
 The patch retains the generated-images directory restriction, source hashes, and
@@ -290,26 +297,37 @@ activates the selected ability. Touch controls are available. The grove uses a
 top-down movement plane with a jump animation and hazard dodge; it does not have
 platform climbing or a physics-based platformer.
 
-## Put the sprites over your streamed screen
+## Pets directly on your Linux desktop
 
-On Ubuntu, run the prepared installer in your own terminal so you can enter your
-administrator password locally:
+With the server running, open another terminal in this project:
 
 ```bash
-bash scripts/install-obs.sh
+npm run desktop
 ```
 
-The script installs OBS from the official OBS Ubuntu PPA, prepares a new Chatlings
-profile/scene collection, and opens its preview. It preserves any existing
-Chatlings profile or collection. The scene has a desktop screen capture below a
-transparent Browser Source pointing to `http://localhost:3010/overlay`.
-The standalone import file is `obs/Chatlings_Unite.json`. If needed, use OBS's
-Scene Collection → Import to import it, or run `npm run obs:setup` after installing
-OBS. Browser Source support is required.
+This opens a transparent, always-on-top, mouse-click-through desktop overlay on
+Linux X11 with GTK 3 and compositing. It reads the live game from localhost:3010.
+Pets appear near the bottom of your primary monitor over your other windows.
+Viewer movement in `/controller` moves the same pet on the desktop: sign in with
+Twitch, click the game, then use WASD/arrows. E interacts, Space jumps, F uses a
+power. The overlay does not intercept desktop typing or mouse clicks.
 
-Inspect the preview before streaming and close any windows containing secrets,
-including `.env`. Connect your Twitch account inside OBS Settings → Stream. The
-installer and setup helper do not start a broadcast or recording.
+Every viewer uses one of five generated animation atlases until an admin-assigned
+custom atlas is ready. The reference bridge is not required: Twitch's game
+server supplies the shared positions. Stop the overlay with `npm run desktop:stop`.
+`npm run desktop:snapshot` saves a transparent pet-only render, without capturing
+your desktop. This implementation targets Linux X11; other desktops need a port.
+
+To show these pets on Twitch, OBS must capture your **desktop/display**. The
+native pets are included in that capture. Capturing only a game window may omit
+them. `npm run obs:setup` prepares a desktop capture scene, with the optional
+browser overlay hidden to avoid duplicate pets. Existing OBS collections are
+preserved; import `obs/Chatlings_Unite.json` manually to use the updated scene.
+If OBS is not installed, run `bash scripts/install-obs.sh` in your terminal.
+
+Check the preview and close windows containing secrets, including `.env`, before
+broadcasting. Connect Twitch in OBS Settings → Stream. These helpers do not start
+a broadcast or recording. The Twitch page stays black/offline until you broadcast.
 
 ## Temporary public viewer controller
 
@@ -337,3 +355,47 @@ This is a demo connection, not a production deployment. See the official
 The tunnel exposes only this HTTP application. Unknown hostnames and
 unauthenticated host actions are rejected; the local `.env` and data files are
 outside the static file directory.
+
+## Simple Twitch pet flow
+
+A viewer's first chat message hatches a desktop pet. Their regular messages appear
+above it in a speech bubble for eight seconds (up to 160 characters). Watching
+silently cannot hatch a pet: Twitch does not send a reliable event for every
+viewer opening a stream. No controller page or viewer sign-in is needed for chat.
+Pets roam and jump automatically. Chat controls affect only the sender's pet:
+`!left`, `!right`, `!up`, `!down` move briefly; `!jump` hops;
+`!dance`, `!spin`, `!love`, `!rage`, `!sleep`, `!party` animate for six seconds.
+`!stay` stops wandering; `!roam` resumes it. Commands are limited to about one per
+second. Browser WASD control remains optional. Speech bubbles show public chat
+on the captured desktop; this version does not remove bubbles on moderator deletion.
+
+## Five defaults and admin nickname commissions
+
+The shared default catalog is Mossbyte, Toast Panic, Sir Honk, Blob Ross and
+Buffer Cat. A stable hash of the viewer ID selects one of five defaults. No image
+generation runs on ordinary chat joins. Speech bubbles and chat controls work
+with defaults and custom pets. Desktop and browser read the same generated atlas;
+commands select real frame rows (jumping, vibe/dance, syncing/spin, reaction/love,
+failed/rage, waving/party and waiting/sleep), rather than rotating a still image.
+Commands use the skill's pose loops; a spin is a pose-turn loop, rather than a
+whole-image rotation. New defaults add expressive dance, affection and sleepy poses.
+
+Only the host can commission a custom pet. Sign in as broadcaster, choose a
+viewer under **Custom nickname pets**, and click **Commission custom pet**.
+You can also type `!custom viewername` in Twitch chat as the broadcaster.
+Other viewers cannot use this commissioning command. The nickname is creative reference data; viewers cannot supply generation
+instructions. A request queues one complete 22-state Hatch Clawmate run. Keep the
+local Codex-auth generation worker running:
+
+```bash
+npm run hatchery:worker
+```
+
+The worker requires the local `codex` CLI login, imagegen and subagent tools,
+Python virtual environment, and `vendor/hatch-clawmate-skill`. It processes one
+commission at a time and records logs in ignored `data/hatchery/JOB_ID/`.
+It uses normal Codex authentication, not the external image API. Generation can
+take several minutes and uses your Codex allowance. Missing tools, failed QA or
+failed generation retain the default pet; there is no fake successful swap.
+Ready validated atlases swap without resetting pet position or speech bubbles.
+The old manual `npm run hatchery -- list|claim|complete|fail` path remains available.

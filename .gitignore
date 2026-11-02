@@ -7,3 +7,6 @@ __pycache__/
 data/pet-planner/
 .tools/
 obs/*.log
+data/*.pid
+data/hatchery/
+qa/*-finalize.log

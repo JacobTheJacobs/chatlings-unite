@@ -7,10 +7,14 @@
     "dev": "node --env-file-if-exists=.env server.mjs",
     "start": "node --env-file-if-exists=.env server.mjs",
     "test": "node --test",
-    "check": "node --check server.mjs && node --check game.mjs && node --check twitch.mjs && node --check public/app.js && node --check skins.mjs && node --check scripts/hatchery.mjs && node --check atlas.mjs && node --check pet-brain.mjs && node --check scripts/share.mjs && node --check scripts/setup-obs.mjs",
+    "check": "node --check server.mjs && node --check game.mjs && node --check twitch.mjs && node --check public/app.js && node --check skins.mjs && node --check scripts/hatchery.mjs && node --check atlas.mjs && node --check pet-brain.mjs && node --check scripts/share.mjs && node --check scripts/setup-obs.mjs && node --check scripts/hatchery-worker.mjs && node --check pet-catalog.mjs",
     "hatchery": "node --env-file-if-exists=.env scripts/hatchery.mjs",
     "share": "node scripts/share.mjs",
-    "obs:setup": "node scripts/setup-obs.mjs"
+    "obs:setup": "node scripts/setup-obs.mjs",
+    "desktop": "/usr/bin/python3 desktop/overlay.py",
+    "desktop:stop": "/usr/bin/python3 desktop/overlay.py --stop",
+    "desktop:snapshot": "/usr/bin/python3 desktop/overlay.py --snapshot qa/desktop-pets-only.png",
+    "hatchery:worker": "node --env-file-if-exists=.env scripts/hatchery-worker.mjs"
   },
   "engines": {
     "node": ">=24"

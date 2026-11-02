@@ -18,7 +18,7 @@
           "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/mossbyte/frames/idle/00.png",
           "width": 192,
           "height": 208,
-          "nontransparent_pixels": 28982,
+          "nontransparent_pixels": 28761,
           "bbox": [
             6,
             5,
@@ -26,14 +26,14 @@
             203
           ],
           "edge_pixels": 0,
-          "chroma_adjacent_pixels": 163
+          "chroma_adjacent_pixels": 0
         },
         {
           "index": 1,
           "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/mossbyte/frames/idle/01.png",
           "width": 192,
           "height": 208,
-          "nontransparent_pixels": 29183,
+          "nontransparent_pixels": 28937,
           "bbox": [
             6,
             5,
@@ -41,14 +41,44 @@
             203
           ],
           "edge_pixels": 0,
-          "chroma_adjacent_pixels": 164
+          "chroma_adjacent_pixels": 0
         },
         {
           "index": 2,
           "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/mossbyte/frames/idle/02.png",
           "width": 192,
           "height": 208,
-          "nontransparent_pixels": 29177,
+          "nontransparent_pixels": 28894,
+          "bbox": [
+            6,
+            5,
+            185,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 3,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/mossbyte/frames/idle/03.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 29086,
+          "bbox": [
+            5,
+            5,
+            186,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 4,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/mossbyte/frames/idle/04.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 28881,
           "bbox": [
             6,
             5,
@@ -56,52 +86,22 @@
             203
           ],
           "edge_pixels": 0,
-          "chroma_adjacent_pixels": 185
-        },
-        {
-          "index": 3,
-          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/mossbyte/frames/idle/03.png",
-          "width": 192,
-          "height": 208,
-          "nontransparent_pixels": 29335,
-          "bbox": [
-            5,
-            5,
-            186,
-            203
-          ],
-          "edge_pixels": 0,
-          "chroma_adjacent_pixels": 193
-        },
-        {
-          "index": 4,
-          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/mossbyte/frames/idle/04.png",
-          "width": 192,
-          "height": 208,
-          "nontransparent_pixels": 29205,
-          "bbox": [
-            5,
-            5,
-            186,
-            203
-          ],
-          "edge_pixels": 0,
-          "chroma_adjacent_pixels": 142
+          "chroma_adjacent_pixels": 1
         },
         {
           "index": 5,
           "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/mossbyte/frames/idle/05.png",
           "width": 192,
           "height": 208,
-          "nontransparent_pixels": 29357,
+          "nontransparent_pixels": 29201,
           "bbox": [
             5,
             5,
-            186,
+            187,
             203
           ],
           "edge_pixels": 0,
-          "chroma_adjacent_pixels": 195
+          "chroma_adjacent_pixels": 3
         }
       ]
     },
@@ -119,22 +119,7 @@
           "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/mossbyte/frames/running-right/00.png",
           "width": 192,
           "height": 208,
-          "nontransparent_pixels": 27366,
-          "bbox": [
-            8,
-            5,
-            183,
-            203
-          ],
-          "edge_pixels": 0,
-          "chroma_adjacent_pixels": 324
-        },
-        {
-          "index": 1,
-          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/mossbyte/frames/running-right/01.png",
-          "width": 192,
-          "height": 208,
-          "nontransparent_pixels": 26246,
+          "nontransparent_pixels": 27045,
           "bbox": [
             9,
             5,
@@ -142,74 +127,89 @@
             203
           ],
           "edge_pixels": 0,
-          "chroma_adjacent_pixels": 321
+          "chroma_adjacent_pixels": 1
+        },
+        {
+          "index": 1,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/mossbyte/frames/running-right/01.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 26200,
+          "bbox": [
+            8,
+            5,
+            183,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
         },
         {
           "index": 2,
           "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/mossbyte/frames/running-right/02.png",
           "width": 192,
           "height": 208,
-          "nontransparent_pixels": 27790,
+          "nontransparent_pixels": 27440,
           "bbox": [
-            7,
+            8,
             5,
             184,
             203
           ],
           "edge_pixels": 0,
-          "chroma_adjacent_pixels": 300
+          "chroma_adjacent_pixels": 1
         },
         {
           "index": 3,
           "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/mossbyte/frames/running-right/03.png",
           "width": 192,
           "height": 208,
-          "nontransparent_pixels": 27034,
+          "nontransparent_pixels": 27015,
           "bbox": [
-            10,
+            9,
             5,
             182,
             203
           ],
           "edge_pixels": 0,
-          "chroma_adjacent_pixels": 311
+          "chroma_adjacent_pixels": 1
         },
         {
           "index": 4,
           "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/mossbyte/frames/running-right/04.png",
           "width": 192,
           "height": 208,
-          "nontransparent_pixels": 24111,
+          "nontransparent_pixels": 24060,
           "bbox": [
-            12,
+            11,
             5,
             180,
             203
           ],
           "edge_pixels": 0,
-          "chroma_adjacent_pixels": 268
+          "chroma_adjacent_pixels": 0
         },
         {
           "index": 5,
           "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/mossbyte/frames/running-right/05.png",
           "width": 192,
           "height": 208,
-          "nontransparent_pixels": 27383,
+          "nontransparent_pixels": 27343,
           "bbox": [
             7,
             5,
-            184,
+            185,
             203
           ],
           "edge_pixels": 0,
-          "chroma_adjacent_pixels": 291
+          "chroma_adjacent_pixels": 2
         },
         {
           "index": 6,
           "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/mossbyte/frames/running-right/06.png",
           "width": 192,
           "height": 208,
-          "nontransparent_pixels": 27675,
+          "nontransparent_pixels": 27409,
           "bbox": [
             7,
             5,
@@ -217,14 +217,14 @@
             203
           ],
           "edge_pixels": 0,
-          "chroma_adjacent_pixels": 303
+          "chroma_adjacent_pixels": 0
         },
         {
           "index": 7,
           "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/mossbyte/frames/running-right/07.png",
           "width": 192,
           "height": 208,
-          "nontransparent_pixels": 27436,
+          "nontransparent_pixels": 27304,
           "bbox": [
             7,
             5,
@@ -232,7 +232,7 @@
             203
           ],
           "edge_pixels": 0,
-          "chroma_adjacent_pixels": 311
+          "chroma_adjacent_pixels": 0
         }
       ]
     },
@@ -250,7 +250,7 @@
           "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/mossbyte/frames/running-left/00.png",
           "width": 192,
           "height": 208,
-          "nontransparent_pixels": 27436,
+          "nontransparent_pixels": 27304,
           "bbox": [
             7,
             5,
@@ -258,14 +258,14 @@
             203
           ],
           "edge_pixels": 0,
-          "chroma_adjacent_pixels": 311
+          "chroma_adjacent_pixels": 0
         },
         {
           "index": 1,
           "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/mossbyte/frames/running-left/01.png",
           "width": 192,
           "height": 208,
-          "nontransparent_pixels": 27675,
+          "nontransparent_pixels": 27409,
           "bbox": [
             7,
             5,
@@ -273,89 +273,74 @@
             203
           ],
           "edge_pixels": 0,
-          "chroma_adjacent_pixels": 303
+          "chroma_adjacent_pixels": 0
         },
         {
           "index": 2,
           "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/mossbyte/frames/running-left/02.png",
           "width": 192,
           "height": 208,
-          "nontransparent_pixels": 27383,
+          "nontransparent_pixels": 27343,
           "bbox": [
             7,
             5,
-            184,
+            185,
             203
           ],
           "edge_pixels": 0,
-          "chroma_adjacent_pixels": 291
+          "chroma_adjacent_pixels": 2
         },
         {
           "index": 3,
           "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/mossbyte/frames/running-left/03.png",
           "width": 192,
           "height": 208,
-          "nontransparent_pixels": 24111,
+          "nontransparent_pixels": 24060,
           "bbox": [
-            12,
+            11,
             5,
             180,
             203
           ],
           "edge_pixels": 0,
-          "chroma_adjacent_pixels": 268
+          "chroma_adjacent_pixels": 0
         },
         {
           "index": 4,
           "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/mossbyte/frames/running-left/04.png",
           "width": 192,
           "height": 208,
-          "nontransparent_pixels": 27034,
+          "nontransparent_pixels": 27015,
           "bbox": [
-            10,
+            9,
             5,
             182,
             203
           ],
           "edge_pixels": 0,
-          "chroma_adjacent_pixels": 311
+          "chroma_adjacent_pixels": 1
         },
         {
           "index": 5,
           "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/mossbyte/frames/running-left/05.png",
           "width": 192,
           "height": 208,
-          "nontransparent_pixels": 27790,
+          "nontransparent_pixels": 27440,
           "bbox": [
-            7,
+            8,
             5,
             184,
             203
           ],
           "edge_pixels": 0,
-          "chroma_adjacent_pixels": 300
+          "chroma_adjacent_pixels": 1
         },
         {
           "index": 6,
           "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/mossbyte/frames/running-left/06.png",
           "width": 192,
           "height": 208,
-          "nontransparent_pixels": 26246,
-          "bbox": [
-            9,
-            5,
-            183,
-            203
-          ],
-          "edge_pixels": 0,
-          "chroma_adjacent_pixels": 321
-        },
-        {
-          "index": 7,
-          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/mossbyte/frames/running-left/07.png",
-          "width": 192,
-          "height": 208,
-          "nontransparent_pixels": 27366,
+          "nontransparent_pixels": 26200,
           "bbox": [
             8,
             5,
@@ -363,7 +348,22 @@
             203
           ],
           "edge_pixels": 0,
-          "chroma_adjacent_pixels": 324
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 7,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/mossbyte/frames/running-left/07.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 27045,
+          "bbox": [
+            9,
+            5,
+            183,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 1
         }
       ]
     },
@@ -381,60 +381,60 @@
           "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/mossbyte/frames/waving/00.png",
           "width": 192,
           "height": 208,
-          "nontransparent_pixels": 29066,
+          "nontransparent_pixels": 27240,
           "bbox": [
+            11,
             5,
-            5,
-            187,
+            181,
             203
           ],
           "edge_pixels": 0,
-          "chroma_adjacent_pixels": 152
+          "chroma_adjacent_pixels": 0
         },
         {
           "index": 1,
           "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/mossbyte/frames/waving/01.png",
           "width": 192,
           "height": 208,
-          "nontransparent_pixels": 28698,
+          "nontransparent_pixels": 27195,
           "bbox": [
-            7,
+            11,
             5,
-            185,
+            180,
             203
           ],
           "edge_pixels": 0,
-          "chroma_adjacent_pixels": 151
+          "chroma_adjacent_pixels": 0
         },
         {
           "index": 2,
           "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/mossbyte/frames/waving/02.png",
           "width": 192,
           "height": 208,
-          "nontransparent_pixels": 28507,
+          "nontransparent_pixels": 26067,
           "bbox": [
+            11,
             5,
-            6,
-            187,
-            202
+            180,
+            203
           ],
           "edge_pixels": 0,
-          "chroma_adjacent_pixels": 108
+          "chroma_adjacent_pixels": 0
         },
         {
           "index": 3,
           "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/mossbyte/frames/waving/03.png",
           "width": 192,
           "height": 208,
-          "nontransparent_pixels": 29072,
+          "nontransparent_pixels": 27405,
           "bbox": [
-            6,
+            10,
             5,
-            185,
+            181,
             203
           ],
           "edge_pixels": 0,
-          "chroma_adjacent_pixels": 152
+          "chroma_adjacent_pixels": 0
         }
       ]
     },
@@ -452,22 +452,22 @@
           "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/mossbyte/frames/jumping/00.png",
           "width": 192,
           "height": 208,
-          "nontransparent_pixels": 27312,
+          "nontransparent_pixels": 27370,
           "bbox": [
             5,
-            11,
+            10,
             187,
             197
           ],
           "edge_pixels": 0,
-          "chroma_adjacent_pixels": 150
+          "chroma_adjacent_pixels": 0
         },
         {
           "index": 1,
           "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/mossbyte/frames/jumping/01.png",
           "width": 192,
           "height": 208,
-          "nontransparent_pixels": 25702,
+          "nontransparent_pixels": 25578,
           "bbox": [
             5,
             10,
@@ -475,29 +475,29 @@
             198
           ],
           "edge_pixels": 0,
-          "chroma_adjacent_pixels": 197
+          "chroma_adjacent_pixels": 0
         },
         {
           "index": 2,
           "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/mossbyte/frames/jumping/02.png",
           "width": 192,
           "height": 208,
-          "nontransparent_pixels": 25791,
+          "nontransparent_pixels": 25539,
           "bbox": [
             5,
-            14,
+            15,
             187,
             193
           ],
           "edge_pixels": 0,
-          "chroma_adjacent_pixels": 137
+          "chroma_adjacent_pixels": 0
         },
         {
           "index": 3,
           "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/mossbyte/frames/jumping/03.png",
           "width": 192,
           "height": 208,
-          "nontransparent_pixels": 25083,
+          "nontransparent_pixels": 24871,
           "bbox": [
             6,
             5,
@@ -505,22 +505,22 @@
             203
           ],
           "edge_pixels": 0,
-          "chroma_adjacent_pixels": 183
+          "chroma_adjacent_pixels": 0
         },
         {
           "index": 4,
           "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/mossbyte/frames/jumping/04.png",
           "width": 192,
           "height": 208,
-          "nontransparent_pixels": 27183,
+          "nontransparent_pixels": 27203,
           "bbox": [
             5,
-            11,
+            10,
             187,
             197
           ],
           "edge_pixels": 0,
-          "chroma_adjacent_pixels": 131
+          "chroma_adjacent_pixels": 0
         }
       ]
     },
@@ -538,120 +538,120 @@
           "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/mossbyte/frames/failed/00.png",
           "width": 192,
           "height": 208,
-          "nontransparent_pixels": 27439,
+          "nontransparent_pixels": 27615,
           "bbox": [
+            11,
             5,
-            8,
-            187,
-            200
+            180,
+            203
           ],
           "edge_pixels": 0,
-          "chroma_adjacent_pixels": 275
+          "chroma_adjacent_pixels": 0
         },
         {
           "index": 1,
           "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/mossbyte/frames/failed/01.png",
           "width": 192,
           "height": 208,
-          "nontransparent_pixels": 25657,
+          "nontransparent_pixels": 25485,
           "bbox": [
             5,
-            19,
+            17,
             187,
-            189
+            191
           ],
           "edge_pixels": 0,
-          "chroma_adjacent_pixels": 223
+          "chroma_adjacent_pixels": 1
         },
         {
           "index": 2,
           "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/mossbyte/frames/failed/02.png",
           "width": 192,
           "height": 208,
-          "nontransparent_pixels": 21268,
+          "nontransparent_pixels": 27177,
           "bbox": [
             5,
-            31,
+            11,
             187,
-            176
+            196
           ],
           "edge_pixels": 0,
-          "chroma_adjacent_pixels": 172
+          "chroma_adjacent_pixels": 0
         },
         {
           "index": 3,
           "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/mossbyte/frames/failed/03.png",
           "width": 192,
           "height": 208,
-          "nontransparent_pixels": 17325,
+          "nontransparent_pixels": 23669,
           "bbox": [
             5,
-            44,
+            21,
             187,
-            164
+            186
           ],
           "edge_pixels": 0,
-          "chroma_adjacent_pixels": 130
+          "chroma_adjacent_pixels": 1
         },
         {
           "index": 4,
           "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/mossbyte/frames/failed/04.png",
           "width": 192,
           "height": 208,
-          "nontransparent_pixels": 17303,
+          "nontransparent_pixels": 18287,
           "bbox": [
             5,
-            44,
+            43,
             187,
             164
           ],
           "edge_pixels": 0,
-          "chroma_adjacent_pixels": 148
+          "chroma_adjacent_pixels": 0
         },
         {
           "index": 5,
           "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/mossbyte/frames/failed/05.png",
           "width": 192,
           "height": 208,
-          "nontransparent_pixels": 17459,
+          "nontransparent_pixels": 22042,
           "bbox": [
             5,
-            44,
+            28,
             187,
-            164
+            180
           ],
           "edge_pixels": 0,
-          "chroma_adjacent_pixels": 120
+          "chroma_adjacent_pixels": 1
         },
         {
           "index": 6,
           "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/mossbyte/frames/failed/06.png",
           "width": 192,
           "height": 208,
-          "nontransparent_pixels": 23104,
+          "nontransparent_pixels": 29890,
           "bbox": [
             5,
-            30,
-            187,
-            178
+            5,
+            186,
+            203
           ],
           "edge_pixels": 0,
-          "chroma_adjacent_pixels": 213
+          "chroma_adjacent_pixels": 0
         },
         {
           "index": 7,
           "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/mossbyte/frames/failed/07.png",
           "width": 192,
           "height": 208,
-          "nontransparent_pixels": 27826,
+          "nontransparent_pixels": 28204,
           "bbox": [
+            10,
             5,
-            6,
-            187,
-            202
+            182,
+            203
           ],
           "edge_pixels": 0,
-          "chroma_adjacent_pixels": 276
+          "chroma_adjacent_pixels": 0
         }
       ]
     },
@@ -669,22 +669,7 @@
           "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/mossbyte/frames/waiting/00.png",
           "width": 192,
           "height": 208,
-          "nontransparent_pixels": 28629,
-          "bbox": [
-            8,
-            5,
-            183,
-            203
-          ],
-          "edge_pixels": 0,
-          "chroma_adjacent_pixels": 229
-        },
-        {
-          "index": 1,
-          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/mossbyte/frames/waiting/01.png",
-          "width": 192,
-          "height": 208,
-          "nontransparent_pixels": 28309,
+          "nontransparent_pixels": 28023,
           "bbox": [
             10,
             5,
@@ -692,67 +677,82 @@
             203
           ],
           "edge_pixels": 0,
-          "chroma_adjacent_pixels": 153
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 1,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/mossbyte/frames/waiting/01.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 29166,
+          "bbox": [
+            7,
+            5,
+            185,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
         },
         {
           "index": 2,
           "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/mossbyte/frames/waiting/02.png",
           "width": 192,
           "height": 208,
-          "nontransparent_pixels": 25796,
+          "nontransparent_pixels": 28590,
           "bbox": [
             5,
-            20,
+            10,
             187,
-            187
+            197
           ],
           "edge_pixels": 0,
-          "chroma_adjacent_pixels": 159
+          "chroma_adjacent_pixels": 0
         },
         {
           "index": 3,
           "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/mossbyte/frames/waiting/03.png",
           "width": 192,
           "height": 208,
-          "nontransparent_pixels": 28566,
+          "nontransparent_pixels": 29452,
           "bbox": [
-            9,
+            6,
             5,
-            183,
+            185,
             203
           ],
           "edge_pixels": 0,
-          "chroma_adjacent_pixels": 233
+          "chroma_adjacent_pixels": 1
         },
         {
           "index": 4,
           "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/mossbyte/frames/waiting/04.png",
           "width": 192,
           "height": 208,
-          "nontransparent_pixels": 28531,
+          "nontransparent_pixels": 28186,
           "bbox": [
+            10,
             5,
-            8,
-            187,
-            200
+            182,
+            203
           ],
           "edge_pixels": 0,
-          "chroma_adjacent_pixels": 199
+          "chroma_adjacent_pixels": 1
         },
         {
           "index": 5,
           "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/mossbyte/frames/waiting/05.png",
           "width": 192,
           "height": 208,
-          "nontransparent_pixels": 28266,
+          "nontransparent_pixels": 28010,
           "bbox": [
-            9,
+            10,
             5,
             182,
             203
           ],
           "edge_pixels": 0,
-          "chroma_adjacent_pixels": 211
+          "chroma_adjacent_pixels": 0
         }
       ]
     },
@@ -770,7 +770,7 @@
           "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/mossbyte/frames/running/00.png",
           "width": 192,
           "height": 208,
-          "nontransparent_pixels": 28830,
+          "nontransparent_pixels": 28699,
           "bbox": [
             5,
             5,
@@ -778,14 +778,14 @@
             202
           ],
           "edge_pixels": 0,
-          "chroma_adjacent_pixels": 241
+          "chroma_adjacent_pixels": 2
         },
         {
           "index": 1,
           "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/mossbyte/frames/running/01.png",
           "width": 192,
           "height": 208,
-          "nontransparent_pixels": 27240,
+          "nontransparent_pixels": 26999,
           "bbox": [
             5,
             8,
@@ -793,14 +793,14 @@
             200
           ],
           "edge_pixels": 0,
-          "chroma_adjacent_pixels": 177
+          "chroma_adjacent_pixels": 1
         },
         {
           "index": 2,
           "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/mossbyte/frames/running/02.png",
           "width": 192,
           "height": 208,
-          "nontransparent_pixels": 28556,
+          "nontransparent_pixels": 28510,
           "bbox": [
             5,
             5,
@@ -808,14 +808,14 @@
             202
           ],
           "edge_pixels": 0,
-          "chroma_adjacent_pixels": 237
+          "chroma_adjacent_pixels": 0
         },
         {
           "index": 3,
           "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/mossbyte/frames/running/03.png",
           "width": 192,
           "height": 208,
-          "nontransparent_pixels": 27066,
+          "nontransparent_pixels": 26862,
           "bbox": [
             5,
             7,
@@ -823,14 +823,14 @@
             200
           ],
           "edge_pixels": 0,
-          "chroma_adjacent_pixels": 224
+          "chroma_adjacent_pixels": 0
         },
         {
           "index": 4,
           "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/mossbyte/frames/running/04.png",
           "width": 192,
           "height": 208,
-          "nontransparent_pixels": 28240,
+          "nontransparent_pixels": 28041,
           "bbox": [
             5,
             5,
@@ -838,14 +838,14 @@
             202
           ],
           "edge_pixels": 0,
-          "chroma_adjacent_pixels": 252
+          "chroma_adjacent_pixels": 0
         },
         {
           "index": 5,
           "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/mossbyte/frames/running/05.png",
           "width": 192,
           "height": 208,
-          "nontransparent_pixels": 28017,
+          "nontransparent_pixels": 27943,
           "bbox": [
             5,
             7,
@@ -853,7 +853,7 @@
             200
           ],
           "edge_pixels": 0,
-          "chroma_adjacent_pixels": 195
+          "chroma_adjacent_pixels": 0
         }
       ]
     },
@@ -871,7 +871,7 @@
           "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/mossbyte/frames/review/00.png",
           "width": 192,
           "height": 208,
-          "nontransparent_pixels": 28281,
+          "nontransparent_pixels": 28120,
           "bbox": [
             8,
             5,
@@ -879,14 +879,14 @@
             203
           ],
           "edge_pixels": 0,
-          "chroma_adjacent_pixels": 166
+          "chroma_adjacent_pixels": 1
         },
         {
           "index": 1,
           "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/mossbyte/frames/review/01.png",
           "width": 192,
           "height": 208,
-          "nontransparent_pixels": 29230,
+          "nontransparent_pixels": 29046,
           "bbox": [
             5,
             5,
@@ -894,14 +894,14 @@
             203
           ],
           "edge_pixels": 0,
-          "chroma_adjacent_pixels": 199
+          "chroma_adjacent_pixels": 0
         },
         {
           "index": 2,
           "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/mossbyte/frames/review/02.png",
           "width": 192,
           "height": 208,
-          "nontransparent_pixels": 22848,
+          "nontransparent_pixels": 22563,
           "bbox": [
             5,
             7,
@@ -909,29 +909,29 @@
             200
           ],
           "edge_pixels": 0,
-          "chroma_adjacent_pixels": 145
+          "chroma_adjacent_pixels": 0
         },
         {
           "index": 3,
           "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/mossbyte/frames/review/03.png",
           "width": 192,
           "height": 208,
-          "nontransparent_pixels": 28413,
+          "nontransparent_pixels": 28140,
           "bbox": [
-            6,
+            7,
             5,
             185,
             203
           ],
           "edge_pixels": 0,
-          "chroma_adjacent_pixels": 231
+          "chroma_adjacent_pixels": 1
         },
         {
           "index": 4,
           "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/mossbyte/frames/review/04.png",
           "width": 192,
           "height": 208,
-          "nontransparent_pixels": 26060,
+          "nontransparent_pixels": 25906,
           "bbox": [
             5,
             8,
@@ -939,14 +939,14 @@
             200
           ],
           "edge_pixels": 0,
-          "chroma_adjacent_pixels": 191
+          "chroma_adjacent_pixels": 0
         },
         {
           "index": 5,
           "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/mossbyte/frames/review/05.png",
           "width": 192,
           "height": 208,
-          "nontransparent_pixels": 27986,
+          "nontransparent_pixels": 27821,
           "bbox": [
             8,
             5,
@@ -954,7 +954,7 @@
             203
           ],
           "edge_pixels": 0,
-          "chroma_adjacent_pixels": 168
+          "chroma_adjacent_pixels": 1
         }
       ]
     },
@@ -972,7 +972,7 @@
           "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/mossbyte/frames/coding/00.png",
           "width": 192,
           "height": 208,
-          "nontransparent_pixels": 28970,
+          "nontransparent_pixels": 28694,
           "bbox": [
             6,
             5,
@@ -980,14 +980,14 @@
             203
           ],
           "edge_pixels": 0,
-          "chroma_adjacent_pixels": 207
+          "chroma_adjacent_pixels": 0
         },
         {
           "index": 1,
           "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/mossbyte/frames/coding/01.png",
           "width": 192,
           "height": 208,
-          "nontransparent_pixels": 28624,
+          "nontransparent_pixels": 28421,
           "bbox": [
             7,
             5,
@@ -995,14 +995,14 @@
             203
           ],
           "edge_pixels": 0,
-          "chroma_adjacent_pixels": 255
+          "chroma_adjacent_pixels": 1
         },
         {
           "index": 2,
           "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/mossbyte/frames/coding/02.png",
           "width": 192,
           "height": 208,
-          "nontransparent_pixels": 28840,
+          "nontransparent_pixels": 28692,
           "bbox": [
             6,
             5,
@@ -1010,29 +1010,29 @@
             203
           ],
           "edge_pixels": 0,
-          "chroma_adjacent_pixels": 229
+          "chroma_adjacent_pixels": 0
         },
         {
           "index": 3,
           "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/mossbyte/frames/coding/03.png",
           "width": 192,
           "height": 208,
-          "nontransparent_pixels": 28934,
+          "nontransparent_pixels": 28846,
           "bbox": [
             6,
             5,
-            185,
+            186,
             203
           ],
           "edge_pixels": 0,
-          "chroma_adjacent_pixels": 271
+          "chroma_adjacent_pixels": 0
         },
         {
           "index": 4,
           "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/mossbyte/frames/coding/04.png",
           "width": 192,
           "height": 208,
-          "nontransparent_pixels": 28724,
+          "nontransparent_pixels": 28569,
           "bbox": [
             6,
             5,
@@ -1040,22 +1040,22 @@
             203
           ],
           "edge_pixels": 0,
-          "chroma_adjacent_pixels": 197
+          "chroma_adjacent_pixels": 1
         },
         {
           "index": 5,
           "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/mossbyte/frames/coding/05.png",
           "width": 192,
           "height": 208,
-          "nontransparent_pixels": 28714,
+          "nontransparent_pixels": 28594,
           "bbox": [
-            7,
+            6,
             5,
             185,
             203
           ],
           "edge_pixels": 0,
-          "chroma_adjacent_pixels": 198
+          "chroma_adjacent_pixels": 1
         }
       ]
     },
@@ -1081,44 +1081,29 @@
             200
           ],
           "edge_pixels": 0,
-          "chroma_adjacent_pixels": 192
+          "chroma_adjacent_pixels": 2
         },
         {
           "index": 1,
           "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/mossbyte/frames/communicating/01.png",
           "width": 192,
           "height": 208,
-          "nontransparent_pixels": 28253,
+          "nontransparent_pixels": 27947,
           "bbox": [
             5,
             6,
             187,
-            202
+            201
           ],
           "edge_pixels": 0,
-          "chroma_adjacent_pixels": 234
+          "chroma_adjacent_pixels": 0
         },
         {
           "index": 2,
           "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/mossbyte/frames/communicating/02.png",
           "width": 192,
           "height": 208,
-          "nontransparent_pixels": 28932,
-          "bbox": [
-            5,
-            5,
-            187,
-            203
-          ],
-          "edge_pixels": 0,
-          "chroma_adjacent_pixels": 213
-        },
-        {
-          "index": 3,
-          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/mossbyte/frames/communicating/03.png",
-          "width": 192,
-          "height": 208,
-          "nontransparent_pixels": 28753,
+          "nontransparent_pixels": 28689,
           "bbox": [
             5,
             5,
@@ -1126,14 +1111,14 @@
             202
           ],
           "edge_pixels": 0,
-          "chroma_adjacent_pixels": 235
+          "chroma_adjacent_pixels": 1
         },
         {
-          "index": 4,
-          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/mossbyte/frames/communicating/04.png",
+          "index": 3,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/mossbyte/frames/communicating/03.png",
           "width": 192,
           "height": 208,
-          "nontransparent_pixels": 28471,
+          "nontransparent_pixels": 28344,
           "bbox": [
             5,
             6,
@@ -1141,22 +1126,37 @@
             202
           ],
           "edge_pixels": 0,
-          "chroma_adjacent_pixels": 192
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 4,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/mossbyte/frames/communicating/04.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 28372,
+          "bbox": [
+            5,
+            6,
+            187,
+            202
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
         },
         {
           "index": 5,
           "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/mossbyte/frames/communicating/05.png",
           "width": 192,
           "height": 208,
-          "nontransparent_pixels": 28196,
+          "nontransparent_pixels": 27872,
           "bbox": [
             5,
             7,
             187,
-            201
+            200
           ],
           "edge_pixels": 0,
-          "chroma_adjacent_pixels": 209
+          "chroma_adjacent_pixels": 0
         }
       ]
     },
@@ -1174,7 +1174,7 @@
           "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/mossbyte/frames/monitoring/00.png",
           "width": 192,
           "height": 208,
-          "nontransparent_pixels": 28733,
+          "nontransparent_pixels": 28585,
           "bbox": [
             5,
             6,
@@ -1182,14 +1182,14 @@
             201
           ],
           "edge_pixels": 0,
-          "chroma_adjacent_pixels": 197
+          "chroma_adjacent_pixels": 0
         },
         {
           "index": 1,
           "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/mossbyte/frames/monitoring/01.png",
           "width": 192,
           "height": 208,
-          "nontransparent_pixels": 24164,
+          "nontransparent_pixels": 24024,
           "bbox": [
             5,
             12,
@@ -1197,29 +1197,29 @@
             196
           ],
           "edge_pixels": 0,
-          "chroma_adjacent_pixels": 151
+          "chroma_adjacent_pixels": 0
         },
         {
           "index": 2,
           "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/mossbyte/frames/monitoring/02.png",
           "width": 192,
           "height": 208,
-          "nontransparent_pixels": 25908,
+          "nontransparent_pixels": 25686,
           "bbox": [
-            11,
+            12,
             5,
             180,
             203
           ],
           "edge_pixels": 0,
-          "chroma_adjacent_pixels": 135
+          "chroma_adjacent_pixels": 0
         },
         {
           "index": 3,
           "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/mossbyte/frames/monitoring/03.png",
           "width": 192,
           "height": 208,
-          "nontransparent_pixels": 27995,
+          "nontransparent_pixels": 27960,
           "bbox": [
             6,
             5,
@@ -1227,29 +1227,29 @@
             203
           ],
           "edge_pixels": 0,
-          "chroma_adjacent_pixels": 159
+          "chroma_adjacent_pixels": 1
         },
         {
           "index": 4,
           "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/mossbyte/frames/monitoring/04.png",
           "width": 192,
           "height": 208,
-          "nontransparent_pixels": 28145,
+          "nontransparent_pixels": 28074,
           "bbox": [
             5,
             9,
             187,
-            198
+            199
           ],
           "edge_pixels": 0,
-          "chroma_adjacent_pixels": 186
+          "chroma_adjacent_pixels": 0
         },
         {
           "index": 5,
           "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/mossbyte/frames/monitoring/05.png",
           "width": 192,
           "height": 208,
-          "nontransparent_pixels": 28795,
+          "nontransparent_pixels": 28512,
           "bbox": [
             5,
             6,
@@ -1257,7 +1257,7 @@
             202
           ],
           "edge_pixels": 0,
-          "chroma_adjacent_pixels": 206
+          "chroma_adjacent_pixels": 0
         }
       ]
     },
@@ -1275,15 +1275,15 @@
           "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/mossbyte/frames/read-file/00.png",
           "width": 192,
           "height": 208,
-          "nontransparent_pixels": 28207,
+          "nontransparent_pixels": 28155,
           "bbox": [
             9,
             5,
-            182,
+            183,
             203
           ],
           "edge_pixels": 0,
-          "chroma_adjacent_pixels": 155
+          "chroma_adjacent_pixels": 1
         },
         {
           "index": 1,
@@ -1294,18 +1294,18 @@
           "bbox": [
             9,
             5,
-            182,
+            183,
             203
           ],
           "edge_pixels": 0,
-          "chroma_adjacent_pixels": 192
+          "chroma_adjacent_pixels": 2
         },
         {
           "index": 2,
           "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/mossbyte/frames/read-file/02.png",
           "width": 192,
           "height": 208,
-          "nontransparent_pixels": 27858,
+          "nontransparent_pixels": 27788,
           "bbox": [
             8,
             5,
@@ -1313,14 +1313,14 @@
             203
           ],
           "edge_pixels": 0,
-          "chroma_adjacent_pixels": 193
+          "chroma_adjacent_pixels": 0
         },
         {
           "index": 3,
           "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/mossbyte/frames/read-file/03.png",
           "width": 192,
           "height": 208,
-          "nontransparent_pixels": 28422,
+          "nontransparent_pixels": 28415,
           "bbox": [
             9,
             5,
@@ -1328,14 +1328,14 @@
             203
           ],
           "edge_pixels": 0,
-          "chroma_adjacent_pixels": 188
+          "chroma_adjacent_pixels": 0
         },
         {
           "index": 4,
           "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/mossbyte/frames/read-file/04.png",
           "width": 192,
           "height": 208,
-          "nontransparent_pixels": 28775,
+          "nontransparent_pixels": 28665,
           "bbox": [
             5,
             5,
@@ -1343,14 +1343,14 @@
             203
           ],
           "edge_pixels": 0,
-          "chroma_adjacent_pixels": 199
+          "chroma_adjacent_pixels": 0
         },
         {
           "index": 5,
           "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/mossbyte/frames/read-file/05.png",
           "width": 192,
           "height": 208,
-          "nontransparent_pixels": 28448,
+          "nontransparent_pixels": 28374,
           "bbox": [
             9,
             5,
@@ -1358,7 +1358,7 @@
             203
           ],
           "edge_pixels": 0,
-          "chroma_adjacent_pixels": 189
+          "chroma_adjacent_pixels": 1
         }
       ]
     },
@@ -1376,90 +1376,90 @@
           "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/mossbyte/frames/syncing/00.png",
           "width": 192,
           "height": 208,
-          "nontransparent_pixels": 28279,
+          "nontransparent_pixels": 27872,
           "bbox": [
+            10,
             5,
-            7,
-            187,
-            201
+            182,
+            203
           ],
           "edge_pixels": 0,
-          "chroma_adjacent_pixels": 233
+          "chroma_adjacent_pixels": 0
         },
         {
           "index": 1,
           "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/mossbyte/frames/syncing/01.png",
           "width": 192,
           "height": 208,
-          "nontransparent_pixels": 28844,
+          "nontransparent_pixels": 26128,
           "bbox": [
+            14,
             5,
-            5,
-            187,
+            178,
             203
           ],
           "edge_pixels": 0,
-          "chroma_adjacent_pixels": 282
+          "chroma_adjacent_pixels": 0
         },
         {
           "index": 2,
           "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/mossbyte/frames/syncing/02.png",
           "width": 192,
           "height": 208,
-          "nontransparent_pixels": 28956,
+          "nontransparent_pixels": 21580,
           "bbox": [
-            6,
+            22,
             5,
-            185,
+            169,
             203
           ],
           "edge_pixels": 0,
-          "chroma_adjacent_pixels": 288
+          "chroma_adjacent_pixels": 0
         },
         {
           "index": 3,
           "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/mossbyte/frames/syncing/03.png",
           "width": 192,
           "height": 208,
-          "nontransparent_pixels": 28920,
+          "nontransparent_pixels": 26563,
           "bbox": [
-            6,
+            14,
             5,
-            186,
+            177,
             203
           ],
           "edge_pixels": 0,
-          "chroma_adjacent_pixels": 223
+          "chroma_adjacent_pixels": 0
         },
         {
           "index": 4,
           "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/mossbyte/frames/syncing/04.png",
           "width": 192,
           "height": 208,
-          "nontransparent_pixels": 27173,
+          "nontransparent_pixels": 21804,
           "bbox": [
+            22,
             5,
-            9,
-            187,
-            199
+            169,
+            203
           ],
           "edge_pixels": 0,
-          "chroma_adjacent_pixels": 237
+          "chroma_adjacent_pixels": 1
         },
         {
           "index": 5,
           "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/mossbyte/frames/syncing/05.png",
           "width": 192,
           "height": 208,
-          "nontransparent_pixels": 29412,
+          "nontransparent_pixels": 26187,
           "bbox": [
+            13,
             5,
-            5,
-            187,
+            178,
             203
           ],
           "edge_pixels": 0,
-          "chroma_adjacent_pixels": 262
+          "chroma_adjacent_pixels": 0
         }
       ]
     },
@@ -1477,22 +1477,22 @@
           "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/mossbyte/frames/system/00.png",
           "width": 192,
           "height": 208,
-          "nontransparent_pixels": 28549,
+          "nontransparent_pixels": 28137,
           "bbox": [
             8,
             5,
-            184,
+            183,
             203
           ],
           "edge_pixels": 0,
-          "chroma_adjacent_pixels": 213
+          "chroma_adjacent_pixels": 0
         },
         {
           "index": 1,
           "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/mossbyte/frames/system/01.png",
           "width": 192,
           "height": 208,
-          "nontransparent_pixels": 28368,
+          "nontransparent_pixels": 28109,
           "bbox": [
             9,
             5,
@@ -1500,14 +1500,14 @@
             203
           ],
           "edge_pixels": 0,
-          "chroma_adjacent_pixels": 234
+          "chroma_adjacent_pixels": 1
         },
         {
           "index": 2,
           "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/mossbyte/frames/system/02.png",
           "width": 192,
           "height": 208,
-          "nontransparent_pixels": 28631,
+          "nontransparent_pixels": 28319,
           "bbox": [
             8,
             5,
@@ -1515,14 +1515,14 @@
             203
           ],
           "edge_pixels": 0,
-          "chroma_adjacent_pixels": 238
+          "chroma_adjacent_pixels": 1
         },
         {
           "index": 3,
           "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/mossbyte/frames/system/03.png",
           "width": 192,
           "height": 208,
-          "nontransparent_pixels": 28113,
+          "nontransparent_pixels": 27855,
           "bbox": [
             9,
             5,
@@ -1530,29 +1530,29 @@
             203
           ],
           "edge_pixels": 0,
-          "chroma_adjacent_pixels": 251
+          "chroma_adjacent_pixels": 2
         },
         {
           "index": 4,
           "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/mossbyte/frames/system/04.png",
           "width": 192,
           "height": 208,
-          "nontransparent_pixels": 28558,
+          "nontransparent_pixels": 28153,
           "bbox": [
             7,
             5,
-            185,
+            184,
             203
           ],
           "edge_pixels": 0,
-          "chroma_adjacent_pixels": 197
+          "chroma_adjacent_pixels": 0
         },
         {
           "index": 5,
           "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/mossbyte/frames/system/05.png",
           "width": 192,
           "height": 208,
-          "nontransparent_pixels": 28489,
+          "nontransparent_pixels": 28355,
           "bbox": [
             8,
             5,
@@ -1560,7 +1560,7 @@
             203
           ],
           "edge_pixels": 0,
-          "chroma_adjacent_pixels": 246
+          "chroma_adjacent_pixels": 0
         }
       ]
     },
@@ -1578,22 +1578,22 @@
           "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/mossbyte/frames/run-tool/00.png",
           "width": 192,
           "height": 208,
-          "nontransparent_pixels": 28220,
+          "nontransparent_pixels": 27975,
           "bbox": [
-            8,
+            7,
             5,
             184,
             203
           ],
           "edge_pixels": 0,
-          "chroma_adjacent_pixels": 205
+          "chroma_adjacent_pixels": 0
         },
         {
           "index": 1,
           "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/mossbyte/frames/run-tool/01.png",
           "width": 192,
           "height": 208,
-          "nontransparent_pixels": 28052,
+          "nontransparent_pixels": 27848,
           "bbox": [
             8,
             5,
@@ -1601,14 +1601,14 @@
             203
           ],
           "edge_pixels": 0,
-          "chroma_adjacent_pixels": 189
+          "chroma_adjacent_pixels": 0
         },
         {
           "index": 2,
           "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/mossbyte/frames/run-tool/02.png",
           "width": 192,
           "height": 208,
-          "nontransparent_pixels": 27978,
+          "nontransparent_pixels": 27730,
           "bbox": [
             8,
             5,
@@ -1616,14 +1616,14 @@
             203
           ],
           "edge_pixels": 0,
-          "chroma_adjacent_pixels": 205
+          "chroma_adjacent_pixels": 0
         },
         {
           "index": 3,
           "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/mossbyte/frames/run-tool/03.png",
           "width": 192,
           "height": 208,
-          "nontransparent_pixels": 28163,
+          "nontransparent_pixels": 27860,
           "bbox": [
             8,
             5,
@@ -1631,14 +1631,14 @@
             203
           ],
           "edge_pixels": 0,
-          "chroma_adjacent_pixels": 243
+          "chroma_adjacent_pixels": 0
         },
         {
           "index": 4,
           "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/mossbyte/frames/run-tool/04.png",
           "width": 192,
           "height": 208,
-          "nontransparent_pixels": 28143,
+          "nontransparent_pixels": 27819,
           "bbox": [
             8,
             5,
@@ -1646,22 +1646,22 @@
             203
           ],
           "edge_pixels": 0,
-          "chroma_adjacent_pixels": 222
+          "chroma_adjacent_pixels": 1
         },
         {
           "index": 5,
           "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/mossbyte/frames/run-tool/05.png",
           "width": 192,
           "height": 208,
-          "nontransparent_pixels": 27924,
+          "nontransparent_pixels": 27532,
           "bbox": [
             9,
             5,
-            183,
+            182,
             203
           ],
           "edge_pixels": 0,
-          "chroma_adjacent_pixels": 220
+          "chroma_adjacent_pixels": 0
         }
       ]
     },
@@ -1679,90 +1679,90 @@
           "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/mossbyte/frames/reaction/00.png",
           "width": 192,
           "height": 208,
-          "nontransparent_pixels": 28435,
+          "nontransparent_pixels": 26958,
           "bbox": [
-            7,
+            12,
             5,
-            185,
+            179,
             203
           ],
           "edge_pixels": 0,
-          "chroma_adjacent_pixels": 212
+          "chroma_adjacent_pixels": 0
         },
         {
           "index": 1,
           "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/mossbyte/frames/reaction/01.png",
           "width": 192,
           "height": 208,
-          "nontransparent_pixels": 28186,
+          "nontransparent_pixels": 26738,
           "bbox": [
-            7,
+            13,
             5,
-            184,
+            179,
             203
           ],
           "edge_pixels": 0,
-          "chroma_adjacent_pixels": 231
+          "chroma_adjacent_pixels": 0
         },
         {
           "index": 2,
           "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/mossbyte/frames/reaction/02.png",
           "width": 192,
           "height": 208,
-          "nontransparent_pixels": 27159,
+          "nontransparent_pixels": 26879,
           "bbox": [
+            12,
             5,
-            9,
-            187,
-            199
+            179,
+            203
           ],
           "edge_pixels": 0,
-          "chroma_adjacent_pixels": 185
+          "chroma_adjacent_pixels": 3
         },
         {
           "index": 3,
           "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/mossbyte/frames/reaction/03.png",
           "width": 192,
           "height": 208,
-          "nontransparent_pixels": 27934,
+          "nontransparent_pixels": 26912,
           "bbox": [
+            12,
             5,
-            6,
-            187,
-            202
+            179,
+            203
           ],
           "edge_pixels": 0,
-          "chroma_adjacent_pixels": 230
+          "chroma_adjacent_pixels": 1
         },
         {
           "index": 4,
           "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/mossbyte/frames/reaction/04.png",
           "width": 192,
           "height": 208,
-          "nontransparent_pixels": 28096,
+          "nontransparent_pixels": 26874,
           "bbox": [
-            6,
+            12,
             5,
-            185,
+            179,
             203
           ],
           "edge_pixels": 0,
-          "chroma_adjacent_pixels": 227
+          "chroma_adjacent_pixels": 1
         },
         {
           "index": 5,
           "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/mossbyte/frames/reaction/05.png",
           "width": 192,
           "height": 208,
-          "nontransparent_pixels": 26731,
+          "nontransparent_pixels": 26690,
           "bbox": [
+            13,
             5,
-            10,
-            187,
-            198
+            179,
+            203
           ],
           "edge_pixels": 0,
-          "chroma_adjacent_pixels": 205
+          "chroma_adjacent_pixels": 1
         }
       ]
     },
@@ -1780,7 +1780,7 @@
           "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/mossbyte/frames/web-fetch/00.png",
           "width": 192,
           "height": 208,
-          "nontransparent_pixels": 28353,
+          "nontransparent_pixels": 27995,
           "bbox": [
             5,
             9,
@@ -1788,44 +1788,44 @@
             198
           ],
           "edge_pixels": 0,
-          "chroma_adjacent_pixels": 271
+          "chroma_adjacent_pixels": 1
         },
         {
           "index": 1,
           "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/mossbyte/frames/web-fetch/01.png",
           "width": 192,
           "height": 208,
-          "nontransparent_pixels": 27462,
+          "nontransparent_pixels": 27070,
           "bbox": [
             7,
             5,
-            185,
+            184,
             203
           ],
           "edge_pixels": 0,
-          "chroma_adjacent_pixels": 209
+          "chroma_adjacent_pixels": 2
         },
         {
           "index": 2,
           "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/mossbyte/frames/web-fetch/02.png",
           "width": 192,
           "height": 208,
-          "nontransparent_pixels": 24045,
+          "nontransparent_pixels": 23717,
           "bbox": [
             5,
             22,
             187,
-            186
+            185
           ],
           "edge_pixels": 0,
-          "chroma_adjacent_pixels": 223
+          "chroma_adjacent_pixels": 0
         },
         {
           "index": 3,
           "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/mossbyte/frames/web-fetch/03.png",
           "width": 192,
           "height": 208,
-          "nontransparent_pixels": 29310,
+          "nontransparent_pixels": 29229,
           "bbox": [
             5,
             5,
@@ -1833,14 +1833,14 @@
             203
           ],
           "edge_pixels": 0,
-          "chroma_adjacent_pixels": 197
+          "chroma_adjacent_pixels": 1
         },
         {
           "index": 4,
           "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/mossbyte/frames/web-fetch/04.png",
           "width": 192,
           "height": 208,
-          "nontransparent_pixels": 28940,
+          "nontransparent_pixels": 28804,
           "bbox": [
             5,
             6,
@@ -1848,14 +1848,14 @@
             202
           ],
           "edge_pixels": 0,
-          "chroma_adjacent_pixels": 180
+          "chroma_adjacent_pixels": 0
         },
         {
           "index": 5,
           "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/mossbyte/frames/web-fetch/05.png",
           "width": 192,
           "height": 208,
-          "nontransparent_pixels": 27965,
+          "nontransparent_pixels": 27819,
           "bbox": [
             5,
             9,
@@ -1863,7 +1863,7 @@
             198
           ],
           "edge_pixels": 0,
-          "chroma_adjacent_pixels": 183
+          "chroma_adjacent_pixels": 0
         }
       ]
     },
@@ -1881,7 +1881,7 @@
           "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/mossbyte/frames/web-search/00.png",
           "width": 192,
           "height": 208,
-          "nontransparent_pixels": 28684,
+          "nontransparent_pixels": 28457,
           "bbox": [
             8,
             5,
@@ -1889,14 +1889,14 @@
             203
           ],
           "edge_pixels": 0,
-          "chroma_adjacent_pixels": 228
+          "chroma_adjacent_pixels": 1
         },
         {
           "index": 1,
           "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/mossbyte/frames/web-search/01.png",
           "width": 192,
           "height": 208,
-          "nontransparent_pixels": 28171,
+          "nontransparent_pixels": 28006,
           "bbox": [
             7,
             5,
@@ -1904,29 +1904,29 @@
             203
           ],
           "edge_pixels": 0,
-          "chroma_adjacent_pixels": 154
+          "chroma_adjacent_pixels": 0
         },
         {
           "index": 2,
           "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/mossbyte/frames/web-search/02.png",
           "width": 192,
           "height": 208,
-          "nontransparent_pixels": 26906,
+          "nontransparent_pixels": 26632,
           "bbox": [
             8,
             5,
-            184,
+            183,
             203
           ],
           "edge_pixels": 0,
-          "chroma_adjacent_pixels": 197
+          "chroma_adjacent_pixels": 1
         },
         {
           "index": 3,
           "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/mossbyte/frames/web-search/03.png",
           "width": 192,
           "height": 208,
-          "nontransparent_pixels": 28538,
+          "nontransparent_pixels": 28399,
           "bbox": [
             9,
             5,
@@ -1934,29 +1934,14 @@
             203
           ],
           "edge_pixels": 0,
-          "chroma_adjacent_pixels": 278
+          "chroma_adjacent_pixels": 0
         },
         {
           "index": 4,
           "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/mossbyte/frames/web-search/04.png",
           "width": 192,
           "height": 208,
-          "nontransparent_pixels": 28472,
-          "bbox": [
-            9,
-            5,
-            183,
-            203
-          ],
-          "edge_pixels": 0,
-          "chroma_adjacent_pixels": 198
-        },
-        {
-          "index": 5,
-          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/mossbyte/frames/web-search/05.png",
-          "width": 192,
-          "height": 208,
-          "nontransparent_pixels": 28348,
+          "nontransparent_pixels": 28121,
           "bbox": [
             9,
             5,
@@ -1964,7 +1949,22 @@
             203
           ],
           "edge_pixels": 0,
-          "chroma_adjacent_pixels": 169
+          "chroma_adjacent_pixels": 1
+        },
+        {
+          "index": 5,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/mossbyte/frames/web-search/05.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 28046,
+          "bbox": [
+            10,
+            5,
+            182,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
         }
       ]
     },
@@ -1982,37 +1982,37 @@
           "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/mossbyte/frames/working/00.png",
           "width": 192,
           "height": 208,
-          "nontransparent_pixels": 29196,
+          "nontransparent_pixels": 28731,
           "bbox": [
             5,
             5,
             187,
-            203
+            202
           ],
           "edge_pixels": 0,
-          "chroma_adjacent_pixels": 187
+          "chroma_adjacent_pixels": 0
         },
         {
           "index": 1,
           "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/mossbyte/frames/working/01.png",
           "width": 192,
           "height": 208,
-          "nontransparent_pixels": 29132,
+          "nontransparent_pixels": 28746,
           "bbox": [
             5,
             5,
             187,
-            203
+            202
           ],
           "edge_pixels": 0,
-          "chroma_adjacent_pixels": 143
+          "chroma_adjacent_pixels": 0
         },
         {
           "index": 2,
           "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/mossbyte/frames/working/02.png",
           "width": 192,
           "height": 208,
-          "nontransparent_pixels": 29066,
+          "nontransparent_pixels": 28945,
           "bbox": [
             5,
             5,
@@ -2020,14 +2020,14 @@
             203
           ],
           "edge_pixels": 0,
-          "chroma_adjacent_pixels": 190
+          "chroma_adjacent_pixels": 1
         },
         {
           "index": 3,
           "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/mossbyte/frames/working/03.png",
           "width": 192,
           "height": 208,
-          "nontransparent_pixels": 29093,
+          "nontransparent_pixels": 28926,
           "bbox": [
             5,
             5,
@@ -2035,29 +2035,29 @@
             203
           ],
           "edge_pixels": 0,
-          "chroma_adjacent_pixels": 191
+          "chroma_adjacent_pixels": 1
         },
         {
           "index": 4,
           "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/mossbyte/frames/working/04.png",
           "width": 192,
           "height": 208,
-          "nontransparent_pixels": 29131,
+          "nontransparent_pixels": 28733,
           "bbox": [
             5,
             5,
             187,
-            203
+            202
           ],
           "edge_pixels": 0,
-          "chroma_adjacent_pixels": 185
+          "chroma_adjacent_pixels": 0
         },
         {
           "index": 5,
           "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/mossbyte/frames/working/05.png",
           "width": 192,
           "height": 208,
-          "nontransparent_pixels": 29124,
+          "nontransparent_pixels": 28891,
           "bbox": [
             5,
             5,
@@ -2065,7 +2065,7 @@
             203
           ],
           "edge_pixels": 0,
-          "chroma_adjacent_pixels": 188
+          "chroma_adjacent_pixels": 1
         }
       ]
     },
@@ -2083,7 +2083,22 @@
           "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/mossbyte/frames/vibe/00.png",
           "width": 192,
           "height": 208,
-          "nontransparent_pixels": 28931,
+          "nontransparent_pixels": 27708,
+          "bbox": [
+            11,
+            5,
+            180,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 1,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/mossbyte/frames/vibe/01.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 26239,
           "bbox": [
             8,
             5,
@@ -2091,44 +2106,44 @@
             203
           ],
           "edge_pixels": 0,
-          "chroma_adjacent_pixels": 314
-        },
-        {
-          "index": 1,
-          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/mossbyte/frames/vibe/01.png",
-          "width": 192,
-          "height": 208,
-          "nontransparent_pixels": 23679,
-          "bbox": [
-            5,
-            5,
-            186,
-            203
-          ],
-          "edge_pixels": 0,
-          "chroma_adjacent_pixels": 166
+          "chroma_adjacent_pixels": 0
         },
         {
           "index": 2,
           "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/mossbyte/frames/vibe/02.png",
           "width": 192,
           "height": 208,
-          "nontransparent_pixels": 23410,
+          "nontransparent_pixels": 24235,
           "bbox": [
-            6,
+            10,
             5,
-            185,
+            182,
             203
           ],
           "edge_pixels": 0,
-          "chroma_adjacent_pixels": 174
+          "chroma_adjacent_pixels": 1
         },
         {
           "index": 3,
           "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/mossbyte/frames/vibe/03.png",
           "width": 192,
           "height": 208,
-          "nontransparent_pixels": 29574,
+          "nontransparent_pixels": 27723,
+          "bbox": [
+            12,
+            5,
+            180,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 4,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/mossbyte/frames/vibe/04.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 24529,
           "bbox": [
             6,
             5,
@@ -2136,37 +2151,22 @@
             203
           ],
           "edge_pixels": 0,
-          "chroma_adjacent_pixels": 262
-        },
-        {
-          "index": 4,
-          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/mossbyte/frames/vibe/04.png",
-          "width": 192,
-          "height": 208,
-          "nontransparent_pixels": 23746,
-          "bbox": [
-            6,
-            5,
-            186,
-            203
-          ],
-          "edge_pixels": 0,
-          "chroma_adjacent_pixels": 197
+          "chroma_adjacent_pixels": 0
         },
         {
           "index": 5,
           "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/mossbyte/frames/vibe/05.png",
           "width": 192,
           "height": 208,
-          "nontransparent_pixels": 23331,
+          "nontransparent_pixels": 24423,
           "bbox": [
-            8,
+            7,
             5,
-            183,
+            185,
             203
           ],
           "edge_pixels": 0,
-          "chroma_adjacent_pixels": 169
+          "chroma_adjacent_pixels": 0
         }
       ]
     },
@@ -2184,7 +2184,7 @@
           "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/mossbyte/frames/write-to-file/00.png",
           "width": 192,
           "height": 208,
-          "nontransparent_pixels": 27619,
+          "nontransparent_pixels": 27472,
           "bbox": [
             5,
             8,
@@ -2192,14 +2192,14 @@
             199
           ],
           "edge_pixels": 0,
-          "chroma_adjacent_pixels": 242
+          "chroma_adjacent_pixels": 0
         },
         {
           "index": 1,
           "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/mossbyte/frames/write-to-file/01.png",
           "width": 192,
           "height": 208,
-          "nontransparent_pixels": 25217,
+          "nontransparent_pixels": 24937,
           "bbox": [
             5,
             14,
@@ -2207,14 +2207,14 @@
             193
           ],
           "edge_pixels": 0,
-          "chroma_adjacent_pixels": 209
+          "chroma_adjacent_pixels": 0
         },
         {
           "index": 2,
           "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/mossbyte/frames/write-to-file/02.png",
           "width": 192,
           "height": 208,
-          "nontransparent_pixels": 26468,
+          "nontransparent_pixels": 26223,
           "bbox": [
             5,
             11,
@@ -2222,29 +2222,29 @@
             196
           ],
           "edge_pixels": 0,
-          "chroma_adjacent_pixels": 224
+          "chroma_adjacent_pixels": 0
         },
         {
           "index": 3,
           "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/mossbyte/frames/write-to-file/03.png",
           "width": 192,
           "height": 208,
-          "nontransparent_pixels": 25751,
+          "nontransparent_pixels": 25754,
           "bbox": [
             5,
-            13,
+            12,
             187,
             195
           ],
           "edge_pixels": 0,
-          "chroma_adjacent_pixels": 233
+          "chroma_adjacent_pixels": 0
         },
         {
           "index": 4,
           "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/mossbyte/frames/write-to-file/04.png",
           "width": 192,
           "height": 208,
-          "nontransparent_pixels": 27419,
+          "nontransparent_pixels": 27200,
           "bbox": [
             5,
             10,
@@ -2252,22 +2252,22 @@
             198
           ],
           "edge_pixels": 0,
-          "chroma_adjacent_pixels": 220
+          "chroma_adjacent_pixels": 0
         },
         {
           "index": 5,
           "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/mossbyte/frames/write-to-file/05.png",
           "width": 192,
           "height": 208,
-          "nontransparent_pixels": 27701,
+          "nontransparent_pixels": 27342,
           "bbox": [
             5,
-            8,
+            9,
             187,
             199
           ],
           "edge_pixels": 0,
-          "chroma_adjacent_pixels": 218
+          "chroma_adjacent_pixels": 1
         }
       ]
     }

@@ -1,0 +1,146 @@
+{
+  "workflow": "hatch-clawmate + built-in imagegen",
+  "visualGeneration": "Row-strip image generation delegated to subagents; parent recorded, reviewed and packaged results.",
+  "deterministicCleanup": "Chroma-key extraction also removes strongly magenta spill shades without changing source art.",
+  "pets": [
+    {
+      "id": "mossbyte",
+      "rows": 22,
+      "completeJobs": 23,
+      "mirroredRows": [
+        "running-left"
+      ],
+      "delegatedRowsThisRun": [
+        "waving",
+        "failed",
+        "waiting",
+        "syncing",
+        "reaction",
+        "vibe"
+      ]
+    },
+    {
+      "id": "toast-panic",
+      "rows": 22,
+      "completeJobs": 23,
+      "mirroredRows": [
+        "running-left"
+      ],
+      "delegatedRowsThisRun": [
+        "idle",
+        "running-right",
+        "waving",
+        "jumping",
+        "failed",
+        "waiting",
+        "running",
+        "review",
+        "coding",
+        "communicating",
+        "monitoring",
+        "read-file",
+        "syncing",
+        "system",
+        "run-tool",
+        "reaction",
+        "web-fetch",
+        "web-search",
+        "working",
+        "vibe",
+        "write-to-file"
+      ]
+    },
+    {
+      "id": "sir-honk",
+      "rows": 22,
+      "completeJobs": 23,
+      "mirroredRows": [
+        "running-left"
+      ],
+      "delegatedRowsThisRun": [
+        "idle",
+        "running-right",
+        "waving",
+        "jumping",
+        "failed",
+        "waiting",
+        "running",
+        "review",
+        "coding",
+        "communicating",
+        "monitoring",
+        "read-file",
+        "syncing",
+        "system",
+        "run-tool",
+        "reaction",
+        "web-fetch",
+        "web-search",
+        "working",
+        "vibe",
+        "write-to-file"
+      ]
+    },
+    {
+      "id": "blob-ross",
+      "rows": 22,
+      "completeJobs": 23,
+      "mirroredRows": [],
+      "delegatedRowsThisRun": [
+        "idle",
+        "running-right",
+        "running-left",
+        "waving",
+        "jumping",
+        "failed",
+        "waiting",
+        "running",
+        "review",
+        "coding",
+        "communicating",
+        "monitoring",
+        "read-file",
+        "syncing",
+        "system",
+        "run-tool",
+        "reaction",
+        "web-fetch",
+        "web-search",
+        "working",
+        "vibe",
+        "write-to-file"
+      ]
+    },
+    {
+      "id": "buffer-cat",
+      "rows": 22,
+      "completeJobs": 23,
+      "mirroredRows": [
+        "running-left"
+      ],
+      "delegatedRowsThisRun": [
+        "idle",
+        "running-right",
+        "waving",
+        "jumping",
+        "failed",
+        "waiting",
+        "running",
+        "review",
+        "coding",
+        "communicating",
+        "monitoring",
+        "read-file",
+        "syncing",
+        "system",
+        "run-tool",
+        "reaction",
+        "web-fetch",
+        "web-search",
+        "working",
+        "vibe",
+        "write-to-file"
+      ]
+    }
+  ]
+}

@@ -19,7 +19,10 @@ test('HTTP sessions isolate controllers, reject foreign origins, and stream shar
  const a=await post('demo',{name:'alpha'}),cookie=a.headers.get('set-cookie').split(';')[0],u=(await a.json()).user;
  const b=await post('demo',{name:'beta'}),v=(await b.json()).user;assert.notEqual(u.id,v.id);
  assert.equal((await post('input',{id:v.id,x:1},cookie)).status,200);
- const skin=await post('skins',{prompt:'sleepy cyber frog with a golden crown',userId:v.id},cookie);assert.equal(skin.status,200);const job=await skin.json();assert.equal(job.userId,u.id);
+ assert.equal((await post('skins',{prompt:'sleepy cyber frog',userId:v.id},cookie)).status,403);
+ assert.equal((await post('skins/host',{action:'assign',userId:v.id},cookie)).status,403);
+ const skin=await post('skins/host',{action:'assign',userId:v.id},cookie,{'X-Host-Key':'test-host'});assert.equal(skin.status,200);const job=await skin.json();assert.equal(job.userId,v.id);assert.equal(job.nickname,'beta');assert.equal(job.requestedBy,'admin');assert.ok(job.prompt.includes('beta'));
+ assert.equal((await post('skins/host',{action:'assign',userId:'unknown'},cookie,{'X-Host-Key':'test-host'})).status,400);
  assert.equal((await post('skins/host',{action:'claim',id:job.id},cookie)).status,403);
  assert.equal((await post('skins/host',{action:'claim',id:job.id},cookie,{'X-Host-Key':'test-host'})).status,200);
  assert.equal((await post('skins/host',{action:'complete',id:job.id,asset:'/pets/missing.png'},cookie,{'X-Host-Key':'test-host'})).status,400);

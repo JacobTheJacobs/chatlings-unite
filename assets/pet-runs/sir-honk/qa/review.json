@@ -1,0 +1,2275 @@
+{
+  "ok": true,
+  "frames_root": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames",
+  "errors": [],
+  "warnings": [],
+  "rows": [
+    {
+      "state": "idle",
+      "expected_frames": 6,
+      "actual_frames": 6,
+      "extraction_method": "components",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "frames": [
+        {
+          "index": 0,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/idle/00.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 20928,
+          "bbox": [
+            14,
+            5,
+            177,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 1,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/idle/01.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 20753,
+          "bbox": [
+            15,
+            5,
+            177,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 2,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/idle/02.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 20233,
+          "bbox": [
+            17,
+            5,
+            175,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 3,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/idle/03.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 21041,
+          "bbox": [
+            14,
+            5,
+            177,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 4,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/idle/04.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 21212,
+          "bbox": [
+            13,
+            5,
+            178,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 5,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/idle/05.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 21092,
+          "bbox": [
+            14,
+            5,
+            178,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        }
+      ]
+    },
+    {
+      "state": "running-right",
+      "expected_frames": 8,
+      "actual_frames": 8,
+      "extraction_method": "components",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "frames": [
+        {
+          "index": 0,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/running-right/00.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 19508,
+          "bbox": [
+            18,
+            5,
+            174,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 1,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/running-right/01.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 19417,
+          "bbox": [
+            18,
+            5,
+            174,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 2,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/running-right/02.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 19448,
+          "bbox": [
+            16,
+            5,
+            175,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 3,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/running-right/03.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 19679,
+          "bbox": [
+            17,
+            5,
+            174,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 4,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/running-right/04.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 19223,
+          "bbox": [
+            18,
+            5,
+            173,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 5,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/running-right/05.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 18816,
+          "bbox": [
+            19,
+            5,
+            172,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 6,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/running-right/06.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 20840,
+          "bbox": [
+            14,
+            5,
+            178,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 7,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/running-right/07.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 19554,
+          "bbox": [
+            18,
+            5,
+            174,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        }
+      ]
+    },
+    {
+      "state": "running-left",
+      "expected_frames": 8,
+      "actual_frames": 8,
+      "extraction_method": "components",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "frames": [
+        {
+          "index": 0,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/running-left/00.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 19554,
+          "bbox": [
+            18,
+            5,
+            174,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 1,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/running-left/01.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 20840,
+          "bbox": [
+            14,
+            5,
+            178,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 2,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/running-left/02.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 18816,
+          "bbox": [
+            19,
+            5,
+            172,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 3,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/running-left/03.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 19223,
+          "bbox": [
+            18,
+            5,
+            173,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 4,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/running-left/04.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 19679,
+          "bbox": [
+            17,
+            5,
+            174,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 5,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/running-left/05.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 19448,
+          "bbox": [
+            16,
+            5,
+            175,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 6,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/running-left/06.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 19417,
+          "bbox": [
+            18,
+            5,
+            174,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 7,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/running-left/07.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 19508,
+          "bbox": [
+            18,
+            5,
+            174,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        }
+      ]
+    },
+    {
+      "state": "waving",
+      "expected_frames": 4,
+      "actual_frames": 4,
+      "extraction_method": "components",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "frames": [
+        {
+          "index": 0,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/waving/00.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 19090,
+          "bbox": [
+            19,
+            5,
+            172,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 1,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/waving/01.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 18818,
+          "bbox": [
+            23,
+            5,
+            168,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 2,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/waving/02.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 19444,
+          "bbox": [
+            17,
+            5,
+            174,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 3,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/waving/03.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 19085,
+          "bbox": [
+            19,
+            5,
+            172,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        }
+      ]
+    },
+    {
+      "state": "jumping",
+      "expected_frames": 5,
+      "actual_frames": 5,
+      "extraction_method": "components",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "frames": [
+        {
+          "index": 0,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/jumping/00.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 23067,
+          "bbox": [
+            14,
+            5,
+            178,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 1,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/jumping/01.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 19945,
+          "bbox": [
+            17,
+            5,
+            175,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 2,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/jumping/02.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 20972,
+          "bbox": [
+            13,
+            5,
+            178,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 3,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/jumping/03.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 19673,
+          "bbox": [
+            17,
+            5,
+            175,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 4,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/jumping/04.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 21734,
+          "bbox": [
+            13,
+            5,
+            179,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        }
+      ]
+    },
+    {
+      "state": "failed",
+      "expected_frames": 8,
+      "actual_frames": 8,
+      "extraction_method": "components",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "frames": [
+        {
+          "index": 0,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/failed/00.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 20419,
+          "bbox": [
+            20,
+            5,
+            172,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 1,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/failed/01.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 20603,
+          "bbox": [
+            20,
+            5,
+            172,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 2,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/failed/02.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 21287,
+          "bbox": [
+            22,
+            5,
+            170,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 3,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/failed/03.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 23866,
+          "bbox": [
+            14,
+            5,
+            178,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 4,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/failed/04.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 24861,
+          "bbox": [
+            10,
+            5,
+            181,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 5,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/failed/05.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 22003,
+          "bbox": [
+            19,
+            5,
+            173,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 6,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/failed/06.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 20499,
+          "bbox": [
+            20,
+            5,
+            171,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 7,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/failed/07.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 20062,
+          "bbox": [
+            21,
+            5,
+            170,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        }
+      ]
+    },
+    {
+      "state": "waiting",
+      "expected_frames": 6,
+      "actual_frames": 6,
+      "extraction_method": "components",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "frames": [
+        {
+          "index": 0,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/waiting/00.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 20629,
+          "bbox": [
+            15,
+            5,
+            177,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 1,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/waiting/01.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 20856,
+          "bbox": [
+            14,
+            5,
+            177,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 2,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/waiting/02.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 21971,
+          "bbox": [
+            10,
+            5,
+            181,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 3,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/waiting/03.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 23438,
+          "bbox": [
+            5,
+            6,
+            187,
+            202
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 4,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/waiting/04.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 21049,
+          "bbox": [
+            13,
+            5,
+            178,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 5,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/waiting/05.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 20652,
+          "bbox": [
+            15,
+            5,
+            177,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        }
+      ]
+    },
+    {
+      "state": "running",
+      "expected_frames": 6,
+      "actual_frames": 6,
+      "extraction_method": "components",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "frames": [
+        {
+          "index": 0,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/running/00.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 20504,
+          "bbox": [
+            17,
+            5,
+            175,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 1,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/running/01.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 19827,
+          "bbox": [
+            18,
+            5,
+            173,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 2,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/running/02.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 20451,
+          "bbox": [
+            23,
+            5,
+            168,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 3,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/running/03.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 20225,
+          "bbox": [
+            17,
+            5,
+            175,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 4,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/running/04.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 20322,
+          "bbox": [
+            17,
+            5,
+            175,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 5,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/running/05.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 20439,
+          "bbox": [
+            17,
+            5,
+            175,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        }
+      ]
+    },
+    {
+      "state": "review",
+      "expected_frames": 6,
+      "actual_frames": 6,
+      "extraction_method": "components",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "frames": [
+        {
+          "index": 0,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/review/00.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 20539,
+          "bbox": [
+            18,
+            5,
+            173,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 1,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/review/01.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 20606,
+          "bbox": [
+            18,
+            5,
+            174,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 2,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/review/02.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 21674,
+          "bbox": [
+            14,
+            5,
+            177,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 3,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/review/03.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 21710,
+          "bbox": [
+            14,
+            5,
+            177,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 4,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/review/04.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 20525,
+          "bbox": [
+            18,
+            5,
+            174,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 5,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/review/05.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 20618,
+          "bbox": [
+            18,
+            5,
+            174,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        }
+      ]
+    },
+    {
+      "state": "coding",
+      "expected_frames": 6,
+      "actual_frames": 6,
+      "extraction_method": "components",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "frames": [
+        {
+          "index": 0,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/coding/00.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 20062,
+          "bbox": [
+            20,
+            5,
+            172,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 1
+        },
+        {
+          "index": 1,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/coding/01.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 19533,
+          "bbox": [
+            28,
+            5,
+            164,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 2,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/coding/02.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 20244,
+          "bbox": [
+            18,
+            5,
+            174,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 3,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/coding/03.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 19966,
+          "bbox": [
+            26,
+            5,
+            166,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 4,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/coding/04.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 20042,
+          "bbox": [
+            19,
+            5,
+            173,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 5,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/coding/05.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 19586,
+          "bbox": [
+            22,
+            5,
+            169,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        }
+      ]
+    },
+    {
+      "state": "communicating",
+      "expected_frames": 6,
+      "actual_frames": 6,
+      "extraction_method": "components",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "frames": [
+        {
+          "index": 0,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/communicating/00.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 20260,
+          "bbox": [
+            16,
+            5,
+            175,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 1,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/communicating/01.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 20249,
+          "bbox": [
+            17,
+            5,
+            175,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 2,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/communicating/02.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 20071,
+          "bbox": [
+            16,
+            5,
+            176,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 3,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/communicating/03.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 20224,
+          "bbox": [
+            16,
+            5,
+            175,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 4,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/communicating/04.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 19967,
+          "bbox": [
+            17,
+            5,
+            175,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 5,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/communicating/05.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 19931,
+          "bbox": [
+            18,
+            5,
+            174,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        }
+      ]
+    },
+    {
+      "state": "monitoring",
+      "expected_frames": 6,
+      "actual_frames": 6,
+      "extraction_method": "components",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "frames": [
+        {
+          "index": 0,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/monitoring/00.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 20654,
+          "bbox": [
+            17,
+            5,
+            175,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 1,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/monitoring/01.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 20541,
+          "bbox": [
+            20,
+            5,
+            171,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 2,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/monitoring/02.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 20638,
+          "bbox": [
+            21,
+            5,
+            171,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 3,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/monitoring/03.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 20715,
+          "bbox": [
+            16,
+            5,
+            175,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 4,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/monitoring/04.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 20411,
+          "bbox": [
+            21,
+            5,
+            170,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 5,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/monitoring/05.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 20419,
+          "bbox": [
+            22,
+            5,
+            170,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        }
+      ]
+    },
+    {
+      "state": "read-file",
+      "expected_frames": 6,
+      "actual_frames": 6,
+      "extraction_method": "components",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "frames": [
+        {
+          "index": 0,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/read-file/00.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 20153,
+          "bbox": [
+            15,
+            5,
+            177,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 1,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/read-file/01.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 19473,
+          "bbox": [
+            20,
+            5,
+            172,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 2,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/read-file/02.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 19019,
+          "bbox": [
+            29,
+            5,
+            162,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 3,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/read-file/03.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 19036,
+          "bbox": [
+            31,
+            5,
+            160,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 4,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/read-file/04.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 19724,
+          "bbox": [
+            17,
+            5,
+            175,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 5,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/read-file/05.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 20101,
+          "bbox": [
+            15,
+            5,
+            177,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        }
+      ]
+    },
+    {
+      "state": "syncing",
+      "expected_frames": 6,
+      "actual_frames": 6,
+      "extraction_method": "components",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "frames": [
+        {
+          "index": 0,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/syncing/00.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 21532,
+          "bbox": [
+            14,
+            5,
+            178,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 1,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/syncing/01.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 18339,
+          "bbox": [
+            28,
+            5,
+            164,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 2,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/syncing/02.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 21502,
+          "bbox": [
+            14,
+            5,
+            177,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 3,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/syncing/03.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 18257,
+          "bbox": [
+            28,
+            5,
+            164,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 4,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/syncing/04.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 20563,
+          "bbox": [
+            18,
+            5,
+            173,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 5,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/syncing/05.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 21476,
+          "bbox": [
+            14,
+            5,
+            178,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        }
+      ]
+    },
+    {
+      "state": "system",
+      "expected_frames": 6,
+      "actual_frames": 6,
+      "extraction_method": "components",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "frames": [
+        {
+          "index": 0,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/system/00.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 20979,
+          "bbox": [
+            13,
+            5,
+            179,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 1,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/system/01.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 20830,
+          "bbox": [
+            13,
+            5,
+            178,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 2,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/system/02.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 20852,
+          "bbox": [
+            13,
+            5,
+            179,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 3,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/system/03.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 21022,
+          "bbox": [
+            13,
+            5,
+            179,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 4,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/system/04.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 20750,
+          "bbox": [
+            13,
+            5,
+            178,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 5,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/system/05.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 20971,
+          "bbox": [
+            13,
+            5,
+            179,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        }
+      ]
+    },
+    {
+      "state": "run-tool",
+      "expected_frames": 6,
+      "actual_frames": 6,
+      "extraction_method": "components",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "frames": [
+        {
+          "index": 0,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/run-tool/00.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 20870,
+          "bbox": [
+            15,
+            5,
+            177,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 1,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/run-tool/01.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 20667,
+          "bbox": [
+            17,
+            5,
+            174,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 2,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/run-tool/02.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 20496,
+          "bbox": [
+            17,
+            5,
+            174,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 3,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/run-tool/03.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 21823,
+          "bbox": [
+            12,
+            5,
+            179,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 4,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/run-tool/04.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 20555,
+          "bbox": [
+            17,
+            5,
+            175,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 5,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/run-tool/05.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 20717,
+          "bbox": [
+            16,
+            5,
+            176,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        }
+      ]
+    },
+    {
+      "state": "reaction",
+      "expected_frames": 6,
+      "actual_frames": 6,
+      "extraction_method": "components",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "frames": [
+        {
+          "index": 0,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/reaction/00.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 19582,
+          "bbox": [
+            18,
+            5,
+            174,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 1,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/reaction/01.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 18803,
+          "bbox": [
+            28,
+            5,
+            164,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 2,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/reaction/02.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 18720,
+          "bbox": [
+            28,
+            5,
+            163,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 3,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/reaction/03.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 18696,
+          "bbox": [
+            28,
+            5,
+            163,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 4,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/reaction/04.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 18707,
+          "bbox": [
+            28,
+            5,
+            163,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 5,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/reaction/05.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 19607,
+          "bbox": [
+            18,
+            5,
+            173,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        }
+      ]
+    },
+    {
+      "state": "web-fetch",
+      "expected_frames": 6,
+      "actual_frames": 6,
+      "extraction_method": "components",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "frames": [
+        {
+          "index": 0,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/web-fetch/00.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 20674,
+          "bbox": [
+            15,
+            5,
+            177,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 1,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/web-fetch/01.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 20572,
+          "bbox": [
+            17,
+            5,
+            175,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 2,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/web-fetch/02.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 23454,
+          "bbox": [
+            7,
+            5,
+            185,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 3,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/web-fetch/03.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 22863,
+          "bbox": [
+            5,
+            11,
+            187,
+            197
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 4,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/web-fetch/04.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 22283,
+          "bbox": [
+            11,
+            5,
+            181,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 5,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/web-fetch/05.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 20691,
+          "bbox": [
+            15,
+            5,
+            176,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        }
+      ]
+    },
+    {
+      "state": "web-search",
+      "expected_frames": 6,
+      "actual_frames": 6,
+      "extraction_method": "components",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "frames": [
+        {
+          "index": 0,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/web-search/00.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 20302,
+          "bbox": [
+            16,
+            5,
+            176,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 1,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/web-search/01.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 20037,
+          "bbox": [
+            17,
+            5,
+            175,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 2,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/web-search/02.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 20013,
+          "bbox": [
+            16,
+            5,
+            175,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 3,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/web-search/03.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 20332,
+          "bbox": [
+            16,
+            5,
+            176,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 4,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/web-search/04.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 20039,
+          "bbox": [
+            17,
+            5,
+            175,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 5,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/web-search/05.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 20046,
+          "bbox": [
+            16,
+            5,
+            176,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        }
+      ]
+    },
+    {
+      "state": "working",
+      "expected_frames": 6,
+      "actual_frames": 6,
+      "extraction_method": "components",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "frames": [
+        {
+          "index": 0,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/working/00.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 20913,
+          "bbox": [
+            13,
+            5,
+            179,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 1,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/working/01.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 19730,
+          "bbox": [
+            24,
+            5,
+            168,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 2,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/working/02.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 21335,
+          "bbox": [
+            13,
+            5,
+            178,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 3,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/working/03.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 20772,
+          "bbox": [
+            13,
+            5,
+            178,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 4,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/working/04.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 19709,
+          "bbox": [
+            24,
+            5,
+            168,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 5,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/working/05.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 20745,
+          "bbox": [
+            13,
+            5,
+            179,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        }
+      ]
+    },
+    {
+      "state": "vibe",
+      "expected_frames": 6,
+      "actual_frames": 6,
+      "extraction_method": "components",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "frames": [
+        {
+          "index": 0,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/vibe/00.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 20346,
+          "bbox": [
+            16,
+            5,
+            176,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 1,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/vibe/01.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 19323,
+          "bbox": [
+            18,
+            5,
+            174,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 2,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/vibe/02.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 22598,
+          "bbox": [
+            9,
+            5,
+            182,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 3,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/vibe/03.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 19900,
+          "bbox": [
+            18,
+            5,
+            174,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 4,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/vibe/04.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 19672,
+          "bbox": [
+            22,
+            5,
+            169,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 5,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/vibe/05.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 22814,
+          "bbox": [
+            7,
+            5,
+            184,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 1
+        }
+      ]
+    },
+    {
+      "state": "write-to-file",
+      "expected_frames": 6,
+      "actual_frames": 6,
+      "extraction_method": "components",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "frames": [
+        {
+          "index": 0,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/write-to-file/00.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 20940,
+          "bbox": [
+            13,
+            5,
+            179,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 1,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/write-to-file/01.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 19168,
+          "bbox": [
+            30,
+            5,
+            162,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 2,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/write-to-file/02.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 19411,
+          "bbox": [
+            28,
+            5,
+            163,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 3,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/write-to-file/03.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 19771,
+          "bbox": [
+            27,
+            5,
+            164,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 4,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/write-to-file/04.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 19953,
+          "bbox": [
+            21,
+            5,
+            170,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 5,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/write-to-file/05.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 20810,
+          "bbox": [
+            13,
+            5,
+            178,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        }
+      ]
+    }
+  ]
+}

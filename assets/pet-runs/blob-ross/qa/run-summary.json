@@ -1,0 +1,10 @@
+{
+  "ok": true,
+  "run_dir": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/blob-ross",
+  "spritesheet": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/blob-ross/final/spritesheet.webp",
+  "validation": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/blob-ross/final/validation.json",
+  "contact_sheet": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/blob-ross/qa/contact-sheet.png",
+  "review": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/blob-ross/qa/review.json",
+  "videos": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/blob-ross/qa/videos",
+  "package": "/home/jak/githuff/google/hackaton/twitch/assets/pets/blob-ross"
+}

@@ -1,4 +1,4 @@
-export function connectChat({token,clientId,broadcasterId,onSpawn,onStatus}) {
+export function connectChat({token,clientId,broadcasterId,onSpawn,onMessage,onStatus}) {
   let stopped=false, socket, retry, watchdog; const seen=new Set();
   const connect=(url='wss://eventsub.wss.twitch.tv/ws', transferring=false)=>{
     if(stopped) return;
@@ -18,7 +18,7 @@ export function connectChat({token,clientId,broadcasterId,onSpawn,onStatus}) {
         else if(type==='revocation') { onStatus('authorization revoked'); stopped=true; next.close(); }
         else if(type==='notification' && !seen.has(m.metadata.message_id)) {
           seen.add(m.metadata.message_id); if(seen.size>1000) seen.delete(seen.values().next().value);
-          const event=m.payload.event; if(event.message?.text.trim().toLowerCase()==='!spawn') onSpawn(event.chatter_user_id,event.chatter_user_name);
+          const event=m.payload.event; const text=event.message?.text?.trim(); if(text) { if(onMessage) await onMessage(event.chatter_user_id,event.chatter_user_name,text); else if(text.toLowerCase()==='!spawn') onSpawn(event.chatter_user_id,event.chatter_user_name); }
         }
       } catch(error) { onStatus(error.message); next.close(); }
     };

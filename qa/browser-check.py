@@ -27,8 +27,8 @@ with sync_playwright() as p:
  page.wait_for_selector('#bossHud:not([hidden])')
  page.screenshot(path=str(out/'fusion-desktop.png'),full_page=True)
  page.get_by_role('button',name='Reset challenge').click()
- page.locator('#skinPrompt').fill('A tiny moss-green creature with leaf ears and a cream belly')
- page.get_by_role('button',name='Request a custom hatch').click()
+ page.locator('#customViewer').select_option(user['id'])
+ page.get_by_role('button',name='Commission custom pet').click()
  page.wait_for_function("() => document.querySelector('#skinStatus').textContent.includes('Queued')")
  page.reload();page.wait_for_function("() => document.querySelector('#skinStatus').textContent.includes('Queued')")
  assert page.request.get(base+'/api/me').json()['user']['id']==user['id']
@@ -43,9 +43,12 @@ with sync_playwright() as p:
   sample=sample_context.new_page();sample.on('pageerror',lambda e:errors.append(str(e)))
   sample.goto(base);sample.get_by_role('button',name='Try the local demo').click();sample.wait_for_selector('#playerControls:not([hidden])')
   sample_user=sample.request.get(base+'/api/me').json()['user']['id']
-  with sample.expect_response(lambda r:r.url.endswith('/pets/mossbyte.png')) as asset_response:
+  with sample.expect_response(lambda r:r.url.endswith('/api/host')) as asset_response:
    sample.get_by_role('button',name='Hatch Mossbyte sample').click()
   assert asset_response.value.status==200
+  assert sample.request.get(base+'/pets/mossbyte.png').status==200
+  ready=sample.request.get(base+'/api/state').json()['skins']
+  assert any(j['userId']==sample_user and j['status']=='ready' for j in ready)
   sample.wait_for_timeout(500);sample.screenshot(path=str(out/'mossbyte-hatching.png'),full_page=True)
   sample.wait_for_timeout(2100);sample.screenshot(path=str(out/'mossbyte-hatched.png'),full_page=True)
   assert sample.request.get(base+'/api/me').json()['user']['id']==sample_user

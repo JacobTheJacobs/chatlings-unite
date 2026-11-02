@@ -1,0 +1,281 @@
+{
+  "ok": true,
+  "chroma_key": {
+    "hex": "#FF00FF",
+    "rgb": [
+      255,
+      0,
+      255
+    ],
+    "threshold": 96.0
+  },
+  "rows": [
+    {
+      "state": "idle",
+      "frames": [
+        "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/idle/00.png",
+        "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/idle/01.png",
+        "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/idle/02.png",
+        "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/idle/03.png",
+        "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/idle/04.png",
+        "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/idle/05.png"
+      ],
+      "method": "components"
+    },
+    {
+      "state": "running-right",
+      "frames": [
+        "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/running-right/00.png",
+        "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/running-right/01.png",
+        "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/running-right/02.png",
+        "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/running-right/03.png",
+        "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/running-right/04.png",
+        "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/running-right/05.png",
+        "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/running-right/06.png",
+        "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/running-right/07.png"
+      ],
+      "method": "components"
+    },
+    {
+      "state": "running-left",
+      "frames": [
+        "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/running-left/00.png",
+        "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/running-left/01.png",
+        "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/running-left/02.png",
+        "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/running-left/03.png",
+        "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/running-left/04.png",
+        "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/running-left/05.png",
+        "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/running-left/06.png",
+        "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/running-left/07.png"
+      ],
+      "method": "components"
+    },
+    {
+      "state": "waving",
+      "frames": [
+        "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/waving/00.png",
+        "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/waving/01.png",
+        "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/waving/02.png",
+        "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/waving/03.png"
+      ],
+      "method": "components"
+    },
+    {
+      "state": "jumping",
+      "frames": [
+        "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/jumping/00.png",
+        "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/jumping/01.png",
+        "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/jumping/02.png",
+        "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/jumping/03.png",
+        "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/jumping/04.png"
+      ],
+      "method": "components"
+    },
+    {
+      "state": "failed",
+      "frames": [
+        "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/failed/00.png",
+        "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/failed/01.png",
+        "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/failed/02.png",
+        "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/failed/03.png",
+        "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/failed/04.png",
+        "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/failed/05.png",
+        "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/failed/06.png",
+        "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/failed/07.png"
+      ],
+      "method": "components"
+    },
+    {
+      "state": "waiting",
+      "frames": [
+        "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/waiting/00.png",
+        "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/waiting/01.png",
+        "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/waiting/02.png",
+        "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/waiting/03.png",
+        "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/waiting/04.png",
+        "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/waiting/05.png"
+      ],
+      "method": "components"
+    },
+    {
+      "state": "running",
+      "frames": [
+        "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/running/00.png",
+        "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/running/01.png",
+        "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/running/02.png",
+        "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/running/03.png",
+        "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/running/04.png",
+        "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/running/05.png"
+      ],
+      "method": "components"
+    },
+    {
+      "state": "review",
+      "frames": [
+        "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/review/00.png",
+        "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/review/01.png",
+        "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/review/02.png",
+        "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/review/03.png",
+        "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/review/04.png",
+        "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/review/05.png"
+      ],
+      "method": "components"
+    },
+    {
+      "state": "coding",
+      "frames": [
+        "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/coding/00.png",
+        "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/coding/01.png",
+        "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/coding/02.png",
+        "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/coding/03.png",
+        "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/coding/04.png",
+        "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/coding/05.png"
+      ],
+      "method": "components"
+    },
+    {
+      "state": "communicating",
+      "frames": [
+        "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/communicating/00.png",
+        "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/communicating/01.png",
+        "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/communicating/02.png",
+        "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/communicating/03.png",
+        "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/communicating/04.png",
+        "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/communicating/05.png"
+      ],
+      "method": "components"
+    },
+    {
+      "state": "monitoring",
+      "frames": [
+        "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/monitoring/00.png",
+        "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/monitoring/01.png",
+        "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/monitoring/02.png",
+        "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/monitoring/03.png",
+        "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/monitoring/04.png",
+        "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/monitoring/05.png"
+      ],
+      "method": "components"
+    },
+    {
+      "state": "read-file",
+      "frames": [
+        "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/read-file/00.png",
+        "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/read-file/01.png",
+        "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/read-file/02.png",
+        "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/read-file/03.png",
+        "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/read-file/04.png",
+        "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/read-file/05.png"
+      ],
+      "method": "components"
+    },
+    {
+      "state": "syncing",
+      "frames": [
+        "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/syncing/00.png",
+        "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/syncing/01.png",
+        "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/syncing/02.png",
+        "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/syncing/03.png",
+        "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/syncing/04.png",
+        "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/syncing/05.png"
+      ],
+      "method": "components"
+    },
+    {
+      "state": "system",
+      "frames": [
+        "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/system/00.png",
+        "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/system/01.png",
+        "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/system/02.png",
+        "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/system/03.png",
+        "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/system/04.png",
+        "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/system/05.png"
+      ],
+      "method": "components"
+    },
+    {
+      "state": "run-tool",
+      "frames": [
+        "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/run-tool/00.png",
+        "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/run-tool/01.png",
+        "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/run-tool/02.png",
+        "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/run-tool/03.png",
+        "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/run-tool/04.png",
+        "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/run-tool/05.png"
+      ],
+      "method": "components"
+    },
+    {
+      "state": "reaction",
+      "frames": [
+        "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/reaction/00.png",
+        "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/reaction/01.png",
+        "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/reaction/02.png",
+        "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/reaction/03.png",
+        "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/reaction/04.png",
+        "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/reaction/05.png"
+      ],
+      "method": "components"
+    },
+    {
+      "state": "web-fetch",
+      "frames": [
+        "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/web-fetch/00.png",
+        "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/web-fetch/01.png",
+        "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/web-fetch/02.png",
+        "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/web-fetch/03.png",
+        "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/web-fetch/04.png",
+        "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/web-fetch/05.png"
+      ],
+      "method": "components"
+    },
+    {
+      "state": "web-search",
+      "frames": [
+        "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/web-search/00.png",
+        "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/web-search/01.png",
+        "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/web-search/02.png",
+        "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/web-search/03.png",
+        "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/web-search/04.png",
+        "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/web-search/05.png"
+      ],
+      "method": "components"
+    },
+    {
+      "state": "working",
+      "frames": [
+        "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/working/00.png",
+        "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/working/01.png",
+        "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/working/02.png",
+        "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/working/03.png",
+        "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/working/04.png",
+        "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/working/05.png"
+      ],
+      "method": "components"
+    },
+    {
+      "state": "vibe",
+      "frames": [
+        "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/vibe/00.png",
+        "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/vibe/01.png",
+        "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/vibe/02.png",
+        "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/vibe/03.png",
+        "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/vibe/04.png",
+        "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/vibe/05.png"
+      ],
+      "method": "components"
+    },
+    {
+      "state": "write-to-file",
+      "frames": [
+        "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/write-to-file/00.png",
+        "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/write-to-file/01.png",
+        "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/write-to-file/02.png",
+        "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/write-to-file/03.png",
+        "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/write-to-file/04.png",
+        "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/sir-honk/frames/write-to-file/05.png"
+      ],
+      "method": "components"
+    }
+  ]
+}

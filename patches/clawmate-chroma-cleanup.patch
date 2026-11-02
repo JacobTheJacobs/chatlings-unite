@@ -1,0 +1,17 @@
+diff --git a/scripts/extract_strip_frames.py b/scripts/extract_strip_frames.py
+index 8f881c1..dba7ee9 100644
+--- a/scripts/extract_strip_frames.py
++++ b/scripts/extract_strip_frames.py
+@@ -86,7 +86,11 @@ def remove_chroma_background(
+     for y in range(rgba.height):
+         for x in range(rgba.width):
+             red, green, blue, alpha = pixels[x, y]
+-            if color_distance(red, green, blue, chroma_key) <= threshold:
++            # Generated antialias shades may be darker than the Euclidean key radius.
++            # Preserve lavender/pink identity pixels: only strong magenta dominance
++            # is spill, and magenta is forbidden in the canonical sprite palette.
++            magenta_spill = chroma_key == (255, 0, 255) and min(red, blue) - green > 48 and abs(red - blue) < 80
++            if color_distance(red, green, blue, chroma_key) <= threshold or magenta_spill:
+                 pixels[x, y] = (red, green, blue, 0)
+     return rgba
+ 

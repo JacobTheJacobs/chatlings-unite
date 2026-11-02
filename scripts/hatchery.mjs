@@ -3,7 +3,7 @@ import {copyFile,mkdir} from 'node:fs/promises';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {validateAtlas} from '../skins.mjs';
-const [action,id,file]=process.argv.slice(2),base=process.env.PUBLIC_URL||'http://localhost:3000';
+const [action,id,file]=process.argv.slice(2),base=process.env.PUBLIC_URL||'http://localhost:3010';
 const headers={'Content-Type':'application/json','X-Host-Key':process.env.HOST_KEY||''};
 async function request(data){const r=await fetch(base+'/api/skins/host',{method:data?'POST':'GET',headers,body:data?JSON.stringify(data):undefined});const value=await r.json();if(!r.ok)throw Error(value.error);return value;}
 try{

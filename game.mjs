@@ -12,7 +12,21 @@ export class Game {
     const p={id,name:name.slice(0,25),simulated,x:140+this.players.size*49%420,y:330,appearance:appearance(id),input:{},joined:false};
     this.players.set(id,p); this.log(`${p.name} ${simulated?'· SIM':id.startsWith('demo-')?'· DEMO':'· TWITCH'} hatched into the grove`); return p;
   }
-  input(id,input) { const p=this.players.get(id); if(!p) throw Error('Spawn your character first'); if(Number(input.x))p.facing=Number(input.x)<0?'left':'right'; p.input={x:Math.sign(Number(input.x)||0),y:Math.sign(Number(input.y)||0),at:Date.now()}; }
+  chat(id,name,text) {
+    const p=this.spawn(id,name);const now=Date.now();p.chatPet=true;
+    if(now-(p.chatAt||0)<900)return;p.chatAt=now;
+    const command=String(text).trim().toLowerCase();
+    if(command==='!stay'){p.emote=null;p.stay=true;p.chatMove=null;p.input={};return;}
+    if(command==='!roam'){p.emote=null;p.stay=false;return;}
+    const moves={'!left':[-1,0],'!right':[1,0],'!up':[0,-1],'!down':[0,1]};
+    if(moves[command]){p.emote=null;p.chatMove={x:moves[command][0],y:moves[command][1],until:now+1800};return;}
+    if(command==='!jump'){this.jump(id);return;}
+    if(['!dance','!spin','!love','!rage','!sleep','!party'].includes(command)){p.emote={kind:command.slice(1),until:now+6000};return;}
+    if(command==='!spawn')return;
+    if(command.startsWith('!'))return;
+    p.bubble={text:String(text).replace(/[\u0000-\u001f\u007f]/g,' ').slice(0,160),until:now+8000};
+  }
+  input(id,input) { const p=this.players.get(id); if(!p) throw Error('Spawn your character first'); if(Number(input.x))p.facing=Number(input.x)<0?'left':'right'; p.manualAt=Date.now(); p.input={x:Math.sign(Number(input.x)||0),y:Math.sign(Number(input.y)||0),at:Date.now()}; }
   join(id) {
     const p=this.players.get(id); if(!p) throw Error('Spawn first');
     if(this.fusion) throw Error('A fusion is already active');
@@ -40,6 +54,13 @@ export class Game {
   update(dt) {
     this.tick++;
     for(const p of this.players.values()) {
+      const now=Date.now();
+      if(p.chatPet&&!p.joined&&now-(p.manualAt||0)>2500){
+        if(p.emote?.until>now)p.input={};
+        else if(p.chatMove?.until>now){p.input={x:p.chatMove.x,y:p.chatMove.y,at:now};p.facing=p.chatMove.x<0?'left':'right';}
+        else if(!p.stay){const phase=this.tick/100+p.appearance.seed;p.input={x:Math.sin(phase)>0?1:-1,y:Math.sin(phase*.7)*.25,at:now};p.facing=p.input.x<0?'left':'right';if(this.tick%120===p.appearance.seed%120)this.jump(p.id);}
+        else p.input={};
+      }
       if(p.simulated) { const m=this.mission,index=Number(p.id.replace('sim-',''));const assigned=m&&!m.completedAt&&index<2?m.batteries[index]:null;const target=assigned&&!assigned.delivered?(assigned.carrier===p.id?m.robot:!assigned.carrier?assigned:null):null;if(target&&!p.joined){const dx=target.x-p.x,dy=target.y-p.y;if(Math.hypot(dx,dy)<30)this.carry(p.id,p,assigned.id);p.input={x:Math.sign(dx),y:Math.sign(dy),at:Date.now()};}else p.input={x:Math.sin(this.tick/70+p.appearance.seed)>0?1:-1,y:0,at:Date.now()}; }
       if(!p.joined && Date.now()-(p.input.at||0)<500) { const length=Math.hypot(p.input.x,p.input.y)||1; p.x=Math.max(35,Math.min(925,p.x+p.input.x/length*dt*120)); p.y=Math.max(235,Math.min(430,p.y+p.input.y/length*dt*120)); }
     }

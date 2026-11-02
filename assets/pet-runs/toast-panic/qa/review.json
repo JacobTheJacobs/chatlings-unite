@@ -1,0 +1,2275 @@
+{
+  "ok": true,
+  "frames_root": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/toast-panic/frames",
+  "errors": [],
+  "warnings": [],
+  "rows": [
+    {
+      "state": "idle",
+      "expected_frames": 6,
+      "actual_frames": 6,
+      "extraction_method": "components",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "frames": [
+        {
+          "index": 0,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/toast-panic/frames/idle/00.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 25890,
+          "bbox": [
+            5,
+            12,
+            187,
+            195
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 1,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/toast-panic/frames/idle/01.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 25831,
+          "bbox": [
+            5,
+            12,
+            187,
+            196
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 2,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/toast-panic/frames/idle/02.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 26049,
+          "bbox": [
+            5,
+            11,
+            187,
+            197
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 3,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/toast-panic/frames/idle/03.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 26443,
+          "bbox": [
+            5,
+            10,
+            187,
+            198
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 4,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/toast-panic/frames/idle/04.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 26011,
+          "bbox": [
+            5,
+            12,
+            187,
+            196
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 5,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/toast-panic/frames/idle/05.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 25969,
+          "bbox": [
+            5,
+            12,
+            187,
+            196
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        }
+      ]
+    },
+    {
+      "state": "running-right",
+      "expected_frames": 8,
+      "actual_frames": 8,
+      "extraction_method": "components",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "frames": [
+        {
+          "index": 0,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/toast-panic/frames/running-right/00.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 25839,
+          "bbox": [
+            5,
+            11,
+            187,
+            197
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 1,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/toast-panic/frames/running-right/01.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 25707,
+          "bbox": [
+            5,
+            11,
+            187,
+            197
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 2,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/toast-panic/frames/running-right/02.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 25901,
+          "bbox": [
+            5,
+            10,
+            187,
+            198
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 3,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/toast-panic/frames/running-right/03.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 25557,
+          "bbox": [
+            5,
+            6,
+            187,
+            201
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 2
+        },
+        {
+          "index": 4,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/toast-panic/frames/running-right/04.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 25445,
+          "bbox": [
+            5,
+            7,
+            187,
+            201
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 5,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/toast-panic/frames/running-right/05.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 25787,
+          "bbox": [
+            5,
+            7,
+            187,
+            201
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 6,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/toast-panic/frames/running-right/06.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 25841,
+          "bbox": [
+            5,
+            7,
+            187,
+            200
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 7,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/toast-panic/frames/running-right/07.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 25964,
+          "bbox": [
+            5,
+            10,
+            187,
+            198
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        }
+      ]
+    },
+    {
+      "state": "running-left",
+      "expected_frames": 8,
+      "actual_frames": 8,
+      "extraction_method": "components",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "frames": [
+        {
+          "index": 0,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/toast-panic/frames/running-left/00.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 25964,
+          "bbox": [
+            5,
+            10,
+            187,
+            198
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 1,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/toast-panic/frames/running-left/01.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 25841,
+          "bbox": [
+            5,
+            7,
+            187,
+            200
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 2,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/toast-panic/frames/running-left/02.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 25787,
+          "bbox": [
+            5,
+            7,
+            187,
+            201
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 3,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/toast-panic/frames/running-left/03.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 25445,
+          "bbox": [
+            5,
+            7,
+            187,
+            201
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 4,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/toast-panic/frames/running-left/04.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 25557,
+          "bbox": [
+            5,
+            6,
+            187,
+            201
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 2
+        },
+        {
+          "index": 5,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/toast-panic/frames/running-left/05.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 25901,
+          "bbox": [
+            5,
+            10,
+            187,
+            198
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 6,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/toast-panic/frames/running-left/06.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 25707,
+          "bbox": [
+            5,
+            11,
+            187,
+            197
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 7,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/toast-panic/frames/running-left/07.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 25839,
+          "bbox": [
+            5,
+            11,
+            187,
+            197
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        }
+      ]
+    },
+    {
+      "state": "waving",
+      "expected_frames": 4,
+      "actual_frames": 4,
+      "extraction_method": "components",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "frames": [
+        {
+          "index": 0,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/toast-panic/frames/waving/00.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 28989,
+          "bbox": [
+            5,
+            5,
+            187,
+            202
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 1,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/toast-panic/frames/waving/01.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 27554,
+          "bbox": [
+            5,
+            8,
+            187,
+            199
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 2,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/toast-panic/frames/waving/02.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 27219,
+          "bbox": [
+            5,
+            8,
+            187,
+            199
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 3,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/toast-panic/frames/waving/03.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 27290,
+          "bbox": [
+            5,
+            9,
+            187,
+            199
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        }
+      ]
+    },
+    {
+      "state": "jumping",
+      "expected_frames": 5,
+      "actual_frames": 5,
+      "extraction_method": "components",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "frames": [
+        {
+          "index": 0,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/toast-panic/frames/jumping/00.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 27553,
+          "bbox": [
+            5,
+            11,
+            187,
+            197
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 1,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/toast-panic/frames/jumping/01.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 26227,
+          "bbox": [
+            5,
+            10,
+            187,
+            197
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 2,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/toast-panic/frames/jumping/02.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 25770,
+          "bbox": [
+            5,
+            12,
+            187,
+            196
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 3,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/toast-panic/frames/jumping/03.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 26283,
+          "bbox": [
+            5,
+            10,
+            187,
+            197
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 4,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/toast-panic/frames/jumping/04.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 26676,
+          "bbox": [
+            5,
+            10,
+            187,
+            197
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        }
+      ]
+    },
+    {
+      "state": "failed",
+      "expected_frames": 8,
+      "actual_frames": 8,
+      "extraction_method": "components",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "frames": [
+        {
+          "index": 0,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/toast-panic/frames/failed/00.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 25729,
+          "bbox": [
+            5,
+            11,
+            187,
+            196
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 1,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/toast-panic/frames/failed/01.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 28040,
+          "bbox": [
+            7,
+            5,
+            185,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 2,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/toast-panic/frames/failed/02.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 28421,
+          "bbox": [
+            5,
+            5,
+            187,
+            202
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 3,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/toast-panic/frames/failed/03.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 24204,
+          "bbox": [
+            5,
+            22,
+            187,
+            185
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 4,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/toast-panic/frames/failed/04.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 25324,
+          "bbox": [
+            5,
+            10,
+            187,
+            198
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 1
+        },
+        {
+          "index": 5,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/toast-panic/frames/failed/05.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 27658,
+          "bbox": [
+            7,
+            5,
+            185,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 6,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/toast-panic/frames/failed/06.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 27962,
+          "bbox": [
+            7,
+            5,
+            185,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 7,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/toast-panic/frames/failed/07.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 25726,
+          "bbox": [
+            5,
+            11,
+            187,
+            196
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        }
+      ]
+    },
+    {
+      "state": "waiting",
+      "expected_frames": 6,
+      "actual_frames": 6,
+      "extraction_method": "components",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "frames": [
+        {
+          "index": 0,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/toast-panic/frames/waiting/00.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 26582,
+          "bbox": [
+            5,
+            10,
+            187,
+            197
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 1,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/toast-panic/frames/waiting/01.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 26710,
+          "bbox": [
+            5,
+            10,
+            187,
+            198
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 2,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/toast-panic/frames/waiting/02.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 26508,
+          "bbox": [
+            5,
+            10,
+            187,
+            198
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 3,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/toast-panic/frames/waiting/03.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 25813,
+          "bbox": [
+            5,
+            13,
+            187,
+            194
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 4,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/toast-panic/frames/waiting/04.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 26930,
+          "bbox": [
+            5,
+            9,
+            187,
+            198
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 5,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/toast-panic/frames/waiting/05.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 26695,
+          "bbox": [
+            5,
+            10,
+            187,
+            198
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        }
+      ]
+    },
+    {
+      "state": "running",
+      "expected_frames": 6,
+      "actual_frames": 6,
+      "extraction_method": "components",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "frames": [
+        {
+          "index": 0,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/toast-panic/frames/running/00.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 26458,
+          "bbox": [
+            5,
+            10,
+            187,
+            197
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 1,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/toast-panic/frames/running/01.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 27950,
+          "bbox": [
+            6,
+            5,
+            185,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 1
+        },
+        {
+          "index": 2,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/toast-panic/frames/running/02.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 27877,
+          "bbox": [
+            10,
+            5,
+            182,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 3,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/toast-panic/frames/running/03.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 28266,
+          "bbox": [
+            6,
+            5,
+            186,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 4,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/toast-panic/frames/running/04.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 28118,
+          "bbox": [
+            7,
+            5,
+            185,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 5,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/toast-panic/frames/running/05.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 27449,
+          "bbox": [
+            5,
+            8,
+            187,
+            200
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        }
+      ]
+    },
+    {
+      "state": "review",
+      "expected_frames": 6,
+      "actual_frames": 6,
+      "extraction_method": "components",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "frames": [
+        {
+          "index": 0,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/toast-panic/frames/review/00.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 27974,
+          "bbox": [
+            5,
+            6,
+            187,
+            202
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 1,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/toast-panic/frames/review/01.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 27332,
+          "bbox": [
+            9,
+            5,
+            182,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 2,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/toast-panic/frames/review/02.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 27096,
+          "bbox": [
+            10,
+            5,
+            182,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 3,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/toast-panic/frames/review/03.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 27412,
+          "bbox": [
+            7,
+            5,
+            185,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 4,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/toast-panic/frames/review/04.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 27437,
+          "bbox": [
+            7,
+            5,
+            185,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 5,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/toast-panic/frames/review/05.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 28145,
+          "bbox": [
+            5,
+            5,
+            186,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        }
+      ]
+    },
+    {
+      "state": "coding",
+      "expected_frames": 6,
+      "actual_frames": 6,
+      "extraction_method": "components",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "frames": [
+        {
+          "index": 0,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/toast-panic/frames/coding/00.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 28660,
+          "bbox": [
+            8,
+            5,
+            184,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 1,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/toast-panic/frames/coding/01.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 27455,
+          "bbox": [
+            9,
+            5,
+            183,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 2,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/toast-panic/frames/coding/02.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 28172,
+          "bbox": [
+            9,
+            5,
+            182,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 3,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/toast-panic/frames/coding/03.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 27466,
+          "bbox": [
+            9,
+            5,
+            183,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 4,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/toast-panic/frames/coding/04.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 28134,
+          "bbox": [
+            9,
+            5,
+            182,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 5,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/toast-panic/frames/coding/05.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 27475,
+          "bbox": [
+            9,
+            5,
+            183,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        }
+      ]
+    },
+    {
+      "state": "communicating",
+      "expected_frames": 6,
+      "actual_frames": 6,
+      "extraction_method": "components",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "frames": [
+        {
+          "index": 0,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/toast-panic/frames/communicating/00.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 27648,
+          "bbox": [
+            5,
+            5,
+            187,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 1,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/toast-panic/frames/communicating/01.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 26729,
+          "bbox": [
+            8,
+            5,
+            184,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 2,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/toast-panic/frames/communicating/02.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 26737,
+          "bbox": [
+            8,
+            5,
+            184,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 3,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/toast-panic/frames/communicating/03.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 27230,
+          "bbox": [
+            6,
+            5,
+            186,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 1
+        },
+        {
+          "index": 4,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/toast-panic/frames/communicating/04.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 26884,
+          "bbox": [
+            7,
+            5,
+            184,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 5,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/toast-panic/frames/communicating/05.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 27389,
+          "bbox": [
+            5,
+            5,
+            186,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        }
+      ]
+    },
+    {
+      "state": "monitoring",
+      "expected_frames": 6,
+      "actual_frames": 6,
+      "extraction_method": "components",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "frames": [
+        {
+          "index": 0,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/toast-panic/frames/monitoring/00.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 27085,
+          "bbox": [
+            5,
+            8,
+            187,
+            199
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 1,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/toast-panic/frames/monitoring/01.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 27334,
+          "bbox": [
+            5,
+            8,
+            187,
+            200
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 2,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/toast-panic/frames/monitoring/02.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 26135,
+          "bbox": [
+            5,
+            9,
+            187,
+            199
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 3,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/toast-panic/frames/monitoring/03.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 27264,
+          "bbox": [
+            5,
+            8,
+            187,
+            200
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 4,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/toast-panic/frames/monitoring/04.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 28322,
+          "bbox": [
+            5,
+            5,
+            187,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 5,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/toast-panic/frames/monitoring/05.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 27288,
+          "bbox": [
+            5,
+            7,
+            187,
+            200
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        }
+      ]
+    },
+    {
+      "state": "read-file",
+      "expected_frames": 6,
+      "actual_frames": 6,
+      "extraction_method": "components",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "frames": [
+        {
+          "index": 0,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/toast-panic/frames/read-file/00.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 26721,
+          "bbox": [
+            5,
+            9,
+            187,
+            199
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 1,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/toast-panic/frames/read-file/01.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 28223,
+          "bbox": [
+            6,
+            5,
+            185,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 2,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/toast-panic/frames/read-file/02.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 27981,
+          "bbox": [
+            6,
+            5,
+            185,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 3,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/toast-panic/frames/read-file/03.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 28323,
+          "bbox": [
+            5,
+            6,
+            187,
+            202
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 4,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/toast-panic/frames/read-file/04.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 28388,
+          "bbox": [
+            6,
+            5,
+            185,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 5,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/toast-panic/frames/read-file/05.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 26691,
+          "bbox": [
+            5,
+            8,
+            187,
+            199
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 1
+        }
+      ]
+    },
+    {
+      "state": "syncing",
+      "expected_frames": 6,
+      "actual_frames": 6,
+      "extraction_method": "components",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "frames": [
+        {
+          "index": 0,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/toast-panic/frames/syncing/00.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 26249,
+          "bbox": [
+            5,
+            10,
+            187,
+            197
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 1,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/toast-panic/frames/syncing/01.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 23974,
+          "bbox": [
+            20,
+            5,
+            172,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 2,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/toast-panic/frames/syncing/02.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 17929,
+          "bbox": [
+            40,
+            5,
+            152,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 3,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/toast-panic/frames/syncing/03.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 27248,
+          "bbox": [
+            6,
+            5,
+            185,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 4,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/toast-panic/frames/syncing/04.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 17873,
+          "bbox": [
+            40,
+            5,
+            152,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 5,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/toast-panic/frames/syncing/05.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 25499,
+          "bbox": [
+            14,
+            5,
+            178,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        }
+      ]
+    },
+    {
+      "state": "system",
+      "expected_frames": 6,
+      "actual_frames": 6,
+      "extraction_method": "components",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "frames": [
+        {
+          "index": 0,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/toast-panic/frames/system/00.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 27548,
+          "bbox": [
+            5,
+            9,
+            187,
+            199
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 1,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/toast-panic/frames/system/01.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 27725,
+          "bbox": [
+            5,
+            7,
+            187,
+            200
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 2,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/toast-panic/frames/system/02.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 27781,
+          "bbox": [
+            5,
+            8,
+            187,
+            200
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 3,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/toast-panic/frames/system/03.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 27445,
+          "bbox": [
+            5,
+            8,
+            187,
+            200
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 4,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/toast-panic/frames/system/04.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 28033,
+          "bbox": [
+            5,
+            7,
+            187,
+            201
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 5,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/toast-panic/frames/system/05.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 28181,
+          "bbox": [
+            5,
+            7,
+            187,
+            201
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        }
+      ]
+    },
+    {
+      "state": "run-tool",
+      "expected_frames": 6,
+      "actual_frames": 6,
+      "extraction_method": "components",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "frames": [
+        {
+          "index": 0,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/toast-panic/frames/run-tool/00.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 24884,
+          "bbox": [
+            5,
+            13,
+            187,
+            195
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 1,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/toast-panic/frames/run-tool/01.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 26962,
+          "bbox": [
+            5,
+            5,
+            187,
+            202
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 2,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/toast-panic/frames/run-tool/02.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 26399,
+          "bbox": [
+            5,
+            8,
+            187,
+            200
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 3,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/toast-panic/frames/run-tool/03.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 25014,
+          "bbox": [
+            5,
+            11,
+            187,
+            196
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 1
+        },
+        {
+          "index": 4,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/toast-panic/frames/run-tool/04.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 24959,
+          "bbox": [
+            5,
+            11,
+            187,
+            197
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 5,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/toast-panic/frames/run-tool/05.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 24725,
+          "bbox": [
+            5,
+            13,
+            187,
+            194
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        }
+      ]
+    },
+    {
+      "state": "reaction",
+      "expected_frames": 6,
+      "actual_frames": 6,
+      "extraction_method": "components",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "frames": [
+        {
+          "index": 0,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/toast-panic/frames/reaction/00.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 27539,
+          "bbox": [
+            7,
+            5,
+            184,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 1,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/toast-panic/frames/reaction/01.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 26976,
+          "bbox": [
+            12,
+            5,
+            180,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 2,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/toast-panic/frames/reaction/02.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 26057,
+          "bbox": [
+            15,
+            5,
+            177,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 3,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/toast-panic/frames/reaction/03.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 26511,
+          "bbox": [
+            13,
+            5,
+            178,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 4,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/toast-panic/frames/reaction/04.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 26394,
+          "bbox": [
+            14,
+            5,
+            177,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 1
+        },
+        {
+          "index": 5,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/toast-panic/frames/reaction/05.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 27060,
+          "bbox": [
+            9,
+            5,
+            183,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        }
+      ]
+    },
+    {
+      "state": "web-fetch",
+      "expected_frames": 6,
+      "actual_frames": 6,
+      "extraction_method": "components",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "frames": [
+        {
+          "index": 0,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/toast-panic/frames/web-fetch/00.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 28788,
+          "bbox": [
+            5,
+            5,
+            187,
+            202
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 1,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/toast-panic/frames/web-fetch/01.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 28763,
+          "bbox": [
+            5,
+            5,
+            186,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 2,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/toast-panic/frames/web-fetch/02.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 27908,
+          "bbox": [
+            9,
+            5,
+            182,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 3,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/toast-panic/frames/web-fetch/03.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 27807,
+          "bbox": [
+            5,
+            7,
+            187,
+            201
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 4,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/toast-panic/frames/web-fetch/04.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 28145,
+          "bbox": [
+            8,
+            5,
+            184,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 5,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/toast-panic/frames/web-fetch/05.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 28751,
+          "bbox": [
+            5,
+            5,
+            187,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        }
+      ]
+    },
+    {
+      "state": "web-search",
+      "expected_frames": 6,
+      "actual_frames": 6,
+      "extraction_method": "components",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "frames": [
+        {
+          "index": 0,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/toast-panic/frames/web-search/00.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 28357,
+          "bbox": [
+            5,
+            5,
+            186,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 1,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/toast-panic/frames/web-search/01.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 27847,
+          "bbox": [
+            9,
+            5,
+            182,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 2,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/toast-panic/frames/web-search/02.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 27036,
+          "bbox": [
+            5,
+            6,
+            187,
+            201
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 3,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/toast-panic/frames/web-search/03.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 28208,
+          "bbox": [
+            5,
+            5,
+            187,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 4,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/toast-panic/frames/web-search/04.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 27937,
+          "bbox": [
+            6,
+            5,
+            185,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 5,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/toast-panic/frames/web-search/05.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 28100,
+          "bbox": [
+            7,
+            5,
+            184,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        }
+      ]
+    },
+    {
+      "state": "working",
+      "expected_frames": 6,
+      "actual_frames": 6,
+      "extraction_method": "components",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "frames": [
+        {
+          "index": 0,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/toast-panic/frames/working/00.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 27547,
+          "bbox": [
+            9,
+            5,
+            182,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 1,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/toast-panic/frames/working/01.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 26482,
+          "bbox": [
+            12,
+            5,
+            180,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 2,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/toast-panic/frames/working/02.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 26386,
+          "bbox": [
+            12,
+            5,
+            179,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 3,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/toast-panic/frames/working/03.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 27544,
+          "bbox": [
+            9,
+            5,
+            182,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 4,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/toast-panic/frames/working/04.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 26461,
+          "bbox": [
+            12,
+            5,
+            180,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 5,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/toast-panic/frames/working/05.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 26723,
+          "bbox": [
+            11,
+            5,
+            180,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        }
+      ]
+    },
+    {
+      "state": "vibe",
+      "expected_frames": 6,
+      "actual_frames": 6,
+      "extraction_method": "components",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "frames": [
+        {
+          "index": 0,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/toast-panic/frames/vibe/00.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 27701,
+          "bbox": [
+            5,
+            7,
+            187,
+            201
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 1,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/toast-panic/frames/vibe/01.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 26496,
+          "bbox": [
+            5,
+            8,
+            187,
+            200
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 2,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/toast-panic/frames/vibe/02.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 26009,
+          "bbox": [
+            5,
+            8,
+            187,
+            199
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 3,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/toast-panic/frames/vibe/03.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 27649,
+          "bbox": [
+            5,
+            7,
+            187,
+            201
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 4,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/toast-panic/frames/vibe/04.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 26449,
+          "bbox": [
+            5,
+            7,
+            187,
+            201
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 5,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/toast-panic/frames/vibe/05.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 25784,
+          "bbox": [
+            5,
+            8,
+            187,
+            199
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        }
+      ]
+    },
+    {
+      "state": "write-to-file",
+      "expected_frames": 6,
+      "actual_frames": 6,
+      "extraction_method": "components",
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "frames": [
+        {
+          "index": 0,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/toast-panic/frames/write-to-file/00.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 26506,
+          "bbox": [
+            5,
+            7,
+            187,
+            200
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 1,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/toast-panic/frames/write-to-file/01.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 26801,
+          "bbox": [
+            12,
+            5,
+            179,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 2,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/toast-panic/frames/write-to-file/02.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 26599,
+          "bbox": [
+            13,
+            5,
+            178,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 3,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/toast-panic/frames/write-to-file/03.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 26526,
+          "bbox": [
+            12,
+            5,
+            179,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 4,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/toast-panic/frames/write-to-file/04.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 26677,
+          "bbox": [
+            13,
+            5,
+            179,
+            203
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        },
+        {
+          "index": 5,
+          "file": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/toast-panic/frames/write-to-file/05.png",
+          "width": 192,
+          "height": 208,
+          "nontransparent_pixels": 26832,
+          "bbox": [
+            5,
+            6,
+            187,
+            201
+          ],
+          "edge_pixels": 0,
+          "chroma_adjacent_pixels": 0
+        }
+      ]
+    }
+  ]
+}

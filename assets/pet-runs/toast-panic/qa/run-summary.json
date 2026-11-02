@@ -1,0 +1,10 @@
+{
+  "ok": true,
+  "run_dir": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/toast-panic",
+  "spritesheet": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/toast-panic/final/spritesheet.webp",
+  "validation": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/toast-panic/final/validation.json",
+  "contact_sheet": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/toast-panic/qa/contact-sheet.png",
+  "review": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/toast-panic/qa/review.json",
+  "videos": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/toast-panic/qa/videos",
+  "package": "/home/jak/githuff/google/hackaton/twitch/assets/pets/toast-panic"
+}

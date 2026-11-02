@@ -1,0 +1,10 @@
+{
+  "ok": true,
+  "run_dir": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/buffer-cat",
+  "spritesheet": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/buffer-cat/final/spritesheet.webp",
+  "validation": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/buffer-cat/final/validation.json",
+  "contact_sheet": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/buffer-cat/qa/contact-sheet.png",
+  "review": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/buffer-cat/qa/review.json",
+  "videos": "/home/jak/githuff/google/hackaton/twitch/assets/pet-runs/buffer-cat/qa/videos",
+  "package": "/home/jak/githuff/google/hackaton/twitch/assets/pets/buffer-cat"
+}
