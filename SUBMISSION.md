@@ -47,7 +47,7 @@ Confirmed against the current Codex build thread.
       a second real viewer account is not a submission requirement.
 - [ ] Record a public YouTube demo under three minutes, showing the
       project functioning on Twitch and how it was built with Codex.
-- [ ] Publish/share https://github.com/JacobTheJacobs/chatlings-unite with source,
+- [x] Published https://github.com/JacobTheJacobs/chatlings-unite with source,
       generated assets, setup instructions and attribution. Credentials and local
       state are excluded.
 - [ ] Replace any placeholder submission fields with the repository and video URLs.
