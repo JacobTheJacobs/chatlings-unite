@@ -1,36 +1,68 @@
 # Chatlings Unite — submission draft
 
 ## Tagline
-Your Twitch chat becomes a pixel world. Hatch, cooperate, and wake a giant guardian together.
+Your Twitch chat comes alive as animated pets on your desktop.
 
 ## Project description
-Chatlings Unite turns a Twitch community into tiny playable creatures in a shared pixel grove. A viewer can spawn from Twitch chat with `!spawn`, sign in to a synchronized browser controller, and move their character while the streamer displays the world as a transparent OBS browser source.
+Chatlings Unite gives each Twitch chatter an animated desktop companion. A viewer's
+first message spawns one of five generated default pets. Normal chat appears above
+the pet in a speech bubble. Viewers control their own pet with `!left`, `!right`,
+`!jump`, `!dance`, `!spin`, `!love`, `!rage`, `!party`, `!sleep`, `!stay`, and `!roam`.
+No viewer installation or separate sign-in is needed for chat control.
 
-The community can collect and deliver three batteries to wake a Guardian, use dash, spring, magnet, and shield abilities, or fuse three characters into one Guardian with separate pilot, shield, and cannon roles. The host can summon a Glitch boss. Labeled simulated teammates make solo demonstrations possible.
+The streamer can drag and throw pets. Window physics adds gravity, friction,
+landings on exposed window tops, and collisions with window edges; Walk on screen
+provides simpler movement. A transparent Linux X11 overlay puts pets over desktop
+windows. OBS display capture includes them in the broadcast.
 
-Viewers get a seeded character immediately. They can request a custom appearance while continuing to play; a host can create and import a Clawmate sprite atlas, which triggers an egg reveal for everyone. Mossbyte is a pre-generated sample pet included with the project. Custom requests currently require host-operated generation and review.
-
-The host can enable Mossbyte as a separate pet. When an API key is configured, the Codex SDK can choose a validated high-level goal, such as following a player or collecting a battery. The game executes movement locally. If Codex is unavailable, the interface clearly labels its local follow fallback.
+A small broadcaster-only admin page controls desktop pets, movement mode, and
+custom pet assignments. Custom creatures are commissioned by the streamer and
+inspired by each viewer's nickname. A local Codex worker uses the Hatch Clawmate
+workflow to prepare all 22 animation rows, validate the atlas and review outputs.
+The current pet remains until a validated replacement is ready. The five included
+defaults were generated and reviewed; a complete new live custom commission has
+not yet been demonstrated and must not be presented as verified.
 
 ## How Codex was used
-Codex helped build the Node server, Twitch EventSub and OAuth integration, synchronized controller and OBS overlay, game rules, procedural avatars, custom-skin queue, Codex pet planner, tests, and setup documentation. The included Mossbyte sample was created through the Hatch Clawmate workflow using image generation and reviewed animation rows.
+Codex built the Node server, Twitch EventSub/OAuth integration, desktop renderer,
+mouse interactions, physics, admin UI, leased generation worker, recovery logic,
+tests, and documentation. The five default pets were created through the Hatch
+Clawmate image-generation workflow with animation-row QA. Desktop motion also
+references the provided Clawmate desktop implementation.
 
 ## Platform and setup
-Node.js 24+, a Twitch developer application, a broadcaster user token, and an OBS browser source. A local demo runs without Twitch or a Codex API key. Setup and limitations are documented in README.md.
+Node.js 24+, Linux X11 with GTK3, libwnck and compositing, a Twitch developer app,
+a broadcaster chat authorization, and OBS display capture. README.md documents
+setup, temporary hosting, generation dependencies, and limitations.
 
-## Codex session ID
+## Recorded Codex build session ID
 01a1993c-13f9-7090-a2a9-10bcbac1bee6
 
-## Submission fields still needed
-- Repository URL accessible to judges, with all source and instructions.
-- Public or unlisted YouTube video under three minutes showing the project functioning on Twitch and showing Codex being used.
-- Live verification of the actual Twitch chat spawn, controller sign-in, and OBS stream overlay.
-- Devpost registration and completed submission. Confirm the project status reads Submitted.
+Confirm that this recorded ID identifies the build thread supplied to judges.
 
-## Suggested video sequence (under three minutes)
-1. Show Twitch stream and OBS overlay, then send `!spawn` from a real Twitch account.
-2. Sign into the controller as that user and show movement in the overlay.
-3. Start the battery challenge and add explicitly labeled simulated teammates; demonstrate a delivery and the Guardian waking.
-4. Show the included pre-generated Mossbyte reveal. Describe other custom skins as host-generated, not automatic.
-5. Show the pet controls and, only if configured and verified, a real Codex-planned goal. Otherwise identify the local fallback honestly.
-6. Show the Codex build thread and source/tests.
+## Submission checklist
+- [ ] Reconnect Twitch chat in local `/admin`; current access token was rejected
+      and the old version did not retain its refresh token.
+- [ ] Verify two real Twitch users: first message spawns, bubbles appear, chat
+      commands affect the correct pet, mouse throwing and window landing work.
+- [ ] Record a public YouTube demo under three minutes, showing the
+      project functioning on Twitch and how it was built with Codex.
+- [ ] Publish/share a repository containing source, generated assets, required
+      setup instructions and third-party attribution. No Git remote is currently
+      configured for this project. Exclude credentials and local state.
+- [ ] Replace any placeholder submission fields with the repository and video URLs.
+- [ ] Complete Devpost and verify its status reads Submitted.
+
+## Suggested video sequence
+1. Show the Twitch broadcast with pets over the desktop (not merely the landing page).
+2. Send a normal message from a viewer: pet spawns and its bubble appears.
+3. Demonstrate `!left`, `!jump`, and a reaction; show a second viewer's separate pet.
+4. Drag and flick a pet onto a visible window and show it settle.
+5. Show the simple admin and the five generated defaults. Clearly distinguish the
+   custom-generation workflow from any prerecorded generated examples.
+6. Show Codex's build thread, source, and tests. Keep the full video below three minutes.
+
+## Current delivery limits
+The public URL is a temporary Cloudflare tunnel and depends on this machine
+remaining online. This is a hackathon prototype, not a production hosting promise.
+The old grove/fusion experiment remains in the repository but is not the main demo.
