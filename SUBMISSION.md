@@ -38,13 +38,13 @@ setup, temporary hosting, generation dependencies, and limitations.
 ## Recorded Codex build session ID
 01a1993c-13f9-7090-a2a9-10bcbac1bee6
 
-Confirm that this recorded ID identifies the build thread supplied to judges.
+Confirmed against the current Codex build thread.
 
 ## Submission checklist
-- [ ] Reconnect Twitch chat in local `/admin`; current access token was rejected
-      and the old version did not retain its refresh token.
-- [ ] Verify two real Twitch users: first message spawns, bubbles appear, chat
-      commands affect the correct pet, mouse throwing and window landing work.
+- [x] Twitch chat connected and refresh token saved.
+- [ ] Record a real Twitch chat message, bubble, control command, mouse throw and
+      window landing. Extra pets may be the clearly labeled simulated viewers;
+      a second real viewer account is not a submission requirement.
 - [ ] Record a public YouTube demo under three minutes, showing the
       project functioning on Twitch and how it was built with Codex.
 - [ ] Publish/share a repository containing source, generated assets, required
@@ -56,7 +56,8 @@ Confirm that this recorded ID identifies the build thread supplied to judges.
 ## Suggested video sequence
 1. Show the Twitch broadcast with pets over the desktop (not merely the landing page).
 2. Send a normal message from a viewer: pet spawns and its bubble appears.
-3. Demonstrate `!left`, `!jump`, and a reaction; show a second viewer's separate pet.
+3. Demonstrate `!left`, `!jump`, and a reaction; use the labeled simulated pets
+   to show a larger community without claiming they are real viewers.
 4. Drag and flick a pet onto a visible window and show it settle.
 5. Show the simple admin and the five generated defaults. Clearly distinguish the
    custom-generation workflow from any prerecorded generated examples.
