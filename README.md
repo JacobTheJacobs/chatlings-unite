@@ -449,3 +449,13 @@ window perch 44 px/s. Flicks use the latest mouse samples and retain the actual
 release direction. Landings include a short settle pose and frictional slide
 before autonomous walking resumes. Window physics must be selected for window
 collisions; Walk on screen deliberately ignores windows.
+
+## Rehearse with simulated viewers
+
+In `/admin`, expand **Rehearse without an audience**. **Add 5 demo pets**
+creates five simulated companions on the actual desktop. **Play reactions**
+shows sample speech bubbles and reaction animations. **Remove demo pets**
+removes only simulated pets; real chatters stay. Repeated Add clicks do not
+duplicate the five pets. They are labeled DEMO in admin and SIM on desktop,
+never send messages to Twitch, and cannot commission paid custom generation.
+Use one real Twitch account to verify actual chat integration for your recording.

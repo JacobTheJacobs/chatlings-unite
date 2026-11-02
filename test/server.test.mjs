@@ -40,6 +40,15 @@ test('HTTP sessions isolate controllers, reject foreign origins, and stream shar
  assert.equal((await post('pet',{enabled:true,personality:'hero',instruction:''},cookie)).status,403);
  assert.equal((await post('pet',{enabled:true,personality:'hero',instruction:''},cookie,{'X-Host-Key':'test-host'})).status,200);
  assert.equal((await post('pet',{enabled:false,personality:'hero',instruction:''},cookie,{'X-Host-Key':'test-host'})).status,200);
+ await new Promise(resolve=>setTimeout(resolve,1050));
+ assert.equal((await post('host',{action:'bots'},cookie,{'X-Host-Key':'test-host'})).status,200);
+ let demoState=await(await fetch(base+'/api/state')).json();assert.equal(demoState.players.filter(p=>p.simulated).length,5);
+ assert.equal((await post('host',{action:'bot-moments'},cookie)).status,403);
+ assert.equal((await post('host',{action:'bot-moments'},cookie,{'X-Host-Key':'test-host'})).status,200);
+ demoState=await(await fetch(base+'/api/state')).json();assert.ok(demoState.players.filter(p=>p.simulated).every(p=>p.bubble&&p.emote));
+ assert.equal((await post('skins/host',{action:'assign',userId:'sim-0'},cookie,{'X-Host-Key':'test-host'})).status,400);
+ assert.equal((await post('host',{action:'clear-bots'},cookie,{'X-Host-Key':'test-host'})).status,200);
+ demoState=await(await fetch(base+'/api/state')).json();assert.equal(demoState.players.filter(p=>p.simulated).length,0);assert.ok(demoState.players.some(p=>p.id===u.id));assert.ok(demoState.players.some(p=>p.id===v.id));
  assert.equal((await post('host',{action:'build'},cookie,{'X-Host-Key':'test-host'})).status,200);
  assert.equal((await post('host',{action:'fuse-demo'},cookie,{'X-Host-Key':'test-host'})).status,200);
  const abort=new AbortController();const stream=await fetch(base+'/api/events',{signal:abort.signal}),reader=stream.body.getReader();let data='';while(!data.includes('data: ')){data+=new TextDecoder().decode((await reader.read()).value);}abort.abort();

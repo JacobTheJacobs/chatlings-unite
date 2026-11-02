@@ -32,6 +32,17 @@ with sync_playwright() as p:
  page.set_viewport_size({'width':1440,'height':1000});page.evaluate('window.scrollTo(0,0)');page.wait_for_timeout(150);page.screenshot(path=str(out/'simple-admin.png'),full_page=True)
  overlay=context.new_page();overlay.on('pageerror',lambda e:errors.append(str(e)));overlay.goto(base+'/overlay');overlay.wait_for_timeout(300)
  assert overlay.evaluate("getComputedStyle(document.body).backgroundColor")=='rgba(0, 0, 0, 0)'
+ # Streamer rehearsal controls operate only on labeled simulated pets.
+ page.locator('.demo-tools summary').click()
+ page.get_by_role('button',name='Add 5 demo pets',exact=True).click()
+ page.wait_for_function("() => document.querySelector('#demoStatus').textContent.includes('5 simulated')")
+ assert page.locator('.viewer-row').filter(has_text='DEMO').count()==5
+ page.get_by_role('button',name='Play reactions',exact=True).click()
+ page.wait_for_timeout(150)
+ state=context.request.get(base+'/api/state').json();assert all(p.get('emote') and p.get('bubble') for p in state['players'] if p.get('simulated'))
+ page.get_by_role('button',name='Remove demo pets',exact=True).click()
+ page.wait_for_function("() => !document.querySelector('#demoStatus').textContent.includes('5 simulated')")
+ assert page.locator('.viewer-row').filter(has_text=user['name']).count()==1
  # Check the public role gate in a separate context, with no desktop actions.
  gate=browser.new_context();gate.route('**/api/me',lambda route:route.fulfill(json={'user':None,'host':False,'oauth':True,'demo':False}))
  g=gate.new_page();g.goto(base+'/admin');g.wait_for_selector('#adminGate:not([hidden])');assert g.locator('#adminControls').is_hidden()
