@@ -18,6 +18,12 @@ with sync_playwright() as p:
  # Only this isolated test server has keyless local demo-host mode.
  response=context.request.post(base+'/api/demo',data={'name':'StarryToast'});assert response.status==200
  user=response.json()['user'];page.goto(base+'/admin');page.wait_for_selector('#adminControls:not([hidden])')
+ page.locator('#movementMode').select_option('physics')
+ page.wait_for_function("document.querySelector('#movementHelp').textContent.includes('Gravity')")
+ assert context.request.get(base+'/api/admin/status').json()['desktop']['mode']=='physics'
+ page.locator('#movementMode').select_option('walk')
+ page.wait_for_function("document.querySelector('#movementHelp').textContent.includes('No falling')")
+ assert context.request.get(base+'/api/admin/status').json()['desktop']['mode']=='walk'
  page.get_by_role('button',name='Make custom pet',exact=True).first.click()
  page.wait_for_selector('.viewer-row button:disabled')
  jobs=context.request.get(base+'/api/skins/host').json();assert any(j['userId']==user['id'] and j['requestedBy']=='admin' and j['status']=='queued' for j in jobs)

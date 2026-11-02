@@ -76,4 +76,37 @@ class PhysicsTests(unittest.TestCase):
         sim=Physics(1000,700);sim.sync([A,{'id':'two'}]);sim.bodies['two'].x=600
         sim.sync([{'id':'two'}]);self.assertNotIn('viewer',sim.bodies);self.assertEqual(sim.bodies['two'].x,600)
 
+    def test_narrow_window_side_cannot_trap_pet(self):
+        sim=Physics(1000,700);sim.edges=visible_edges([(7,70,100,900,590)],1000,700)
+        sim.bodies['viewer']=Body(34,697,support='floor')
+        b=self.settle(sim,3,{**A,'moving':True,'facing':'right'})
+        self.assertGreater(b.x,180);self.assertLessEqual(b.x,sim.right)
+
+    def test_throw_follows_mouse_without_artificial_upward_kick(self):
+        for end_y in (200,280):
+            sim=Physics(1000,700);sim.bodies['viewer']=Body(200,200)
+            sim.begin_drag('viewer',200,200,1);sim.drag('viewer',280,end_y,1.08);sim.release('viewer',1.081)
+            self.assertAlmostEqual(sim.bodies['viewer'].vy,(end_y-200)/.08)
+            b=self.settle(sim,2);self.assertEqual(b.support,'floor');self.assertFalse(b.thrown)
+
+    def test_walk_mode_ignores_windows_and_keeps_placement(self):
+        sim=Physics(1000,700,mode='walk');sim.bodies['viewer']=Body(200,400)
+        sim.edges=visible_edges([(7,250,100,500,500)],1000,700)
+        b=self.settle(sim,3,{**A,'moving':True,'facing':'right'})
+        self.assertGreater(b.x,350);self.assertEqual(b.y,400)
+        sim.begin_drag('viewer',b.x,b.y,1);sim.drag('viewer',600,250,1.05);sim.release('viewer',1.051)
+        self.assertFalse(b.thrown);self.assertEqual(b.vx,0)
+        self.settle(sim,2);self.assertEqual(b.y,250)
+
+    def test_walk_mode_turns_at_edge_and_jump_returns_to_baseline(self):
+        sim=Physics(1000,700,mode='walk');sim.bodies['viewer']=Body(965,400)
+        b=self.settle(sim,1,{**A,'moving':True,'facing':'right','jumpedAt':999})
+        self.assertLess(b.x,940);self.assertEqual(b.y,400);self.assertEqual(b.support,'walk')
+
+    def test_switch_modes_clears_old_window_support_and_throw(self):
+        sim=Physics(1000,700);b=Body(10,350,vx=900,vy=-400,support=7,thrown=True);sim.bodies['viewer']=b
+        sim.set_mode('walk');self.assertEqual(b.support,'walk');self.assertFalse(b.thrown);self.assertEqual(b.vy,0)
+        self.assertGreater(b.x,sim.left);sim.set_mode('physics');self.assertIsNone(b.support)
+        b=self.settle(sim);self.assertEqual(b.support,'floor')
+
 if __name__=='__main__':unittest.main()

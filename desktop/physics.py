@@ -33,6 +33,9 @@ class Body:
     drive: int = 0
     last_intent: int = 0
     last_horizontal: float = 0
+    walk_y: object = None
+    jump_start: float = -100
+    turn_until: float = 0
     landed_at: float = -10
     offset: tuple = (0, 0)
     samples: list = field(default_factory=list)
@@ -76,16 +79,17 @@ def visible_edges(windows, width, height):
 class Physics:
     HALF = 32
     HEIGHT = 74
-    GRAVITY = 1400
-    MAX_FALL = 1200
-    WALK = 70
+    GRAVITY = 2000
+    MAX_FALL = 1500
+    WALK = 60
 
-    def __init__(self, width, height, floor=None, left=0, right=None, ceiling=0):
+    def __init__(self, width, height, floor=None, left=0, right=None, ceiling=0, mode="physics"):
         self.width, self.height = width, height
         self.floor = height-3 if floor is None else floor
         self.left = left+self.HALF
         self.right = (width if right is None else right)-self.HALF
         self.ceiling = ceiling+self.HEIGHT
+        self.mode = mode
         self.bodies = {}
         self.edges = []
         self.clock = 0
@@ -96,7 +100,54 @@ class Physics:
         for p in actors:
             if p['id'] not in self.bodies:
                 x = 45 + p.get('x', 450)/960*(self.width-90)
-                self.bodies[p['id']] = Body(max(self.left, min(self.right, x)), self.ceiling+16)
+                self.bodies[p['id']] = Body(max(self.left, min(self.right, x)), self.floor-34 if self.mode=='walk' else self.ceiling+16)
+
+    def set_mode(self, mode):
+        if mode not in ('walk','physics'): raise ValueError('Unknown movement mode')
+        if mode == self.mode:return
+        self.mode = mode
+        for b in self.bodies.values():
+            b.x = max(self.left+8, min(self.right-8,b.x))
+            b.vx = b.vy = 0; b.thrown = False; b.jump_start = -100
+            b.support = 'walk' if mode == 'walk' else None
+            b.walk_y = max(self.ceiling,min(self.floor-24,b.y))
+            b.y = b.walk_y
+
+    def _drive(self,b,actor,dt):
+        direction = (-1 if actor.get('facing') == 'left' else 1) if actor.get('moving') else 0
+        emote = actor.get('emote') or {}
+        if emote.get('until',0) > actor.get('_now',0): direction = 0
+        if direction != b.last_intent:
+            if self.clock >= b.turn_until:b.drive = direction
+            b.last_intent = direction
+        move = actor.get('chatMove') or {}
+        if move.get('x') and move.get('until',0) > max(b.last_horizontal,actor.get('_now',0)):
+            b.last_horizontal = move['until']; b.drive = -1 if move['x'] < 0 else 1
+        if direction and not b.drive:b.drive = direction
+        desired = b.drive*self.WALK if direction else 0
+        b.vx += max(-1200*dt,min(1200*dt,desired-b.vx))
+
+    def _screen_bounds(self,b):
+        if b.x <= self.left and b.vx < 0:
+            b.x = self.left; b.vx = abs(b.vx)*(.3 if b.support is None else 1)
+            b.drive = 1; b.turn_until = self.clock+.8
+        elif b.x >= self.right and b.vx > 0:
+            b.x = self.right; b.vx = -abs(b.vx)*(.3 if b.support is None else 1)
+            b.drive = -1; b.turn_until = self.clock+.8
+        b.x = max(self.left,min(self.right,b.x))
+
+    def _walk_step(self,b,actor,dt):
+        if b.dragging:return
+        if b.walk_y is None:b.walk_y = max(self.ceiling,min(self.floor-24,b.y))
+        stamp = actor.get('jumpedAt',0)
+        if stamp > b.last_jump:
+            b.last_jump = stamp; b.jump_start = self.clock
+        self._drive(b,actor,dt); b.x += b.vx*dt; self._screen_bounds(b)
+        age = self.clock-b.jump_start
+        if age < .6:
+            phase = max(0,age/.6); b.y = max(self.ceiling,b.walk_y-4*42*phase*(1-phase))
+            b.vy = -280*(1-2*phase); b.support = None
+        else:b.y = b.walk_y; b.vy = 0; b.support = 'walk'
 
     def begin_drag(self, pid, x, y, now):
         body = self.bodies[pid]
@@ -114,22 +165,25 @@ class Physics:
 
     def release(self, pid, now):
         body = self.bodies[pid]; body.dragging = False
+        if self.mode == 'walk':
+            body.walk_y = max(self.ceiling,min(self.floor-24,body.y));body.y = body.walk_y
+            body.vx = body.vy = 0;body.thrown = False;body.support = 'walk';body.samples = [];return
         recent = [s for s in body.samples if now-s[0] <= .13]
         body.vx = body.vy = 0
         if len(recent) >= 2 and now-recent[-1][0] < .08:
             first, last = recent[0], recent[-1]
             duration = max(.015, last[0]-first[0])
-            body.vx = max(-1500, min(1500, (last[1]-first[1])/duration))
-            body.vy = max(-1300, min(1300, (last[2]-first[2])/duration))
+            body.vx = max(-1200, min(1200, (last[1]-first[1])/duration))
+            body.vy = max(-1400, min(1400, (last[2]-first[2])/duration))
         body.thrown = abs(body.vx) > 160 or abs(body.vy) > 160
-        if body.thrown and body.vy > -100:
-            body.vy = -abs(body.vx)*.35
         if not body.thrown: body.vx = body.vy = 0
         body.samples = []; body.support = None
 
     def reset(self, pid):
         body = self.bodies[pid]
-        body.y = self.ceiling+16; body.vx = body.vy = 0; body.support = None; body.thrown = False
+        body.x = (self.left+self.right)/2;body.drive=0;body.last_intent=0;body.dragging=False;body.samples=[]
+        body.walk_y = self.floor-34 if self.mode=='walk' else None
+        body.y = body.walk_y if self.mode=='walk' else self.ceiling+16; body.vx = body.vy = 0; body.support = None; body.thrown = False
 
     def step(self, dt, actors):
         self.clock += min(max(dt, 0), .1)
@@ -139,7 +193,8 @@ class Physics:
         while remaining > .000001:
             step = min(remaining, 1/120)
             for actor in actors:
-                self._body_step(self.bodies[actor['id']], actor, step)
+                if self.mode=='walk':self._walk_step(self.bodies[actor['id']],actor,step)
+                else:self._body_step(self.bodies[actor['id']],actor,step)
             remaining -= step
 
     def _body_step(self, b, actor, dt):
@@ -157,43 +212,36 @@ class Physics:
         if stamp > b.last_jump:
             b.last_jump = stamp
             if b.support is not None:
-                b.vy = -560; b.support = None
+                b.vy = -520; b.support = None
         move = actor.get('chatMove') or {}
         if move.get('until', 0) > max(b.last_vertical,actor.get('_now',0)) and move.get('y'):
             b.last_vertical = move['until']
             if move['y'] < 0 and b.support is not None:
-                b.support = None; b.vy = -560
+                b.support = None; b.vy = -520
             elif move['y'] > 0 and b.support not in (None, 'floor'):
                 b.ignore_window = b.support; b.ignore_until = self.clock+.5
                 b.support = None; b.y += 2; b.vy = 80
-        if b.support is not None:
-            direction = (-1 if actor.get('facing') == 'left' else 1) if actor.get('moving') else 0
-            emote = actor.get('emote') or {}
-            if emote.get('until', 0) > actor.get('_now', 0): direction = 0
-            if direction != b.last_intent:
-                b.drive = direction; b.last_intent = direction
-            if move.get('x') and move.get('until',0) > max(b.last_horizontal,actor.get('_now',0)):
-                b.last_horizontal = move['until']; b.drive = -1 if move['x'] < 0 else 1
-            desired = b.drive*self.WALK if direction else 0
-            b.vx += max(-1100*dt, min(1100*dt, desired-b.vx))
+        if b.support is not None:self._drive(b,actor,dt)
         else:
-            b.vy = min(self.MAX_FALL, b.vy+self.GRAVITY*dt)
-            b.vx *= math.exp(-.18*dt)
+            b.vy = min(self.MAX_FALL,b.vy+self.GRAVITY*dt)
+            b.vx *= math.exp(-.08*dt)
         old_x, old_y = b.x, b.y
         b.x += b.vx*dt
-        if b.x < self.left or b.x > self.right:
-            b.x = max(self.left, min(self.right, b.x)); b.vx *= -.55
-            if b.support is not None:b.drive=1 if b.x==self.left else -1
+        self._screen_bounds(b)
         # Side-wall impact; touching a roof is not a side impact.
         for e in self.edges:
             if e.window == b.ignore_window and self.clock < b.ignore_until: continue
+            # A wall beside a monitor edge must not create an impossible narrow pocket.
+            if e.side=='left' and e.coord-self.HALF < self.left+12:continue
+            if e.side=='right' and e.coord+self.HALF > self.right-12:continue
             if e.side not in ('left', 'right') or not (b.y > e.start+1 and b.y-self.HEIGHT < e.end-1): continue
             if e.side == 'left' and b.vx > 0 and old_x+self.HALF <= e.coord+.01 and b.x+self.HALF >= e.coord:
-                b.x = e.coord-self.HALF; b.vx *= -.55
-                if b.support is not None:b.drive=-1
+                b.x = e.coord-self.HALF; b.vx *= -.3
+                if b.support is not None:b.drive=-1;b.turn_until=self.clock+.8
             elif e.side == 'right' and b.vx < 0 and old_x-self.HALF >= e.coord-.01 and b.x-self.HALF <= e.coord:
-                b.x = e.coord+self.HALF; b.vx *= -.55
-                if b.support is not None:b.drive=1
+                b.x = e.coord+self.HALF; b.vx *= -.3
+                if b.support is not None:b.drive=1;b.turn_until=self.clock+.8
+        self._screen_bounds(b)
         if b.support not in (None, 'floor') and not any(e.side == 'top' and e.window == b.support and e.start <= b.x <= e.end for e in self.edges):
             b.support = None
         if b.support is None:
@@ -208,15 +256,15 @@ class Physics:
                 ceilings = [e for e in self.edges if e.side == 'bottom' and e.start-self.HALF < b.x < e.end+self.HALF and old_y-self.HEIGHT >= e.coord-.01 and b.y-self.HEIGHT <= e.coord]
                 if ceilings:
                     ceiling = max(ceilings, key=lambda e:e.coord)
-                    b.y = ceiling.coord+self.HEIGHT; b.vy = abs(b.vy)*.3
+                    b.y = ceiling.coord+self.HEIGHT; b.vy = abs(b.vy)*.15
             if b.y >= self.floor:
                 b.y = self.floor; self._land(b, 'floor', 0, self.floor)
             if b.y < self.ceiling:
-                b.y = self.ceiling; b.vy = abs(b.vy)*.3
+                b.y = self.ceiling; b.vy = abs(b.vy)*.15
 
     def _land(self, b, support, x, y):
-        if b.thrown and b.vy > 300:
-            b.vy *= -.28; b.vx *= .78
+        if b.thrown and b.vy > 480:
+            b.vy *= -.12; b.vx *= .6
             b.support = None; b.y -= .1
         else:
             b.vy = 0; b.thrown = False; b.support = support

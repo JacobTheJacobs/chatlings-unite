@@ -15,6 +15,12 @@ test('HTTP sessions isolate controllers, reject foreign origins, and stream shar
  const base='http://localhost:3198';
  const post=(route,data,cookie='',extra={})=>fetch(base+'/api/'+route,{method:'POST',headers:{'Content-Type':'application/json',cookie,...extra},body:JSON.stringify(data)});
  const chatAuth=await fetch(base+'/auth/chat',{redirect:'manual'});assert.equal(chatAuth.status,302);const authUrl=new URL(chatAuth.headers.get('location'));assert.equal(authUrl.hostname,'id.twitch.tv');assert.equal(authUrl.searchParams.get('scope'),'user:read:chat');assert.equal(authUrl.searchParams.get('redirect_uri'),base+'/auth/callback');assert.ok(chatAuth.headers.get('set-cookie').includes('HttpOnly'));assert.equal((await fetch(base+'/auth/callback?state=bad')).status,403);
+ assert.equal((await post('admin/desktop-settings',{mode:'walk'})).status,403);
+ assert.equal((await post('admin/desktop-settings',{mode:'invalid'},'',{'X-Host-Key':'test-host'})).status,400);
+ for(const mode of ['physics','walk']){
+  assert.equal((await post('admin/desktop-settings',{mode},'',{'X-Host-Key':'test-host'})).status,200);
+  assert.equal((await (await fetch(base+'/api/admin/status',{headers:{'X-Host-Key':'test-host'}})).json()).desktop.mode,mode);
+ }
  assert.equal((await fetch(base)).status,200);assert.equal((await fetch(base+'/admin')).status,200);assert.equal((await fetch(base+'/api/admin/status')).status,403);assert.equal((await fetch(base+'/api/admin/status',{headers:{'X-Host-Key':'test-host'}})).status,200);assert.equal((await post('admin/desktop',{enabled:false})).status,403);assert.equal((await post('admin/desktop',{enabled:'yes'},'',{'X-Host-Key':'test-host'})).status,400);assert.equal((await fetch(base+'/overlay')).status,200);assert.equal((await post('input',{id:'someone',x:1})).status,401);
  const a=await post('demo',{name:'alpha'}),cookie=a.headers.get('set-cookie').split(';')[0],u=(await a.json()).user;
  const b=await post('demo',{name:'beta'}),v=(await b.json()).user;assert.notEqual(u.id,v.id);

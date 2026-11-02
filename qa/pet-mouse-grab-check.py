@@ -10,7 +10,7 @@ class Probe(Overlay):
     def tick(self):return True
     def paint(self,*_):return True
 
-window=Probe('http://localhost:9');window.physics.bodies={'qa':Body(200,400)}
+window=Probe('http://localhost:9');window.physics.set_mode('physics');window.physics.bodies={'qa':Body(200,400)}
 window.show_all();errors=[];result={}
 
 def event(kind,x,y,button=1):

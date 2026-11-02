@@ -35,7 +35,8 @@ function issue(req,res,identity) {const id=randomBytes(32).toString('hex');sessi
 function json(res,value,status=200) {res.writeHead(status,{'Content-Type':'application/json','Cache-Control':'no-store'});res.end(JSON.stringify(value));}
 async function body(req) {let text='';for await(const chunk of req) {text+=chunk;if(text.length>4096) throw Error('Request too large');} return JSON.parse(text||'{}');}
 async function alive(pidFile,needle){try{const pid=Number(await readFile(path.join(dataDir,pidFile),'utf8'));if(!Number.isSafeInteger(pid)||pid<2)return false;return (await readFile('/proc/'+pid+'/cmdline','utf8')).includes(needle);}catch{return false;}}
-async function adminStatus(){return {chat:twitchStatus,desktop:{running:await alive('desktop-overlay.pid','overlay.py')},hatchery:{running:await alive('hatchery-worker.pid','hatchery-worker.mjs')}};}
+async function desktopMode(){try{const s=JSON.parse(await readFile(path.join(dataDir,'desktop-settings.json'),'utf8'));return ['walk','physics'].includes(s.mode)?s.mode:'walk';}catch{return 'walk';}}
+async function adminStatus(){return {chat:twitchStatus,desktop:{running:await alive('desktop-overlay.pid','overlay.py'),mode:await desktopMode()},hatchery:{running:await alive('hatchery-worker.pid','hatchery-worker.mjs')}};}
 let desktopChanging=false;
 async function controlDesktop(enabled){
  if(desktopChanging)throw Error('Desktop pets are already changing');desktopChanging=true;
@@ -86,6 +87,7 @@ const server=http.createServer(async(req,res)=>{
     if(route.startsWith('/api/')&&req.method==='POST') {
       const identityKey=session(req)?.user.id||req.socket.remoteAddress; const now=Date.now(); let limit=limits.get(identityKey); if(!limit||now-limit.at>1000){limit={at:now,count:0};limits.set(identityKey,limit);} if(++limit.count>30)return json(res,{error:'Slow down'},429);
       const b=await body(req);
+      if(route==='/api/admin/desktop-settings'){if(!host(req))return json(res,{error:'Streamer sign-in required'},403);if(!['walk','physics'].includes(b.mode))throw Error('Choose walk or physics');await mkdir(dataDir,{recursive:true});const file=path.join(dataDir,'desktop-settings.json');await writeFile(file+'.tmp',JSON.stringify({mode:b.mode}),{mode:0o600});await rename(file+'.tmp',file);return json(res,{mode:b.mode});}
       if(route==='/api/admin/desktop'){if(!host(req))return json(res,{error:'Streamer sign-in required'},403);if(typeof b.enabled!=='boolean')throw Error('Choose on or off');await controlDesktop(b.enabled);return json(res,{ok:true});}
       if(route==='/api/pet'){if(!host(req))return json(res,{error:'Host key required'},403);const user=session(req)?.user;if(!user)throw Error('Sign in before controlling the pet');brain.configure({enabled:b.enabled,personality:b.personality,instruction:b.instruction,ownerId:user.id});return json(res,{ok:true});}
       if(route==='/api/skins/host'){if(!host(req))return json(res,{error:'Host key required'},403);let job;if(b.action==='assign'){job=await assignCustom(String(b.userId));}else if(b.action==='claim')job=skins.claim(b.id);else if(b.action==='fail')job=skins.fail(b.id);else if(b.action==='complete'){if(!/^\/pets\/[a-zA-Z0-9_-]+\.png$/.test(b.asset||''))throw Error('Invalid asset path');await validateAtlas(path.join(root,'public',b.asset));job=skins.finish(b.id,b.asset);game.log('A custom creature is hatching in the grove!');}else throw Error('Unknown hatchery action');await persist();return json(res,job);}

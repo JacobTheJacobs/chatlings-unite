@@ -26,6 +26,7 @@ import cairo
 ROOT=Path(__file__).resolve().parents[1]
 STATUS=ROOT/'data/desktop-status.json'
 PID=ROOT/'data/desktop-overlay.pid'
+SETTINGS=ROOT/'data/desktop-settings.json'
 DEFAULT_IDS=['mossbyte','toast-panic','sir-honk','blob-ross','buffer-cat']
 ROW_COUNTS=[6,8,8,4,5,8,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6]
 EMOTE_ROWS={'dance':20,'spin':13,'love':16,'rage':5,'party':3,'sleep':6}
@@ -128,6 +129,11 @@ class Renderer:
    x,y=map_position(fusion['x'],fusion['y'],width,height);rgba(ctx,'#afcf9d');ctx.rectangle(x-42,y-80,84,80);ctx.fill();ctx.rectangle(x-28,y-115,56,36);ctx.fill();rgba(ctx,'#304f46');ctx.rectangle(x-20,y-103,40,10);ctx.fill();self.label(ctx,'COMMUNITY GUARDIAN',x,y+25)
 
 class Overlay(Gtk.Window):
+ def read_mode(self):
+  try:mode=json.loads(SETTINGS.read_text()).get('mode','walk');return mode if mode in ('walk','physics') else 'walk'
+  except (OSError,ValueError):return 'walk'
+ def set_mode(self,mode):
+  SETTINGS.parent.mkdir(exist_ok=True);temp=SETTINGS.with_suffix('.local.tmp');temp.write_text(json.dumps({'mode':mode}));temp.replace(SETTINGS);self.physics.set_mode(mode)
  def __init__(self,url):
   super().__init__(title='Chatlings desktop pets')
   self.url=url;self.state={};self.received=0;self.renderer=Renderer();self.frames=0;self.dragged=None;self.surface_error=None;self.last_tick=time.monotonic();self.last_scan=0
@@ -136,7 +142,7 @@ class Overlay(Gtk.Window):
   self.set_visual(visual);self.set_app_paintable(True);self.set_decorated(False);self.set_resizable(False);self.set_keep_above(True);self.set_accept_focus(False);self.set_focus_on_map(False);self.set_skip_taskbar_hint(True);self.set_skip_pager_hint(True);self.set_type_hint(Gdk.WindowTypeHint.DOCK);self.stick()
   monitor=Gdk.Display.get_default().get_primary_monitor() or Gdk.Display.get_default().get_monitor(0);bounds=monitor.get_geometry();self.set_default_size(bounds.width,bounds.height);self.set_size_request(bounds.width,bounds.height);self.move(bounds.x,bounds.y)
   area=monitor.get_workarea()
-  self.physics=Physics(bounds.width,bounds.height,floor=min(bounds.height,area.y+area.height-bounds.y)-3,left=max(0,area.x-bounds.x),right=min(bounds.width,area.x+area.width-bounds.x),ceiling=max(0,area.y-bounds.y));self.surfaces=WindowSurfaces(bounds.x,bounds.y,bounds.width,bounds.height)
+  self.physics=Physics(bounds.width,bounds.height,floor=min(bounds.height,area.y+area.height-bounds.y)-3,left=max(0,area.x-bounds.x),right=min(bounds.width,area.x+area.width-bounds.x),ceiling=max(0,area.y-bounds.y),mode=self.read_mode());self.surfaces=WindowSurfaces(bounds.x,bounds.y,bounds.width,bounds.height)
   self.add_events(Gdk.EventMask.BUTTON_PRESS_MASK|Gdk.EventMask.BUTTON_RELEASE_MASK|Gdk.EventMask.POINTER_MOTION_MASK)
   self.connect('button-press-event',self.press);self.connect('motion-notify-event',self.motion);self.connect('button-release-event',self.release)
   self.connect('grab-broken-event',self.lost_grab)
@@ -166,7 +172,11 @@ class Overlay(Gtk.Window):
   pid=self.hit(x,y)
   if not pid:return False
   if button==3:
-   menu=Gtk.Menu();drop=Gtk.MenuItem(label='Drop this pet from the top');drop.connect('activate',lambda *_:self.physics.reset(pid));menu.append(drop);menu.show_all();menu.popup_at_pointer(event);self.context_menu=menu;return True
+   menu=Gtk.Menu();walk=Gtk.RadioMenuItem.new_with_label(None,'Walk on screen');full=Gtk.RadioMenuItem.new_with_label_from_widget(walk,'Window physics')
+   (walk if self.physics.mode=='walk' else full).set_active(True)
+   walk.connect('toggled',lambda item:self.set_mode('walk') if item.get_active() else None);full.connect('toggled',lambda item:self.set_mode('physics') if item.get_active() else None)
+   menu.append(walk);menu.append(full);menu.append(Gtk.SeparatorMenuItem())
+   drop=Gtk.MenuItem(label='Bring this pet back');drop.connect('activate',lambda *_:self.physics.reset(pid) if pid in self.physics.bodies else None);menu.append(drop);menu.show_all();menu.popup_at_pointer(event);self.context_menu=menu;return True
   if button!=1:return False
   self.dragged=pid;self.physics.begin_drag(pid,x,y,time.monotonic());self.update_input()
   seat=self.get_display().get_default_seat()
@@ -204,7 +214,9 @@ class Overlay(Gtk.Window):
  def tick(self):
   now=time.monotonic();dt=now-self.last_tick;self.last_tick=now
   if now-self.last_scan>.12:
-   try:self.physics.edges=self.surfaces.scan();self.surface_error=None
+   try:
+    self.physics.set_mode(self.read_mode())
+    self.physics.edges=self.surfaces.scan() if self.physics.mode=='physics' else [];self.surface_error=None
    except Exception as error:self.surface_error=str(error);self.physics.edges=[]
    self.last_scan=now
   self.physics.step(dt,self.actors())
@@ -214,7 +226,7 @@ class Overlay(Gtk.Window):
  def paint(self,_,ctx):
   self.renderer.draw(ctx,self.state if time.monotonic()-self.received<5 else {},self.get_allocated_width(),self.get_allocated_height(),self.physics.bodies);self.frames+=1
   if self.frames%30==1:
-   STATUS.parent.mkdir(exist_ok=True);STATUS.write_text(json.dumps({'pid':os.getpid(),'windowId':self.get_window().get_xid(),'clickThroughOutsidePets':True,'mouseGrabEnabled':True,'dragged':self.dragged,'surfaceWindows':self.surfaces.count,'surfaceError':self.surface_error,'bodies':{pid:{'x':round(b.x,1),'y':round(b.y,1),'vx':round(b.vx,1),'vy':round(b.vy,1),'support':b.support,'dragging':b.dragging} for pid,b in self.physics.bodies.items()},'transparent':True,'frames':self.frames,'players':[p.get('name') for p in self.state.get('players',[])],'connected':time.monotonic()-self.received<5}))
+   STATUS.parent.mkdir(exist_ok=True);STATUS.write_text(json.dumps({'pid':os.getpid(),'windowId':self.get_window().get_xid(),'clickThroughOutsidePets':True,'mode':self.physics.mode,'mouseGrabEnabled':True,'dragged':self.dragged,'surfaceWindows':self.surfaces.count,'surfaceError':self.surface_error,'bodies':{pid:{'x':round(b.x,1),'y':round(b.y,1),'vx':round(b.vx,1),'vy':round(b.vy,1),'support':b.support,'dragging':b.dragging} for pid,b in self.physics.bodies.items()},'transparent':True,'frames':self.frames,'players':[p.get('name') for p in self.state.get('players',[])],'connected':time.monotonic()-self.received<5}))
   return True
 
 def main():

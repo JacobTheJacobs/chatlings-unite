@@ -409,3 +409,16 @@ no screen pixels or window titles.
 The GTK renderer adapts the gravity, drag sampling, throwing and perching approach
 from the supplied ClawMate Core implementation. `clawmate-bridge` is not needed:
 Twitch supplies pet identities/intent, while this renderer owns desktop physics.
+
+## Desktop movement modes
+
+In `/admin`, choose **Walk on screen** (the default) or **Window physics**.
+You can also right-click any desktop pet to select the mode or bring it back to
+screen centre. The choice is saved and applies to all desktop pets immediately.
+
+Walk mode keeps pets at the height where you place them, ignores windows, and
+uses a small hop for `!jump`. Drag to place; releasing does not throw them.
+Window physics enables gravity, mouse throws and visible window collisions.
+Throws follow the mouse direction, with a small landing bounce that settles
+quickly. Pets turn at screen edges, and window walls too close to a monitor edge
+are ignored so they cannot trap pets in a gap narrower than their body.
