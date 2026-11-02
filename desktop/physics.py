@@ -26,6 +26,12 @@ class Body:
     anchor_y: float = 0
     dragging: bool = False
     thrown: bool = False
+    sliding: bool = False
+    recover_until: float = 0
+    settle: float = 0
+    impact: float = 0
+    angle: float = 0
+    omega: float = 0
     last_jump: float = 0
     last_vertical: float = 0
     ignore_window: object = None
@@ -79,9 +85,14 @@ def visible_edges(windows, width, height):
 class Physics:
     HALF = 32
     HEIGHT = 74
-    GRAVITY = 2000
-    MAX_FALL = 1500
-    WALK = 60
+    GRAVITY = 1400
+    MAX_FALL = 1100
+    WALK = 58
+    PERCH = 44
+    MAX_THROW = 800
+    GROUND_FRICTION = 850
+    AIR_DRAG = math.log(2)
+    RESTITUTION = .18
 
     def __init__(self, width, height, floor=None, left=0, right=None, ceiling=0, mode="physics"):
         self.width, self.height = width, height
@@ -108,12 +119,17 @@ class Physics:
         self.mode = mode
         for b in self.bodies.values():
             b.x = max(self.left+8, min(self.right-8,b.x))
-            b.vx = b.vy = 0; b.thrown = False; b.jump_start = -100
+            b.vx = b.vy = 0; b.thrown = b.sliding = False; b.angle = b.omega = b.settle = 0; b.jump_start = -100
             b.support = 'walk' if mode == 'walk' else None
             b.walk_y = max(self.ceiling,min(self.floor-24,b.y))
             b.y = b.walk_y
 
     def _drive(self,b,actor,dt):
+        if b.sliding:
+            b.vx = math.copysign(max(0,abs(b.vx)-self.GROUND_FRICTION*dt),b.vx)
+            if abs(b.vx)<1:b.sliding=False;b.recover_until=self.clock+.18
+            return
+        if self.clock<b.recover_until:return
         direction = (-1 if actor.get('facing') == 'left' else 1) if actor.get('moving') else 0
         emote = actor.get('emote') or {}
         if emote.get('until',0) > actor.get('_now',0): direction = 0
@@ -124,23 +140,25 @@ class Physics:
         if move.get('x') and move.get('until',0) > max(b.last_horizontal,actor.get('_now',0)):
             b.last_horizontal = move['until']; b.drive = -1 if move['x'] < 0 else 1
         if direction and not b.drive:b.drive = direction
-        desired = b.drive*self.WALK if direction else 0
+        speed=self.PERCH if isinstance(b.support,int) else self.WALK
+        desired = b.drive*speed if direction else 0
         b.vx += max(-1200*dt,min(1200*dt,desired-b.vx))
 
     def _screen_bounds(self,b):
         if b.x <= self.left and b.vx < 0:
-            b.x = self.left; b.vx = abs(b.vx)*(.3 if b.support is None else 1)
+            b.x = self.left; b.vx = abs(b.vx)*(.4 if b.support is None else 1)
             b.drive = 1; b.turn_until = self.clock+.8
         elif b.x >= self.right and b.vx > 0:
-            b.x = self.right; b.vx = -abs(b.vx)*(.3 if b.support is None else 1)
+            b.x = self.right; b.vx = -abs(b.vx)*(.4 if b.support is None else 1)
             b.drive = -1; b.turn_until = self.clock+.8
         b.x = max(self.left,min(self.right,b.x))
 
     def _walk_step(self,b,actor,dt):
         if b.dragging:return
         if b.thrown:
+            b.last_jump=max(b.last_jump,actor.get('jumpedAt',0))
             b.vy = min(self.MAX_FALL,b.vy+self.GRAVITY*dt)
-            b.vx *= math.exp(-.08*dt)
+            b.vx *= math.exp(-self.AIR_DRAG*dt)
             b.x += b.vx*dt; self._screen_bounds(b)
             b.y += b.vy*dt
             if b.y < self.ceiling:
@@ -163,7 +181,7 @@ class Physics:
 
     def begin_drag(self, pid, x, y, now):
         body = self.bodies[pid]
-        body.dragging = True; body.support = None; body.thrown = False
+        body.dragging = True; body.support = None; body.thrown = body.sliding = False;body.angle=body.omega=0
         body.offset = (x-body.x, y-body.y)
         body.samples = [(now, body.x, body.y)]
         body.vx = body.vy = 0
@@ -179,13 +197,20 @@ class Physics:
         body = self.bodies[pid]; body.dragging = False
         recent = [s for s in body.samples if now-s[0] <= .13]
         body.vx = body.vy = 0
-        if len(recent) >= 2 and now-recent[-1][0] < .08:
-            first, last = recent[0], recent[-1]
-            duration = max(.015, last[0]-first[0])
-            body.vx = max(-1200, min(1200, (last[1]-first[1])/duration))
-            body.vy = max(-1400, min(1400, (last[2]-first[2])/duration))
+        if len(recent)>=2 and now-recent[-1][0]<.08:
+            # Fit the latest part of the gesture, not the entire drag. A last-
+            # moment reversal must throw in the final direction.
+            tail=[s for s in recent if recent[-1][0]-s[0]<=.065]
+            if len(tail)<2:tail=recent[-2:]
+            origin=tail[-1][0];weights=[math.exp((t-origin)/.035) for t,_,_ in tail]
+            total=sum(weights);mean_t=sum(w*(s[0]-origin) for w,s in zip(weights,tail))/total
+            variance=sum(w*(s[0]-origin-mean_t)**2 for w,s in zip(weights,tail))
+            if variance>1e-8 and tail[-1][0]-tail[0][0]>=.008:
+                velocity=lambda axis:sum(w*(s[0]-origin-mean_t)*s[axis] for w,s in zip(weights,tail))/variance
+                body.vx=max(-self.MAX_THROW,min(self.MAX_THROW,velocity(1)));body.vy=max(-self.MAX_THROW,min(self.MAX_THROW,velocity(2)))
         body.thrown = abs(body.vx) > 160 or abs(body.vy) > 160
         if not body.thrown: body.vx = body.vy = 0
+        body.omega=max(-4,min(4,body.vx/900)) if body.thrown else 0
         body.samples = []; body.support = None
         if self.mode == 'walk' and not body.thrown:
             body.walk_y = max(self.ceiling,min(self.floor,body.y));body.y = body.walk_y
@@ -195,7 +220,7 @@ class Physics:
         body = self.bodies[pid]
         body.x = (self.left+self.right)/2;body.drive=0;body.last_intent=0;body.dragging=False;body.samples=[]
         body.walk_y = self.floor-34 if self.mode=='walk' else None
-        body.y = body.walk_y if self.mode=='walk' else self.ceiling+16; body.vx = body.vy = 0; body.support = None; body.thrown = False
+        body.y = body.walk_y if self.mode=='walk' else self.ceiling+16; body.vx = body.vy = 0; body.support = None; body.thrown = body.sliding = False;body.angle=body.omega=0
 
     def step(self, dt, actors):
         self.clock += min(max(dt, 0), .1)
@@ -207,7 +232,21 @@ class Physics:
             for actor in actors:
                 if self.mode=='walk':self._walk_step(self.bodies[actor['id']],actor,step)
                 else:self._body_step(self.bodies[actor['id']],actor,step)
+                self._rotation(self.bodies[actor['id']],step)
             remaining -= step
+
+    def _rotation(self,b,dt):
+        if b.dragging:return
+        b.settle=max(0,b.settle-dt)
+        if b.support is None:
+            b.omega *= math.exp(-1.5*dt)
+            b.angle += b.omega*dt
+            b.angle=max(-.22,min(.22,b.angle))
+        else:
+            # Damped upright recovery lets a hard landing settle naturally.
+            b.omega += (-90*b.angle-18*b.omega)*dt
+            b.angle += b.omega*dt
+            if abs(b.angle)<.002 and abs(b.omega)<.02:b.angle=b.omega=0
 
     def _body_step(self, b, actor, dt):
         if b.dragging: return
@@ -236,7 +275,7 @@ class Physics:
         if b.support is not None:self._drive(b,actor,dt)
         else:
             b.vy = min(self.MAX_FALL,b.vy+self.GRAVITY*dt)
-            b.vx *= math.exp(-.08*dt)
+            b.vx *= math.exp(-self.AIR_DRAG*dt)
         old_x, old_y = b.x, b.y
         b.x += b.vx*dt
         self._screen_bounds(b)
@@ -274,10 +313,19 @@ class Physics:
             if b.y < self.ceiling:
                 b.y = self.ceiling; b.vy = abs(b.vy)*.15
 
-    def _land(self, b, support, x, y):
-        if b.thrown and b.vy > 480:
-            b.vy *= -.12; b.vx *= .6
-            b.support = None; b.y -= .1
+    def _land(self,b,support,x,y):
+        impact=max(0,b.vy)
+        # Friction at impact removes a bounded tangential impulse; then ground
+        # friction slows the remaining slide instead of the walking motor.
+        if b.thrown:
+            b.vx=math.copysign(max(0,abs(b.vx)-impact*.12),b.vx)
+        if b.thrown and impact>500:
+            b.vy=-impact*self.RESTITUTION
+            b.support=None;b.y-=.1
         else:
-            b.vy = 0; b.thrown = False; b.support = support
-            b.anchor_x, b.anchor_y = x, y; b.landed_at = self.clock
+            was_airborne=b.support is None
+            b.vy=0;b.thrown=False;b.support=support
+            b.sliding=abs(b.vx)>self.WALK*1.4
+            if was_airborne:
+                b.settle=.22;b.impact=min(1,impact/800);b.recover_until=self.clock+.22
+            b.anchor_x,b.anchor_y=x,y;b.landed_at=self.clock

@@ -441,3 +441,11 @@ worker from an idle or offline worker.
 `DATA_DIR` isolates server state, desktop PID/settings/status, and worker runs.
 Use the same absolute directory for server, worker, and desktop processes. Never
 share it between independent instances. Movement-setting writes are atomic.
+
+Desktop motion tuning follows `ClawMate.Core/PetSimulationService.cs` in the
+provided Clawmate desktop project: gravity 1400 px/s², terminal fall 1100 px/s,
+throw cap 800 px/s, horizontal air speed halving each second, walk 58 px/s and
+window perch 44 px/s. Flicks use the latest mouse samples and retain the actual
+release direction. Landings include a short settle pose and frictional slide
+before autonomous walking resumes. Window physics must be selected for window
+collisions; Walk on screen deliberately ignores windows.

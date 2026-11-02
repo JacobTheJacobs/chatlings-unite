@@ -28,7 +28,7 @@ class PhysicsTests(unittest.TestCase):
     def test_drag_flick_has_inertia_hold_and_drop_do_not(self):
         sim=Physics(1000,700);sim.bodies['viewer']=Body(200,200)
         sim.begin_drag('viewer',200,180,1);sim.drag('viewer',240,180,1.04);sim.drag('viewer',290,170,1.08);sim.release('viewer',1.081)
-        b=sim.bodies['viewer'];self.assertTrue(b.thrown);self.assertGreater(b.vx,800);self.assertLess(b.vy,0)
+        b=sim.bodies['viewer'];self.assertTrue(b.thrown);self.assertGreater(b.vx,700);self.assertLess(b.vy,0)
         x=b.x;sim.step(.05,[A]);self.assertGreater(b.x,x)
         sim.begin_drag('viewer',b.x,b.y,2);sim.drag('viewer',400,200,2.05);sim.release('viewer',2.3)
         self.assertFalse(b.thrown);self.assertEqual(b.vx,0)
@@ -86,7 +86,7 @@ class PhysicsTests(unittest.TestCase):
         for end_y in (200,280):
             sim=Physics(1000,700);sim.bodies['viewer']=Body(200,200)
             sim.begin_drag('viewer',200,200,1);sim.drag('viewer',280,end_y,1.08);sim.release('viewer',1.081)
-            self.assertAlmostEqual(sim.bodies['viewer'].vy,(end_y-200)/.08)
+            self.assertAlmostEqual(sim.bodies['viewer'].vy,min(sim.MAX_THROW,(end_y-200)/.08))
             b=self.settle(sim,2);self.assertEqual(b.support,'floor');self.assertFalse(b.thrown)
 
     def test_walk_mode_ignores_windows_and_keeps_placement(self):
@@ -107,7 +107,7 @@ class PhysicsTests(unittest.TestCase):
         sim=Physics(1000,700,mode='walk');sim.bodies['viewer']=Body(200,300)
         sim.edges=visible_edges([(7,300,100,400,500)],1000,700)
         sim.begin_drag('viewer',200,300,1);sim.drag('viewer',280,260,1.08);sim.release('viewer',1.081)
-        b=sim.bodies['viewer'];self.assertTrue(b.thrown);self.assertGreater(b.vx,900);self.assertLess(b.vy,0)
+        b=sim.bodies['viewer'];self.assertTrue(b.thrown);self.assertGreater(b.vx,700);self.assertLess(b.vy,0)
         self.settle(sim,.2);self.assertGreater(b.x,400)
         self.settle(sim,3);self.assertFalse(b.thrown);self.assertEqual(b.support,'walk');self.assertEqual(b.y,sim.floor)
 
@@ -116,5 +116,29 @@ class PhysicsTests(unittest.TestCase):
         sim.set_mode('walk');self.assertEqual(b.support,'walk');self.assertFalse(b.thrown);self.assertEqual(b.vy,0)
         self.assertGreater(b.x,sim.left);sim.set_mode('physics');self.assertIsNone(b.support)
         b=self.settle(sim);self.assertEqual(b.support,'floor')
+
+    def test_final_flick_direction_wins_over_earlier_drag(self):
+        sim=Physics(1000,700);sim.bodies['viewer']=Body(200,300)
+        sim.begin_drag('viewer',200,300,1);sim.drag('viewer',260,300,1.04);sim.drag('viewer',230,300,1.08);sim.release('viewer',1.081)
+        self.assertLess(sim.bodies['viewer'].vx,-600)
+        self.assertAlmostEqual(sim.bodies['viewer'].vy,0)
+
+    def test_landing_preserves_slide_then_friction_stops_it(self):
+        sim=Physics(1000,700);b=Body(300,696,vx=650,vy=200,thrown=True);sim.bodies['viewer']=b
+        sim.step(.02,[A]);self.assertEqual(b.support,'floor');self.assertTrue(b.sliding)
+        self.assertGreater(b.vx,500);self.assertGreater(b.settle,0)
+        self.settle(sim,1);self.assertFalse(b.sliding);self.assertEqual(b.vx,0);self.assertEqual(b.y,sim.floor)
+
+    def test_throw_speed_and_air_drag_match_clawmate_reference(self):
+        sim=Physics(2000,1500);sim.bodies['viewer']=Body(500,300)
+        sim.begin_drag('viewer',500,300,1);sim.drag('viewer',700,200,1.04);sim.release('viewer',1.041)
+        b=sim.bodies['viewer'];self.assertEqual(b.vx,800);self.assertEqual(b.vy,-800)
+        for _ in range(60):sim.step(1/120,[A])
+        self.assertAlmostEqual(b.vx,800*2**(-.5),delta=1)
+
+    def test_throw_tilt_recovers_upright_after_landing(self):
+        sim=Physics(1000,700);b=Body(300,200,vx=400,omega=1,thrown=True);sim.bodies['viewer']=b
+        self.settle(sim,.2);self.assertGreater(b.angle,0)
+        self.settle(sim,3);self.assertAlmostEqual(b.angle,0,delta=.003)
 
 if __name__=='__main__':unittest.main()

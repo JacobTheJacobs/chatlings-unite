@@ -72,11 +72,12 @@ class Renderer:
    elapsed=max(0,elapsed)%sum(durations);frame=0
    while frame<len(durations)-1 and elapsed>=durations[frame]:elapsed-=durations[frame];frame+=1
    if actor.get('desktopAirborne'):frame=1 if actor.get('desktopVy',0)<0 else 3
-   if actor.get('desktopDragging'):row=3;frame=int(t/.14)%4
+   if actor.get('desktopLanding'):row=4;frame=4
+   if actor.get('desktopDragging'):row=4;frame=0
    cell=image.new_subpixbuf(frame*76,row*82,76,82)
-   ctx.save();ctx.translate(x-38,y-78);Gdk.cairo_set_source_pixbuf(ctx,cell,0,0);ctx.get_source().set_filter(cairo.FILTER_NEAREST);ctx.paint();ctx.restore()
+   ctx.save();ctx.translate(x,y-38);ctx.rotate(actor.get('desktopTilt',0));squash=actor.get('desktopSquash',1);ctx.translate(0,40);ctx.scale(1/squash,squash);ctx.translate(-38,-80);Gdk.cairo_set_source_pixbuf(ctx,cell,0,0);ctx.get_source().set_filter(cairo.FILTER_NEAREST);ctx.paint();ctx.restore()
  def physical_pose(self,actor,body):
-  view={**actor,'desktopAirborne':body.support is None and not body.dragging,'desktopDragging':body.dragging,'desktopVy':body.vy,'moving':body.support is not None and abs(body.vx)>12}
+  view={**actor,'desktopAirborne':body.support is None and not body.dragging,'desktopDragging':body.dragging,'desktopVy':body.vy,'desktopTilt':body.angle,'desktopLanding':body.settle>0,'desktopSquash':1-.1*(body.settle/.22)*body.impact,'moving':body.support is not None and abs(body.vx)>12}
   if abs(body.vx)>5:view['facing']='left' if body.vx<0 else 'right'
   return view
  def label(self,ctx,text,x,y,color='#e2edcf'):
