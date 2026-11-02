@@ -64,3 +64,20 @@ test('public proxy origin keeps local login working and does not grant loopback 
   assert.equal((await rawFetch(base+'/api/me',{headers:{Host:'evil.example'}})).status,403);
  }finally{if(child.exitCode===null&&child.signalCode===null){child.kill();await once(child,'exit');}await rm(dataDir,{recursive:true,force:true});}
 });
+
+test('chat OAuth also signs broadcaster into admin in the same callback',async()=>{
+ const dir=await mkdtemp(path.join(tmpdir(),'chatlings-oauth-')),envFile=path.join(dir,'test.env');
+ const {writeFile,readFile}=await import('node:fs/promises');await writeFile(envFile,'');
+ const script=`globalThis.fetch=async url=>({ok:true,status:200,json:async()=>url.endsWith('/token')?{access_token:'testaccess',refresh_token:'testrefresh'}:{user_id:'test-user',client_id:'test-client',login:'testhost',scopes:['user:read:chat'],expires_in:3600}});globalThis.WebSocket=class{close(){}};await import('./server.mjs');`;
+ const child=spawn(process.execPath,['--input-type=module','-e',script],{cwd:new URL('..',import.meta.url),env:{...process.env,PORT:'3192',PUBLIC_URL:'http://localhost:3192',DATA_DIR:dir,CHAT_ENV_FILE:envFile,DEMO_MODE:'false',HOST_KEY:'test-host',TWITCH_BROADCASTER_ID:'test-user',TWITCH_CLIENT_ID:'test-client',TWITCH_CLIENT_SECRET:'test-secret',TWITCH_CHAT_TOKEN:'',TWITCH_CHAT_REFRESH_TOKEN:'',CODEX_PET_API_KEY:''},stdio:['ignore','pipe','pipe']});
+ try{
+  await Promise.race([once(child.stdout,'data'),new Promise((_,reject)=>setTimeout(()=>reject(Error('Startup timeout')),4000).unref())]);
+  const base='http://localhost:3192';const auth=await fetch(base+'/auth/chat',{redirect:'manual'}),state=new URL(auth.headers.get('location')).searchParams.get('state'),cookie=auth.headers.get('set-cookie').split(';')[0];
+  const callback=await fetch(base+'/auth/callback?state='+state+'&code=fake',{headers:{cookie},redirect:'manual'});
+  assert.equal(callback.status,302);assert.equal(callback.headers.get('location'),'/admin?chat=connecting');
+  const session=callback.headers.get('set-cookie');assert.ok(session?.startsWith('session='));assert.ok(session.includes('HttpOnly'));
+  const headers={cookie:session.split(';')[0]};const me=await(await fetch(base+'/api/me',{headers})).json();assert.equal(me.host,true);assert.equal(me.user.id,'test-user');
+  const admin=await fetch(base+'/api/admin/status',{headers});assert.equal(admin.status,200);assert.equal((await admin.json()).chatRefreshReady,true);
+  assert.ok((await readFile(envFile,'utf8')).includes('TWITCH_CHAT_REFRESH_TOKEN=testrefresh'));
+ }finally{if(child.exitCode===null){child.kill();await once(child,'exit');}await rm(dir,{recursive:true,force:true});}
+});

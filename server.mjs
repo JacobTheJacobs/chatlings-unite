@@ -83,7 +83,7 @@ const server=http.createServer(async(req,res)=>{
         if(process.env.TWITCH_BROADCASTER_ID&&identity.user_id!==process.env.TWITCH_BROADCASTER_ID)throw Error('Sign in with the configured broadcaster account');
         if(!identity.user_id||!identity.scopes?.includes('user:read:chat'))throw Error('Twitch chat permission was not granted');
         await saveChatToken({...token,broadcasterId:identity.user_id});
-        broadcasterLogin=identity.login||broadcasterLogin;configureChatAuth();res.writeHead(302,{Location:'/admin?chat=connecting'});res.end();return;
+        broadcasterLogin=identity.login||broadcasterLogin;configureChatAuth();issue(req,res,{user:{id:identity.user_id,name:identity.login}});res.writeHead(302,{Location:'/admin?chat=connecting'});res.end();return;
       }
       const user={id:identity.user_id,name:identity.login};issue(req,res,{user});game.spawn(user.id,user.name);res.writeHead(302,{Location:auth.returnTo||'/'});res.end();return;
     }
@@ -129,7 +129,7 @@ function startChat(token,broadcasterId){
 let chatAuth;
 async function saveChatToken(token){
  const values={TWITCH_CHAT_TOKEN:token.access_token};if(token.refresh_token)values.TWITCH_CHAT_REFRESH_TOKEN=token.refresh_token;if(token.broadcasterId)values.TWITCH_BROADCASTER_ID=token.broadcasterId;
- await saveEnv(path.join(root,'.env'),values);Object.assign(process.env,values);
+ await saveEnv(process.env.CHAT_ENV_FILE||path.join(root,'.env'),values);Object.assign(process.env,values);
 }
 function configureChatAuth(){
  chatAuth?.close();
