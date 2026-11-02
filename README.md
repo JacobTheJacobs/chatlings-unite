@@ -18,29 +18,15 @@ npm install
 npm start
 ```
 
-For desktop stream pets, connect Twitch chat as described below, then run
-`npm run desktop` in a second terminal. OBS Display Capture includes the pets.
-No viewer controller page is required for chat controls.
+Open `http://localhost:3010` for the simple viewer page. Viewers join by chatting
+on Twitch; no separate website login is needed. Open `http://localhost:3010/admin`
+and sign in as the broadcaster for the two main controls: desktop pets on/off,
+and **Make custom pet** beside a viewer. The admin page also shows chat and
+generator status. Default pet previews load only small idle strips.
 
-For the optional browser game, open http://localhost:3010. Click **Try the local demo**, then **Simulated friends**,
-**Demo fusion**, and **Summon the Glitch**. You pilot; the two explicitly labeled
-simulated teammates shield and shoot. WASD / arrow keys move, E joins the circle,
-and Space activates a shield or cannon when assigned that role. Touch controls
-are provided. A new browser session creates a separate demo player; tabs in the
-same browser share the same character, like an authenticated Twitch account.
-
-The cannon must be aligned within 100 world units vertically with the boss.
-The boss pulses every four seconds. Shield lasts 1.1 seconds with a 1.6-second
-cooldown; cannon cooldown is 600 ms. Failure scatters the Guardian; fuse again.
-Use **Reset challenge** to release the team at any time.
-
-- `/` — grove and host console
-- `/controller` — synchronized world, keyboard and touch controller
-- `/overlay` — transparent OBS browser source, 960 × 480
-
-The overlay is transparent except characters, the fusion station, and combat HUD.
-It shares state with the controller directly instead of relying on Twitch video
-latency. Enable OBS Browser Source background transparency in its CSS if needed.
+The earlier browser grove remains available at `/game-view.html` for legacy
+demos, and `/overlay` keeps the transparent OBS source working. It is not part of
+the main viewer/admin flow.
 
 ## Connect Twitch chat locally
 
@@ -390,8 +376,7 @@ failed/rage, waving/party and waiting/sleep), rather than rotating a still image
 Commands use the skill's pose loops; a spin is a pose-turn loop, rather than a
 whole-image rotation. New defaults add expressive dance, affection and sleepy poses.
 
-Only the host can commission a custom pet. Sign in as broadcaster, choose a
-viewer under **Custom nickname pets**, and click **Commission custom pet**.
+Only the host can commission a custom pet. Sign in as broadcaster, open `/admin`, and click **Make custom pet** beside the viewer.
 You can also type `!custom viewername` in Twitch chat as the broadcaster.
 Other viewers cannot use this commissioning command. The nickname is creative reference data; viewers cannot supply generation
 instructions. A request queues one complete 22-state Hatch Clawmate run. Keep the

@@ -10,3 +10,4 @@ obs/*.log
 data/*.pid
 data/hatchery/
 qa/*-finalize.log
+data/*.log

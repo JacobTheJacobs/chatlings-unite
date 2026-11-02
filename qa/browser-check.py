@@ -9,7 +9,7 @@ with sync_playwright() as p:
  context=browser.new_context(viewport={'width':1440,'height':1100})
  page=context.new_page();errors=[]
  page.on('pageerror',lambda e:errors.append(str(e)))
- page.goto(base);page.get_by_role('button',name='Try the local demo').click()
+ page.goto(base+'/game-view.html');page.get_by_role('button',name='Try the local demo').click()
  page.wait_for_selector('#playerControls:not([hidden])')
  page.get_by_role('button',name='Simulated friends').click()
  page.wait_for_function("() => document.querySelector('#population').textContent.includes('5 SIM')")
@@ -32,7 +32,7 @@ with sync_playwright() as p:
  page.wait_for_function("() => document.querySelector('#skinStatus').textContent.includes('Queued')")
  page.reload();page.wait_for_function("() => document.querySelector('#skinStatus').textContent.includes('Queued')")
  assert page.request.get(base+'/api/me').json()['user']['id']==user['id']
- mobile=context.new_page();mobile.set_viewport_size({'width':390,'height':844});mobile.goto(base+'/controller');mobile.wait_for_selector('#playerControls:not([hidden])');mobile.screenshot(path=str(out/'controller-mobile.png'),full_page=True)
+ mobile=context.new_page();mobile.set_viewport_size({'width':390,'height':844});mobile.goto(base+'/game-view.html');mobile.wait_for_selector('#playerControls:not([hidden])');mobile.screenshot(path=str(out/'controller-mobile.png'),full_page=True)
  assert mobile.evaluate('document.documentElement.scrollWidth<=innerWidth')
  overlay=context.new_page();overlay.goto(base+'/overlay');overlay.wait_for_timeout(200)
  assert overlay.locator('header').is_hidden()
@@ -41,7 +41,7 @@ with sync_playwright() as p:
  if page.request.get(base+'/api/me').json().get('sampleSkin'):
   sample_context=browser.new_context(viewport={'width':1440,'height':1000})
   sample=sample_context.new_page();sample.on('pageerror',lambda e:errors.append(str(e)))
-  sample.goto(base);sample.get_by_role('button',name='Try the local demo').click();sample.wait_for_selector('#playerControls:not([hidden])')
+  sample.goto(base+'/game-view.html');sample.get_by_role('button',name='Try the local demo').click();sample.wait_for_selector('#playerControls:not([hidden])')
   sample_user=sample.request.get(base+'/api/me').json()['user']['id']
   with sample.expect_response(lambda r:r.url.endswith('/api/host')) as asset_response:
    sample.get_by_role('button',name='Hatch Mossbyte sample').click()
