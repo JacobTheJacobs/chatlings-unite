@@ -94,7 +94,7 @@ class PhysicsTests(unittest.TestCase):
         sim.edges=visible_edges([(7,250,100,500,500)],1000,700)
         b=self.settle(sim,3,{**A,'moving':True,'facing':'right'})
         self.assertGreater(b.x,350);self.assertEqual(b.y,400)
-        sim.begin_drag('viewer',b.x,b.y,1);sim.drag('viewer',600,250,1.05);sim.release('viewer',1.051)
+        sim.begin_drag('viewer',b.x,b.y,1);sim.drag('viewer',600,250,1.05);sim.release('viewer',1.3)
         self.assertFalse(b.thrown);self.assertEqual(b.vx,0)
         self.settle(sim,2);self.assertEqual(b.y,250)
 
@@ -102,6 +102,14 @@ class PhysicsTests(unittest.TestCase):
         sim=Physics(1000,700,mode='walk');sim.bodies['viewer']=Body(965,400)
         b=self.settle(sim,1,{**A,'moving':True,'facing':'right','jumpedAt':999})
         self.assertLess(b.x,940);self.assertEqual(b.y,400);self.assertEqual(b.support,'walk')
+
+    def test_walk_mode_flick_throws_without_window_collisions(self):
+        sim=Physics(1000,700,mode='walk');sim.bodies['viewer']=Body(200,300)
+        sim.edges=visible_edges([(7,300,100,400,500)],1000,700)
+        sim.begin_drag('viewer',200,300,1);sim.drag('viewer',280,260,1.08);sim.release('viewer',1.081)
+        b=sim.bodies['viewer'];self.assertTrue(b.thrown);self.assertGreater(b.vx,900);self.assertLess(b.vy,0)
+        self.settle(sim,.2);self.assertGreater(b.x,400)
+        self.settle(sim,3);self.assertFalse(b.thrown);self.assertEqual(b.support,'walk');self.assertEqual(b.y,sim.floor)
 
     def test_switch_modes_clears_old_window_support_and_throw(self):
         sim=Physics(1000,700);b=Body(10,350,vx=900,vy=-400,support=7,thrown=True);sim.bodies['viewer']=b

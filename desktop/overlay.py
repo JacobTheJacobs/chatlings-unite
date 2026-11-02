@@ -168,7 +168,7 @@ class Overlay(Gtk.Window):
  def hit(self,x,y):
   return next((pid for pid,body in reversed(list(self.physics.bodies.items())) if abs(x-body.x)<=38 and body.y-79<=y<=body.y+3),None)
  def press(self,_,event):
-  _,x,y=event.get_coords();button=event.get_button()[1]
+  x,y=event.x,event.y;button=event.button if isinstance(event.button,int) else event.get_button()[1]
   pid=self.hit(x,y)
   if not pid:return False
   if button==3:
@@ -187,12 +187,13 @@ class Overlay(Gtk.Window):
   return True
  def motion(self,_,event):
   if not self.dragged:return False
-  _,x,y=event.get_coords()
+  x,y=event.x,event.y
   if self.dragged in self.physics.bodies:self.physics.drag(self.dragged,x,y,time.monotonic())
   return True
  def release(self,_,event):
-  if event.get_button()[1]!=1 or not self.dragged:return False
-  _,x,y=event.get_coords()
+  button=event.button if isinstance(event.button,int) else event.get_button()[1]
+  if button!=1 or not self.dragged:return False
+  x,y=event.x,event.y
   if self.dragged in self.physics.bodies:
    self.physics.drag(self.dragged,x,y,time.monotonic());self.physics.release(self.dragged,time.monotonic())
   self.dragged=None;self.get_display().get_default_seat().ungrab();self.update_input();return True

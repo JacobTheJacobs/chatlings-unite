@@ -138,6 +138,18 @@ class Physics:
 
     def _walk_step(self,b,actor,dt):
         if b.dragging:return
+        if b.thrown:
+            b.vy = min(self.MAX_FALL,b.vy+self.GRAVITY*dt)
+            b.vx *= math.exp(-.08*dt)
+            b.x += b.vx*dt; self._screen_bounds(b)
+            b.y += b.vy*dt
+            if b.y < self.ceiling:
+                b.y = self.ceiling; b.vy = abs(b.vy)*.15
+            if b.y >= self.floor:
+                b.y = self.floor; self._land(b,'walk',0,self.floor)
+                if not b.thrown:
+                    b.walk_y = self.floor; b.jump_start = -100
+            return
         if b.walk_y is None:b.walk_y = max(self.ceiling,min(self.floor-24,b.y))
         stamp = actor.get('jumpedAt',0)
         if stamp > b.last_jump:
@@ -165,9 +177,6 @@ class Physics:
 
     def release(self, pid, now):
         body = self.bodies[pid]; body.dragging = False
-        if self.mode == 'walk':
-            body.walk_y = max(self.ceiling,min(self.floor-24,body.y));body.y = body.walk_y
-            body.vx = body.vy = 0;body.thrown = False;body.support = 'walk';body.samples = [];return
         recent = [s for s in body.samples if now-s[0] <= .13]
         body.vx = body.vy = 0
         if len(recent) >= 2 and now-recent[-1][0] < .08:
@@ -178,6 +187,9 @@ class Physics:
         body.thrown = abs(body.vx) > 160 or abs(body.vy) > 160
         if not body.thrown: body.vx = body.vy = 0
         body.samples = []; body.support = None
+        if self.mode == 'walk' and not body.thrown:
+            body.walk_y = max(self.ceiling,min(self.floor,body.y));body.y = body.walk_y
+            body.support = 'walk';body.jump_start = -100
 
     def reset(self, pid):
         body = self.bodies[pid]

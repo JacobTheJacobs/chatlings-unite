@@ -22,7 +22,7 @@ with sync_playwright() as p:
  page.wait_for_function("document.querySelector('#movementHelp').textContent.includes('Gravity')")
  assert context.request.get(base+'/api/admin/status').json()['desktop']['mode']=='physics'
  page.locator('#movementMode').select_option('walk')
- page.wait_for_function("document.querySelector('#movementHelp').textContent.includes('No falling')")
+ page.wait_for_function("document.querySelector('#movementHelp').textContent.includes('Flick to throw')")
  assert context.request.get(base+'/api/admin/status').json()['desktop']['mode']=='walk'
  page.get_by_role('button',name='Make custom pet',exact=True).first.click()
  page.wait_for_selector('.viewer-row button:disabled')

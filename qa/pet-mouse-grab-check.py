@@ -10,12 +10,12 @@ class Probe(Overlay):
     def tick(self):return True
     def paint(self,*_):return True
 
-window=Probe('http://localhost:9');window.physics.set_mode('physics');window.physics.bodies={'qa':Body(200,400)}
+window=Probe('http://localhost:9');window.physics.set_mode('walk' if '--walk' in sys.argv else 'physics');window.physics.bodies={'qa':Body(200,400)}
 window.show_all();errors=[];result={}
 
 def event(kind,x,y,button=1):
     e=Gdk.Event.new(kind);e.window=window.get_window();e.x=x;e.y=y;e.button=button;e.time=Gdk.CURRENT_TIME
-    e.set_device(window.get_display().get_default_seat().get_pointer());return e
+    e.set_device(window.get_display().get_default_seat().get_pointer());return e.motion if kind==Gdk.EventType.MOTION_NOTIFY else (e.button if '--typed' in sys.argv else e)
 
 def finish():
     window.get_display().get_default_seat().ungrab();window.destroy();Gtk.main_quit();return False

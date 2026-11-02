@@ -417,7 +417,8 @@ You can also right-click any desktop pet to select the mode or bring it back to
 screen centre. The choice is saved and applies to all desktop pets immediately.
 
 Walk mode keeps pets at the height where you place them, ignores windows, and
-uses a small hop for `!jump`. Drag to place; releasing does not throw them.
+uses a small hop for `!jump`. Drag and pause to place; flick and release to throw. Thrown pets fall and settle
+at the screen bottom, then resume walking.
 Window physics enables gravity, mouse throws and visible window collisions.
 Throws follow the mouse direction, with a small landing bounce that settles
 quickly. Pets turn at screen edges, and window walls too close to a monitor edge
