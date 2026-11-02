@@ -19,7 +19,8 @@ import gi
 gi.require_version('Gtk','3.0')
 gi.require_version('Gdk','3.0')
 gi.require_version('GdkPixbuf','2.0')
-from gi.repository import Gtk, Gdk, GdkPixbuf, GLib
+gi.require_version('GdkX11','3.0')
+from gi.repository import Gtk, Gdk, GdkPixbuf, GLib, GdkX11
 import cairo
 
 ROOT=Path(__file__).resolve().parents[1]
@@ -28,6 +29,9 @@ PID=ROOT/'data/desktop-overlay.pid'
 DEFAULT_IDS=['mossbyte','toast-panic','sir-honk','blob-ross','buffer-cat']
 ROW_COUNTS=[6,8,8,4,5,8,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6]
 EMOTE_ROWS={'dance':20,'spin':13,'love':16,'rage':5,'party':3,'sleep':6}
+sys.path.insert(0,str(Path(__file__).resolve().parent))
+from physics import Physics
+from windows import WindowSurfaces
 
 def rgba(ctx,color,alpha=1):
  color=color.lstrip('#');ctx.set_source_rgba(int(color[:2],16)/255,int(color[2:4],16)/255,int(color[4:6],16)/255,alpha)
@@ -51,15 +55,21 @@ class Renderer:
  def sprite(self,ctx,actor,x,y,t,asset=None,action=None):
   image=self.atlas(asset)
   if image:
-   moving=actor.get('moving',False);now=time.time()*1000;emote=actor.get('emote',{});kind=emote.get('kind') if emote.get('until',0)>now else None
-   jumping=0<=now-actor.get('jumpedAt',0)<840
+   moving=actor.get('moving',False);now=time.time()*1000;emote=actor.get('emote') or {};kind=emote.get('kind') if emote.get('until',0)>now else None
+   jumping=actor.get('desktopAirborne',False) or 0<=now-actor.get('jumpedAt',0)<840
    row=4 if jumping else EMOTE_ROWS[kind] if kind in EMOTE_ROWS else 16 if action=='celebrate' else (2 if actor.get('facing')=='left' else 1) if moving else 0
    durations=[280,110,110,140,140,320] if row==0 else [120]*7+[220] if row in (1,2) else [140]*(ROW_COUNTS[row]-1)+[280] if row in (3,4) else [140]*7+[240] if row==5 else [120]*5+[220] if row==7 else [150]*5+[280 if row in (8,18) else 260]
    elapsed=(now-actor.get('jumpedAt',now)) if jumping else (now-(emote.get('until',now)-6000)) if kind else t*1000
    elapsed=max(0,elapsed)%sum(durations);frame=0
    while frame<len(durations)-1 and elapsed>=durations[frame]:elapsed-=durations[frame];frame+=1
+   if actor.get('desktopAirborne'):frame=1 if actor.get('desktopVy',0)<0 else 3
+   if actor.get('desktopDragging'):row=3;frame=int(t/.14)%4
    cell=image.new_subpixbuf(frame*192,row*208,192,208)
-   ctx.save();ctx.translate(x-38,y-71);ctx.scale(76/192,82/208);Gdk.cairo_set_source_pixbuf(ctx,cell,0,0);ctx.get_source().set_filter(cairo.FILTER_NEAREST);ctx.paint();ctx.restore()
+   ctx.save();ctx.translate(x-38,y-78);ctx.scale(76/192,82/208);Gdk.cairo_set_source_pixbuf(ctx,cell,0,0);ctx.get_source().set_filter(cairo.FILTER_NEAREST);ctx.paint();ctx.restore()
+ def physical_pose(self,actor,body):
+  view={**actor,'desktopAirborne':body.support is None and not body.dragging,'desktopDragging':body.dragging,'desktopVy':body.vy,'moving':body.support is not None and abs(body.vx)>12}
+  if abs(body.vx)>5:view['facing']='left' if body.vx<0 else 'right'
+  return view
  def label(self,ctx,text,x,y,color='#e2edcf'):
   ctx.select_font_face('monospace',cairo.FONT_SLANT_NORMAL,cairo.FONT_WEIGHT_BOLD);ctx.set_font_size(11)
   text=str(text)[:40];ext=ctx.text_extents(text);w=ext.width
@@ -78,7 +88,7 @@ class Renderer:
   rgba(ctx,'#fff5dc',.98);ctx.rectangle(left,top,w,h);ctx.fill();ctx.move_to(x-7,top+h);ctx.line_to(x,top+h+9);ctx.line_to(x+7,top+h);ctx.fill()
   rgba(ctx,'#252033')
   for i,line in enumerate(lines):ctx.move_to(left+12,top+23+i*19);ctx.show_text(line)
- def draw(self,ctx,state,width,height):
+ def draw(self,ctx,state,width,height,bodies=None):
   ctx.set_operator(cairo.OPERATOR_SOURCE);ctx.set_source_rgba(0,0,0,0);ctx.paint();ctx.set_operator(cairo.OPERATOR_OVER)
   t=time.monotonic();now=time.time()*1000
   ready={}
@@ -86,19 +96,26 @@ class Renderer:
    if job.get('status')=='ready' and job.get('finishedAt',0)>=ready.get(job['userId'],{}).get('finishedAt',0):ready[job['userId']]=job
   for actor in state.get('players',[]):
    if actor.get('joined') and state.get('fusion'):continue
-   x,y=map_position(actor['x'],actor['y'],width,height)
-   age=now-actor.get('jumpedAt',0)
-   if 0<=age<840:y-=math.sin(age/840*math.pi)*45
+   body=bodies.get(actor['id']) if bodies is not None else None
+   if body:
+    x,y=body.x,body.y;actor=self.physical_pose(actor,body)
+   else:
+    x,y=map_position(actor['x'],actor['y'],width,height)
+    age=now-actor.get('jumpedAt',0)
+    if 0<=age<840:y-=math.sin(age/840*math.pi)*45
    job=ready.get(actor['id']);default=DEFAULT_IDS[actor.get('appearance',{}).get('seed',0)%5]
    asset=job.get('asset') if job else '/pets/'+default+'.png'
    self.sprite(ctx,actor,x,y,t,asset)
    bubble=actor.get('bubble',{})
    if bubble.get('until',0)>now:self.bubble(ctx,bubble.get('text',''),x,y,width)
-   self.label(ctx,actor.get('name','viewer')+(' · SIM' if actor.get('simulated') else ''),x,y+25)
+   self.label(ctx,actor.get('name','viewer')+(' · SIM' if actor.get('simulated') else ''),x,y+25 if y<height-30 else y-87)
    if actor.get('shieldUntil',0)>now:rgba(ctx,'#9de9db',.7);ctx.set_line_width(3);ctx.arc(x,y-25,48,0,2*math.pi);ctx.stroke()
   ai=state.get('aiPet',{});pet=ai.get('pet')
   if ai.get('enabled') and pet:
-   x,y=map_position(pet['x'],pet['y'],width,height);self.sprite(ctx,pet,x,y,t,'/pets/mossbyte.png',ai.get('goal',{}).get('action') if ai.get('goal') else None);self.label(ctx,'Mossbyte · '+('CODEX' if ai.get('source')=='codex' else 'LOCAL'),x,y+25)
+   body=bodies.get('codex-pet') if bodies is not None else None
+   x,y=(body.x,body.y) if body else map_position(pet['x'],pet['y'],width,height)
+   if body:pet=self.physical_pose(pet,body)
+   self.sprite(ctx,pet,x,y,t,'/pets/mossbyte.png',ai.get('goal',{}).get('action') if ai.get('goal') else None);self.label(ctx,'Mossbyte · '+('CODEX' if ai.get('source')=='codex' else 'LOCAL'),x,y+25 if y<height-30 else y-87)
    if pet.get('shieldUntil',0)>now:rgba(ctx,'#9de9db',.7);ctx.set_line_width(3);ctx.arc(x,y-25,48,0,2*math.pi);ctx.stroke()
   mission=state.get('mission')
   if mission:
@@ -113,16 +130,66 @@ class Renderer:
 class Overlay(Gtk.Window):
  def __init__(self,url):
   super().__init__(title='Chatlings desktop pets')
-  self.url=url;self.state={};self.received=0;self.renderer=Renderer();self.frames=0
+  self.url=url;self.state={};self.received=0;self.renderer=Renderer();self.frames=0;self.dragged=None;self.surface_error=None;self.last_tick=time.monotonic();self.last_scan=0
   screen=self.get_screen();visual=screen.get_rgba_visual()
   if not visual or not screen.is_composited():raise RuntimeError('Desktop transparency/compositing is unavailable; refusing to cover the desktop with an opaque window.')
   self.set_visual(visual);self.set_app_paintable(True);self.set_decorated(False);self.set_resizable(False);self.set_keep_above(True);self.set_accept_focus(False);self.set_focus_on_map(False);self.set_skip_taskbar_hint(True);self.set_skip_pager_hint(True);self.set_type_hint(Gdk.WindowTypeHint.DOCK);self.stick()
   monitor=Gdk.Display.get_default().get_primary_monitor() or Gdk.Display.get_default().get_monitor(0);bounds=monitor.get_geometry();self.set_default_size(bounds.width,bounds.height);self.set_size_request(bounds.width,bounds.height);self.move(bounds.x,bounds.y)
+  area=monitor.get_workarea()
+  self.physics=Physics(bounds.width,bounds.height,floor=min(bounds.height,area.y+area.height-bounds.y)-3,left=max(0,area.x-bounds.x),right=min(bounds.width,area.x+area.width-bounds.x),ceiling=max(0,area.y-bounds.y));self.surfaces=WindowSurfaces(bounds.x,bounds.y,bounds.width,bounds.height)
+  self.add_events(Gdk.EventMask.BUTTON_PRESS_MASK|Gdk.EventMask.BUTTON_RELEASE_MASK|Gdk.EventMask.POINTER_MOTION_MASK)
+  self.connect('button-press-event',self.press);self.connect('motion-notify-event',self.motion);self.connect('button-release-event',self.release)
+  self.connect('grab-broken-event',self.lost_grab)
   self.connect('realize',self.realized);self.connect('draw',self.paint);self.connect('destroy',lambda *_:Gtk.main_quit())
-  threading.Thread(target=self.poll,daemon=True).start();GLib.timeout_add(33,self.tick)
+  threading.Thread(target=self.poll,daemon=True).start();GLib.timeout_add(16,self.tick)
  def realized(self,*_):
-  self.input_shape_combine_region(cairo.Region());self.get_window().set_pass_through(True)
-  self.get_window().input_shape_combine_region(cairo.Region(),0,0)
+  self.get_window().set_pass_through(False);self.get_window().set_cursor(Gdk.Cursor.new_from_name(self.get_display(),'grab'));self.update_input()
+ def actors(self):
+  if time.monotonic()-self.received>5:return []
+  now=time.time()*1000
+  actors=[{**p,'_now':now} for p in self.state.get('players',[]) if not(p.get('joined') and self.state.get('fusion'))]
+  ai=self.state.get('aiPet',{})
+  if ai.get('enabled') and ai.get('pet'):actors.append({**ai['pet'],'id':'codex-pet','_now':now})
+  return actors
+ def update_input(self):
+  if not self.get_realized():return
+  region=cairo.Region()
+  if self.dragged:region.union(cairo.RectangleInt(0,0,self.physics.width,self.physics.height))
+  else:
+   for body in self.physics.bodies.values():
+    region.union(cairo.RectangleInt(max(0,int(body.x-38)),max(0,int(body.y-79)),76,82))
+  self.input_shape_combine_region(region);self.get_window().input_shape_combine_region(region,0,0)
+ def hit(self,x,y):
+  return next((pid for pid,body in reversed(list(self.physics.bodies.items())) if abs(x-body.x)<=38 and body.y-79<=y<=body.y+3),None)
+ def press(self,_,event):
+  _,x,y=event.get_coords();button=event.get_button()[1]
+  pid=self.hit(x,y)
+  if not pid:return False
+  if button==3:
+   menu=Gtk.Menu();drop=Gtk.MenuItem(label='Drop this pet from the top');drop.connect('activate',lambda *_:self.physics.reset(pid));menu.append(drop);menu.show_all();menu.popup_at_pointer(event);self.context_menu=menu;return True
+  if button!=1:return False
+  self.dragged=pid;self.physics.begin_drag(pid,x,y,time.monotonic());self.update_input()
+  seat=self.get_display().get_default_seat()
+  result=seat.grab(self.get_window(),Gdk.SeatCapabilities.POINTER,False,Gdk.Cursor.new_from_name(self.get_display(),'grabbing'),event,None,None)
+  self.last_grab_status=str(result)
+  if result!=Gdk.GrabStatus.SUCCESS:
+   self.physics.release(pid,time.monotonic());self.dragged=None;self.update_input()
+  return True
+ def motion(self,_,event):
+  if not self.dragged:return False
+  _,x,y=event.get_coords()
+  if self.dragged in self.physics.bodies:self.physics.drag(self.dragged,x,y,time.monotonic())
+  return True
+ def release(self,_,event):
+  if event.get_button()[1]!=1 or not self.dragged:return False
+  _,x,y=event.get_coords()
+  if self.dragged in self.physics.bodies:
+   self.physics.drag(self.dragged,x,y,time.monotonic());self.physics.release(self.dragged,time.monotonic())
+  self.dragged=None;self.get_display().get_default_seat().ungrab();self.update_input();return True
+ def lost_grab(self,_,event):
+  if event.keyboard or event.grab_window==self.get_window():return False
+  if self.dragged and self.dragged in self.physics.bodies:self.physics.release(self.dragged,time.monotonic())
+  self.dragged=None;self.update_input();return False
  def poll(self):
   while True:
    try:
@@ -134,11 +201,20 @@ class Overlay(Gtk.Window):
    except Exception:pass
    time.sleep(.1)
  def accept(self,state):self.state=state;self.received=time.monotonic();return False
- def tick(self):self.queue_draw();return True
+ def tick(self):
+  now=time.monotonic();dt=now-self.last_tick;self.last_tick=now
+  if now-self.last_scan>.12:
+   try:self.physics.edges=self.surfaces.scan();self.surface_error=None
+   except Exception as error:self.surface_error=str(error);self.physics.edges=[]
+   self.last_scan=now
+  self.physics.step(dt,self.actors())
+  if self.dragged not in self.physics.bodies and self.dragged:
+   self.dragged=None;self.get_display().get_default_seat().ungrab()
+  self.update_input();self.queue_draw();return True
  def paint(self,_,ctx):
-  self.renderer.draw(ctx,self.state if time.monotonic()-self.received<5 else {},self.get_allocated_width(),self.get_allocated_height());self.frames+=1
+  self.renderer.draw(ctx,self.state if time.monotonic()-self.received<5 else {},self.get_allocated_width(),self.get_allocated_height(),self.physics.bodies);self.frames+=1
   if self.frames%30==1:
-   STATUS.parent.mkdir(exist_ok=True);STATUS.write_text(json.dumps({'pid':os.getpid(),'clickThrough':self.get_window().get_pass_through(),'transparent':True,'frames':self.frames,'players':[p.get('name') for p in self.state.get('players',[])],'connected':time.monotonic()-self.received<5}))
+   STATUS.parent.mkdir(exist_ok=True);STATUS.write_text(json.dumps({'pid':os.getpid(),'windowId':self.get_window().get_xid(),'clickThroughOutsidePets':True,'mouseGrabEnabled':True,'dragged':self.dragged,'surfaceWindows':self.surfaces.count,'surfaceError':self.surface_error,'bodies':{pid:{'x':round(b.x,1),'y':round(b.y,1),'vx':round(b.vx,1),'vy':round(b.vy,1),'support':b.support,'dragging':b.dragging} for pid,b in self.physics.bodies.items()},'transparent':True,'frames':self.frames,'players':[p.get('name') for p in self.state.get('players',[])],'connected':time.monotonic()-self.received<5}))
   return True
 
 def main():
@@ -161,7 +237,7 @@ def main():
  PID.parent.mkdir(exist_ok=True);PID.write_text(str(os.getpid()))
  try:
   window=Overlay(args.url);window.show_all();GLib.unix_signal_add(GLib.PRIORITY_DEFAULT,signal.SIGTERM,lambda:Gtk.main_quit() or False);GLib.unix_signal_add(GLib.PRIORITY_DEFAULT,signal.SIGINT,lambda:Gtk.main_quit() or False)
-  print('Desktop pets are visible. Mouse clicks pass through. Stop with npm run desktop:stop.',flush=True);Gtk.main()
+  print('Desktop pet physics running. Left-drag a pet and release to throw. Other clicks pass through. Stop with npm run desktop:stop.',flush=True);Gtk.main()
  finally:PID.unlink(missing_ok=True)
 
 if __name__=='__main__':main()

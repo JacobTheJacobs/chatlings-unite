@@ -14,7 +14,8 @@
     "desktop": "/usr/bin/python3 desktop/overlay.py",
     "desktop:stop": "/usr/bin/python3 desktop/overlay.py --stop",
     "desktop:snapshot": "/usr/bin/python3 desktop/overlay.py --snapshot qa/desktop-pets-only.png",
-    "hatchery:worker": "node --env-file-if-exists=.env scripts/hatchery-worker.mjs"
+    "hatchery:worker": "node --env-file-if-exists=.env scripts/hatchery-worker.mjs",
+    "test:desktop": "/usr/bin/python3 -m unittest discover -s desktop -p 'test_*.py' -v"
   },
   "engines": {
     "node": ">=24"

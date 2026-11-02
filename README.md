@@ -305,12 +305,22 @@ With the server running, open another terminal in this project:
 npm run desktop
 ```
 
-This opens a transparent, always-on-top, mouse-click-through desktop overlay on
-Linux X11 with GTK 3 and compositing. It reads the live game from localhost:3010.
+This opens a transparent, always-on-top, desktop overlay with mouse input only on the pets on
+Linux X11 with GTK 3, libwnck 3 and compositing. It reads the live game from localhost:3010.
 Pets appear near the bottom of your primary monitor over your other windows.
 Viewer movement in `/controller` moves the same pet on the desktop: sign in with
 Twitch, click the game, then use WASD/arrows. E interacts, Space jumps, F uses a
-power. The overlay does not intercept desktop typing or mouse clicks.
+power. The overlay does not intercept typing. Mouse clicks outside the pet sprites pass
+through to your apps. Left-drag any pet, then release to drop or throw it. A slow
+release drops it; a quick flick throws it with momentum. Pets fall under gravity,
+bounce off exposed window sides/undersides, land and walk on visible window tops,
+and fall when they walk off or their window closes/minimizes. Moving a supporting
+window carries the pet. Right-click a pet to drop it from the top again.
+
+Mouse grabbing belongs to the streamer at the local desktop; viewers cannot grab
+other viewers’ pets remotely. Their chat commands still move/jump their own pet.
+The desktop physics uses real window geometry on the primary X11 monitor. The
+optional browser grove keeps its original game coordinates.
 
 Every viewer uses one of five generated animation atlases until an admin-assigned
 custom atlas is ready. The reference bridge is not required: Twitch's game
@@ -399,3 +409,18 @@ take several minutes and uses your Codex allowance. Missing tools, failed QA or
 failed generation retain the default pet; there is no fake successful swap.
 Ready validated atlases swap without resetting pet position or speech bubbles.
 The old manual `npm run hatchery -- list|claim|complete|fail` path remains available.
+
+## Desktop physics verification
+
+`npm run test:desktop` covers gravity, roof landing, ledge departure, moving/closed
+windows, velocity-based throws, wall and underside bounces, occluded edges, fast
+collisions, jumps and local body removal. `qa/window-surface-check.py` briefly
+opens, moves and closes its own test window to check real geometry updates.
+`qa/pet-input-region-check.py` checks the X11 input shape against the pet hitboxes.
+`qa/pet-mouse-grab-check.py` exercises native grab, drag and flick-release in a
+brief transparent probe without moving/clicking the OS pointer. These checks read
+no screen pixels or window titles.
+
+The GTK renderer adapts the gravity, drag sampling, throwing and perching approach
+from the supplied ClawMate Core implementation. `clawmate-bridge` is not needed:
+Twitch supplies pet identities/intent, while this renderer owns desktop physics.
