@@ -10,7 +10,28 @@
     "generatedSkinHatch": true,
     "pageErrors": []
   },
-  "automatedTests": {"passed": 10, "failed": 0},
-  "clawmateAtlas": {"errors": [], "warnings": [], "width": 1536, "height": 4576},
-  "liveTwitchVerified": false
+  "automatedTests": {
+    "passed": 17,
+    "failed": 0
+  },
+  "clawmateAtlas": {
+    "errors": [],
+    "warnings": [],
+    "width": 1536,
+    "height": 4576
+  },
+  "liveTwitchVerified": true,
+  "publicBrowser": {
+    "publicHTTPS": true,
+    "pollingUpdates": true,
+    "hostControlsHidden": true,
+    "demoDisabled": true,
+    "twitchChatConnected": true,
+    "mobileNoOverflow": true,
+    "overlayTransparent": true,
+    "pageErrors": []
+  },
+  "liveTwitchVerificationScope": "Real EventSub !spawn received from othersideh; broadcast video not verified",
+  "obsInstalled": false,
+  "publicViewerOAuthVerified": false
 }

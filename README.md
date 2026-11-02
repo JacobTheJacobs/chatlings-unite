@@ -289,3 +289,51 @@ fusion otherwise, Space jumps during the build or uses the fusion role, and F
 activates the selected ability. Touch controls are available. The grove uses a
 top-down movement plane with a jump animation and hazard dodge; it does not have
 platform climbing or a physics-based platformer.
+
+## Put the sprites over your streamed screen
+
+On Ubuntu, run the prepared installer in your own terminal so you can enter your
+administrator password locally:
+
+```bash
+bash scripts/install-obs.sh
+```
+
+The script installs OBS from the official OBS Ubuntu PPA, prepares a new Chatlings
+profile/scene collection, and opens its preview. It preserves any existing
+Chatlings profile or collection. The scene has a desktop screen capture below a
+transparent Browser Source pointing to `http://localhost:3010/overlay`.
+The standalone import file is `obs/Chatlings_Unite.json`. If needed, use OBS's
+Scene Collection → Import to import it, or run `npm run obs:setup` after installing
+OBS. Browser Source support is required.
+
+Inspect the preview before streaming and close any windows containing secrets,
+including `.env`. Connect your Twitch account inside OBS Settings → Stream. The
+installer and setup helper do not start a broadcast or recording.
+
+## Temporary public viewer controller
+
+For a demo, stop the existing Node server and run:
+
+```bash
+npm run share
+```
+
+This downloads the official Cloudflare tunnel binary if necessary, creates an
+HTTPS demo URL, configures `PUBLIC_URL`, disables demo identities, protects host
+actions, and starts the Node server. Keep this terminal and computer running.
+Add the printed `https://…/auth/callback` as an **additional** OAuth redirect URL
+in your Twitch application's Manage page; keep the localhost callback too. Share
+the printed `/controller` link with viewers. They sign in with Twitch, click the
+grove, and use WASD/arrows or the touch controls. The broadcaster's signed-in
+account gets host controls automatically; the host key also remains usable by
+local management scripts.
+
+Cloudflare Quick Tunnels are temporary development services, with changing
+hostnames and no uptime guarantee. They do not support SSE, so Chatlings polls
+state every 200 ms over the public demo URL while the local OBS source uses SSE.
+This is a demo connection, not a production deployment. See the official
+[Quick Tunnel documentation](https://developers.cloudflare.com/tunnel/get-started/quick-tunnels/).
+The tunnel exposes only this HTTP application. Unknown hostnames and
+unauthenticated host actions are rejected; the local `.env` and data files are
+outside the static file directory.
